@@ -1,14 +1,23 @@
 "use client"
 
+import { useRouter } from "next/navigation"
 import { FC } from "react"
 import classes from "./AppHeader.module.scss"
 import NavLink from "./UI/NavLink"
 
 const Header: FC = () => {
+	const router = useRouter()
+
+	const logoClick = (): void => {
+		router.push("/")
+	}
+
 	return (
 		<header className={classes.header}>
 			<div className={`wrapper ${classes.wrapper}`}>
-				<h1 className={classes.logo}>Qaddis</h1>
+				<h1 onClick={logoClick} className={classes.logo}>
+					Qaddis
+				</h1>
 
 				<nav className={classes.nav}>
 					<NavLink to="/">Home</NavLink>
