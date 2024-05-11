@@ -1,3 +1,5 @@
+import Footer from "@/components/AppFooter"
+import Header from "@/components/AppHeader"
 import type { Metadata } from "next"
 import { Josefin_Sans, Poppins } from "next/font/google"
 import "./globals.scss"
@@ -6,13 +8,14 @@ const josefinSans = Josefin_Sans({
 	subsets: ["latin"],
 	weight: "700",
 	style: "normal",
-	variable: "--josefin-font"
+	variable: "--jsf-font"
 })
 
 const poppins = Poppins({
+	subsets: ["latin"],
 	weight: ["400", "700"],
 	style: "normal",
-	variable: "--poppins-font"
+	variable: "--pop-font"
 })
 
 export const metadata: Metadata = {
@@ -31,7 +34,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${josefinSans.variable} ${poppins.variable}`}>
-				{children}
+				<Header />
+
+				<main className="main">{children}</main>
+
+				<Footer />
 			</body>
 		</html>
 	)

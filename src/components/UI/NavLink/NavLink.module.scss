@@ -1,0 +1,27 @@
+.link {
+	color: var(--light);
+	letter-spacing: 2px;
+	font-size: 1.1em;
+	position: relative;
+
+	&::after {
+		content: "";
+		display: block;
+		background-color: var(--violet);
+		border-radius: 1px;
+		width: 0;
+		height: 2px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		transition: width 0.45s ease-in-out;
+	}
+
+	&:hover::after {
+		width: 100%;
+	}
+
+	&.active::after {
+		width: 100%;
+	}
+}
