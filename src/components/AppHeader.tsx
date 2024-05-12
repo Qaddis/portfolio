@@ -1,7 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { FC } from "react"
+import { type FC } from "react"
 import classes from "./AppHeader.module.scss"
 import NavLink from "./UI/NavLink"
 

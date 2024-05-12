@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { type FC } from "react"
 import { FaGithub, FaTelegramPlane } from "react-icons/fa"
 import { SlSocialVkontakte } from "react-icons/sl"
 import classes from "./AppFooter.module.scss"
@@ -9,13 +9,25 @@ const Footer: FC = () => {
 		<footer className={classes.footer}>
 			<div className={`wrapper ${classes.wrapper}`}>
 				<ul className={classes.socials}>
-					<a className={classes.link} href="https://github.com/qaddis/">
+					<a
+						className={classes.link}
+						href="https://github.com/qaddis/"
+						target="_blank"
+					>
 						<FaGithub size="60" color="var(--light)" />
 					</a>
-					<a className={classes.link} href="https://t.me/qaddis/">
+					<a
+						className={classes.link}
+						href="https://t.me/qaddis/"
+						target="_blank"
+					>
 						<FaTelegramPlane size="60" color="var(--light)" />
 					</a>
-					<a className={classes.link} href="https://vk.com/qaddis/">
+					<a
+						className={classes.link}
+						href="https://vk.com/qaddis/"
+						target="_blank"
+					>
 						<SlSocialVkontakte size="60" color="var(--light)" />
 					</a>
 				</ul>
