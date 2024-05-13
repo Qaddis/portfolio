@@ -2,8 +2,8 @@
 
 import { useRouter } from "next/navigation"
 import { type FC } from "react"
+import NavLink from "../UI/NavLink"
 import classes from "./AppHeader.module.scss"
-import NavLink from "./UI/NavLink"
 
 const Header: FC = () => {
 	const router = useRouter()

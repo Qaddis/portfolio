@@ -1,3 +1,4 @@
+import About from "@/components/AboutMe"
 import Landing from "@/components/Landing"
 import { type NextPage } from "next"
 import classes from "./home.module.scss"
@@ -7,7 +8,7 @@ const HomePage: NextPage = () => {
 		<>
 			<Landing />
 
-			<section className={classes.about}></section>
+			<About />
 
 			<section className={classes.skills}></section>
 		</>

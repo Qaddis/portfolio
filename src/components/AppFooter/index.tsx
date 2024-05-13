@@ -1,8 +1,8 @@
 import { type FC } from "react"
 import { FaGithub, FaTelegramPlane } from "react-icons/fa"
 import { SlSocialVkontakte } from "react-icons/sl"
+import NavLink from "../UI/NavLink"
 import classes from "./AppFooter.module.scss"
-import NavLink from "./UI/NavLink"
 
 const Footer: FC = () => {
 	return (
