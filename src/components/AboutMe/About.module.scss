@@ -12,6 +12,22 @@
 }
 
 .info {
+	max-width: 60%;
+}
+
+.heading {
+	font-family: var(--jsf-font);
+	font-size: 2em;
+	margin-bottom: 15px;
+
+	span {
+		color: var(--violet);
+	}
+}
+
+.description {
+	text-wrap: wrap;
+	font-size: 1.1em;
 }
 
 .portrait {
