@@ -1,6 +1,6 @@
 import Footer from "@/components/AppFooter"
 import Header from "@/components/AppHeader"
-import type { Metadata } from "next"
+import { type Metadata } from "next"
 import { Josefin_Sans, Poppins } from "next/font/google"
 import "./globals.scss"
 

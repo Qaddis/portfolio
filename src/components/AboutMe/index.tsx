@@ -74,6 +74,7 @@ const About: FC = () => {
 						animate={{ translateX: "-3%" }}
 						transition={{
 							duration: 0.85,
+							delay: 0.2,
 							repeat: Infinity,
 							ease: "easeInOut",
 							repeatType: "mirror"

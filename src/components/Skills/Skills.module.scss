@@ -13,8 +13,39 @@
 	font-family: var(--jsf-font);
 	font-size: 2.4em;
 	margin: 25vh 0 25px;
+	color: var(--violet);
 
 	span {
 		display: inline-block;
+	}
+}
+
+.skills_list {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 15px;
+
+	.item {
+		flex-basis: 350px;
+		height: 105px;
+		padding: 25px 50px;
+		border: 1px solid var(--add);
+		border-radius: 10px;
+		cursor: pointer;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		img {
+			height: 100% !important;
+			width: auto !important;
+		}
+
+		.list_heading {
+			font-size: 1.5em;
+			font-family: var(--jsf-font);
+		}
 	}
 }
