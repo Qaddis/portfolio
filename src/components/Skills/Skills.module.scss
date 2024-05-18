@@ -30,13 +30,18 @@
 		flex-basis: 350px;
 		height: 105px;
 		padding: 25px 50px;
-		border: 1px solid var(--add);
+		border: 1px solid var(--border);
 		border-radius: 10px;
-		cursor: pointer;
+		transition: 0.35s all;
+		cursor: default;
 
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+
+		&:hover {
+			border-color: var(--add);
+		}
 
 		img {
 			height: 100% !important;
