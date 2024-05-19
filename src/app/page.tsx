@@ -14,6 +14,8 @@ const HomePage: NextPage = () => {
 			<Skills />
 
 			<section className={classes.projects}></section>
+
+			<section className={classes.contacts}></section>
 		</>
 	)
 }

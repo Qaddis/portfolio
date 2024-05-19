@@ -16,8 +16,11 @@ const Header: FC = () => {
 		const previously = scrollY.getPrevious()
 
 		if (previously) {
-			if (latest > 100 && latest > previously) setIsShow(false)
-			else setIsShow(true)
+			if (latest > 100 && latest > previously) {
+				if (latest - previously > 10) setIsShow(false)
+			} else {
+				if (previously - latest > 10) setIsShow(true)
+			}
 		}
 	})
 
@@ -38,22 +41,56 @@ const Header: FC = () => {
 				}
 			}}
 			transition={{
+				delay: isShow ? 0 : 0.25,
 				duration: 0.35,
 				ease: "easeInOut"
 			}}
 			className={classes.header}
 		>
 			<div className={`wrapper ${classes.wrapper}`}>
-				<h1 onClick={logoClick} className={classes.logo}>
+				<motion.h1
+					initial={false}
+					variants={{
+						show: {
+							x: 0
+						},
+						hidden: {
+							x: "-200%"
+						}
+					}}
+					transition={{
+						delay: isShow ? 0.35 : 0,
+						duration: 0.25,
+						ease: "easeOut"
+					}}
+					onClick={logoClick}
+					className={classes.logo}
+				>
 					Qaddis
-				</h1>
+				</motion.h1>
 
-				<nav className={classes.nav}>
+				<motion.nav
+					initial={false}
+					variants={{
+						show: {
+							x: 0
+						},
+						hidden: {
+							x: "200%"
+						}
+					}}
+					transition={{
+						delay: isShow ? 0.35 : 0,
+						duration: 0.25,
+						ease: "easeOut"
+					}}
+					className={classes.nav}
+				>
 					<NavLink to="/">About</NavLink>
 					<NavLink to="/skills">Skills</NavLink>
 					<NavLink to="/projects">Projects</NavLink>
 					<NavLink to="/contacts">Contacts</NavLink>
-				</nav>
+				</motion.nav>
 			</div>
 		</motion.header>
 	)
