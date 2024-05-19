@@ -25,7 +25,10 @@ const Header: FC = () => {
 	})
 
 	const logoClick = (): void => {
-		router.push("/")
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth"
+		})
 	}
 
 	return (
@@ -43,7 +46,7 @@ const Header: FC = () => {
 			transition={{
 				delay: isShow ? 0 : 0.25,
 				duration: 0.35,
-				ease: "easeInOut"
+				ease: "easeOut"
 			}}
 			className={classes.header}
 		>
@@ -86,10 +89,10 @@ const Header: FC = () => {
 					}}
 					className={classes.nav}
 				>
-					<NavLink to="/">About</NavLink>
-					<NavLink to="/skills">Skills</NavLink>
-					<NavLink to="/projects">Projects</NavLink>
-					<NavLink to="/contacts">Contacts</NavLink>
+					<NavLink to="about">About</NavLink>
+					<NavLink to="skills">Skills</NavLink>
+					<NavLink to="projects">Projects</NavLink>
+					<NavLink to="contacts">Contacts</NavLink>
 				</motion.nav>
 			</div>
 		</motion.header>

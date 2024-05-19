@@ -33,10 +33,10 @@ const Footer: FC = () => {
 				</ul>
 
 				<nav className={classes.nav}>
-					<NavLink to="/">About</NavLink>
-					<NavLink to="/skills">Skills</NavLink>
-					<NavLink to="/projects">Projects</NavLink>
-					<NavLink to="/contacts">Contacts</NavLink>
+					<NavLink to="about">About</NavLink>
+					<NavLink to="skills">Skills</NavLink>
+					<NavLink to="projects">Projects</NavLink>
+					<NavLink to="contacts">Contacts</NavLink>
 				</nav>
 			</div>
 

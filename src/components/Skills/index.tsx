@@ -22,7 +22,7 @@ const Skills: FC = () => {
 	const titleInView = useInView(titleRef, { once: true, amount: 1 })
 
 	return (
-		<section className={classes.skills}>
+		<section id="skills" className={classes.skills}>
 			<div className={`wrapper ${classes.wrapper}`}>
 				<h2 ref={titleRef} className={classes.heading}>
 					<motion.span

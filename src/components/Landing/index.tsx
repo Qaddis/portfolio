@@ -258,7 +258,7 @@ const Landing: FC = () => {
 	})
 
 	return (
-		<section className={classes.landing}>
+		<section id="landing" className={classes.landing}>
 			<div ref={lnNode} className={`wrapper ${classes.wrapper}`}></div>
 		</section>
 	)

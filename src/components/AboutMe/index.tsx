@@ -27,7 +27,7 @@ const About: FC = () => {
 	const imageInView = useInView(imageRef, { once: true, amount: 0.42 })
 
 	return (
-		<section className={classes.about}>
+		<section id="about" className={classes.about}>
 			<div className={`wrapper ${classes.wrapper}`}>
 				<div ref={infoRef} className={classes.info}>
 					<motion.h2
