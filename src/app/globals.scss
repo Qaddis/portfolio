@@ -1,0 +1,26 @@
+/* - Preparing for styling - */
+
+/* Variables */
+:root {
+	--main: #212121;
+	--add: #5e5e5e;
+	--spec: #3e3d3d;
+	--light: #eaebed;
+	--violet: #5e0ecf;
+	--yellow: #fafa60;
+}
+
+/* Reset default styles */
+@import "reset";
+
+/* - Styling - */
+html {
+	scroll-behavior: smooth;
+	font-size: 18px;
+}
+
+body {
+	background-color: var(--main);
+	color: var(--light);
+	font-family: var(--osw-font);
+}
