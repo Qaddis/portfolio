@@ -1,0 +1,39 @@
+.link {
+	font-family: var(--jost-font);
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--light);
+	position: relative;
+	transition: all 0.2s;
+
+	&:hover {
+		color: var(--violet);
+	}
+
+	&:active {
+		opacity: 0.65;
+	}
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background-color: var(--violet);
+		border-radius: 2px;
+		transition: width 0.35s;
+	}
+}
+
+.active {
+	&:hover {
+		color: var(--light);
+	}
+
+	&::before {
+		width: 100%;
+	}
+}

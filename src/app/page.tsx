@@ -1,7 +1,13 @@
+"use client"
+
+import Header from "@/components/AppHeader"
+
 export default function Home() {
 	return (
 		<>
-			<h1>Hello world!</h1>
+			<Header />
+
+			<main></main>
 		</>
 	)
 }
