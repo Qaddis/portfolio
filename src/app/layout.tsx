@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Josefin_Sans, Jost, Oswald } from "next/font/google"
+import { Inter, Josefin_Sans, Jost } from "next/font/google"
 import "./globals.scss"
 
 const josefin = Josefin_Sans({
@@ -16,11 +16,11 @@ const jost = Jost({
 	variable: "--jost-font"
 })
 
-const oswald = Oswald({
+const inter = Inter({
 	subsets: ["cyrillic", "latin"],
 	weight: ["400", "600"],
 	style: "normal",
-	variable: "--osw-font"
+	variable: "--int-font"
 })
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export default function RootLayout({
 	return (
 		<html lang="ru">
 			<body
-				className={`${josefin.variable} ${jost.variable} ${oswald.variable}`}
+				className={`${josefin.variable} ${jost.variable} ${inter.variable}`}
 			>
 				{children}
 			</body>

@@ -22,5 +22,17 @@ html {
 body {
 	background-color: var(--main);
 	color: var(--light);
-	font-family: var(--osw-font);
+	font-family: var(--int-font);
+}
+
+h2 {
+	font-family: var(--jost-font);
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+
+h3 {
+	font-family: var(--jost-font);
+	font-size: 1.6rem;
+	font-weight: 600;
 }
