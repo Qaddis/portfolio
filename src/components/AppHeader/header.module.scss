@@ -1,4 +1,9 @@
 .header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	background-color: var(--main);
 	width: 100%;
 	padding: 0 25px;
 	border-bottom: 3px solid var(--spec);
