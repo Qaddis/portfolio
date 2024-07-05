@@ -250,7 +250,7 @@ export default function Landing() {
 	})
 
 	return (
-		<section className={styles.landing} id="landing">
+		<section className={styles.landing}>
 			<div ref={lnNode} className={styles.wrapper} />
 		</section>
 	)

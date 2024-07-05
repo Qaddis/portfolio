@@ -1,12 +1,17 @@
 "use client"
 
+import type { SetSActiveType } from "@/app/page"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import styles from "./about.module.scss"
 
-export default function About() {
+interface IProps {
+	setActive: SetSActiveType
+}
+
+export default function About({ setActive }: IProps) {
 	const transition: Transition = {
 		delay: 0.12,
 		duration: 0.35,
@@ -27,8 +32,15 @@ export default function About() {
 	const imageInView = useInView(imageRef, { once: true, amount: 0.45 })
 	const infoInView = useInView(infoRef, { once: true, amount: 0.45 })
 
+	const aboutRef = useRef<HTMLDivElement>(null)
+	const aboutInView = useInView(aboutRef, { once: false, amount: 0.6 })
+
+	useEffect(() => {
+		if (aboutInView) setActive("about")
+	}, [aboutInView])
+
 	return (
-		<section className={styles.about}>
+		<section id="about" ref={aboutRef} className={styles.about}>
 			<div className={styles.wrapper}>
 				<div ref={infoRef} className={styles.info}>
 					<motion.h2
