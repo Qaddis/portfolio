@@ -1,5 +1,6 @@
 "use client"
 
+import Footer from "@/components/AppFooter"
 import Header from "@/components/AppHeader"
 
 export default function Home() {
@@ -8,6 +9,8 @@ export default function Home() {
 			<Header />
 
 			<main></main>
+
+			<Footer />
 		</>
 	)
 }

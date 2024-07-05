@@ -18,7 +18,7 @@ const jost = Jost({
 
 const oswald = Oswald({
 	subsets: ["cyrillic", "latin"],
-	weight: ["300", "500"],
+	weight: ["400", "600"],
 	style: "normal",
 	variable: "--osw-font"
 })
