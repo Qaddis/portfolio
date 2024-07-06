@@ -3,7 +3,7 @@
 import type { SectionsType } from "@/app/page"
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { useState } from "react"
-import NavLink from "../ui/NavLink"
+import NavLink from "../NavLink"
 import styles from "./header.module.scss"
 
 interface IProps {
@@ -26,9 +26,9 @@ export default function Header({ active }: IProps) {
 
 		if (previously) {
 			if (latest > 100 && latest > previously) {
-				setIsShow(false)
+				if (latest - previously > 5) setIsShow(false)
 			} else {
-				setIsShow(true)
+				if (previously - latest > 5) setIsShow(true)
 			}
 		}
 	})

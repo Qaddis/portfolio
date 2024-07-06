@@ -1,18 +1,15 @@
 import type { SectionsType } from "@/app/page"
-import type { MouseEvent, PropsWithChildren } from "react"
+import type { PropsWithChildren } from "react"
 import styles from "./link.module.scss"
 
 interface IProps extends PropsWithChildren {
 	to: SectionsType
 	active: SectionsType
+	title?: string
 }
 
-type HCType = (evt: MouseEvent<HTMLAnchorElement>) => void
-
-export default function NavLink({ children, to, active }: IProps) {
-	const handleClick: HCType = evt => {
-		evt.preventDefault()
-
+export default function NavLink({ children, to, active, title }: IProps) {
+	const handleClick = (): void => {
 		if (to !== active) {
 			const target = document.getElementById(to)
 			target?.scrollIntoView({
@@ -23,14 +20,14 @@ export default function NavLink({ children, to, active }: IProps) {
 	}
 
 	return (
-		<a
-			href={to}
+		<button
+			title={title}
 			onClick={handleClick}
 			className={
 				active === to ? `${styles.link} ${styles.active}` : styles.link
 			}
 		>
 			{children}
-		</a>
+		</button>
 	)
 }

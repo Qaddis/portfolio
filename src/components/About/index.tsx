@@ -79,8 +79,8 @@ export default function About({ setActive }: IProps) {
 					<Image
 						src="/face.jpg"
 						alt="Portrait"
-						width={2000}
-						height={2000}
+						width={960}
+						height={960}
 						className={styles.image}
 					/>
 
