@@ -1,0 +1,41 @@
+.skills {
+	padding: 50px 25px;
+}
+
+.wrapper {
+	width: 1140px;
+	margin: 0 auto;
+}
+
+.articles {
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	grid-template-rows: repeat(4, auto);
+	justify-content: center;
+	gap: 35px;
+}
+
+.heading {
+	color: var(--violet);
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.article {
+	padding: 20px;
+	border: 1px solid var(--spec);
+	border-radius: 20px;
+	cursor: pointer;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 15px;
+
+	&__title {
+		font-family: var(--jsf-font);
+		font-size: 1.25rem;
+		line-height: 0.95;
+		margin-top: 5px;
+	}
+}

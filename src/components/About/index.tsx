@@ -1,6 +1,6 @@
 "use client"
 
-import type { SetSActiveType } from "@/app/page"
+import type { SetActiveType } from "@/app/page"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
@@ -8,7 +8,7 @@ import { useEffect, useRef } from "react"
 import styles from "./about.module.scss"
 
 interface IProps {
-	setActive: SetSActiveType
+	setActive: SetActiveType
 }
 
 export default function About({ setActive }: IProps) {
