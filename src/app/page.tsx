@@ -4,6 +4,7 @@ import About from "@/components/About"
 import Footer from "@/components/AppFooter"
 import Header from "@/components/AppHeader"
 import Landing from "@/components/Landing"
+import Projects from "@/components/Projects"
 import Skills from "@/components/Skills"
 
 import type { Dispatch, SetStateAction } from "react"
@@ -26,6 +27,8 @@ export default function Home() {
 					<About setActive={setActive} />
 
 					<Skills setActive={setActive} />
+
+					<Projects setActive={setActive} />
 				</div>
 			</main>
 

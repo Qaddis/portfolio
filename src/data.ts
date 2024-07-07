@@ -1,10 +1,18 @@
-interface Skills {
+interface ISkill {
 	title: string
 	image: string
 	color: `#${string}`
 }
 
-export const skills: Skills[] = [
+interface ICarousel {
+	title: string
+	img: string
+	description: string
+	techs: string[]
+	repo: string
+}
+
+export const skills: ISkill[] = [
 	{
 		title: "HTML",
 		image: "/icons/html.svg",
@@ -64,5 +72,29 @@ export const skills: Skills[] = [
 		title: "Express",
 		image: "/icons/express.svg",
 		color: "#ffffff"
+	}
+]
+
+export const carousel: ICarousel[] = [
+	{
+		title: "DL Guard",
+		img: "/carousel/DL_Guard.png",
+		description: "",
+		repo: "dl-guard",
+		techs: ["TypeScript", "Next.js", "Redux", "Framer Motion", "Three.js"]
+	},
+	{
+		title: `Project "Eraser"`,
+		img: "/carousel/Project_Eraser.png",
+		description: "",
+		repo: "tg-clicker",
+		techs: ["TypeScript", "React", "Redux", "Framer Motion"]
+	},
+	{
+		title: "Kick Culture",
+		img: "/carousel/Kick_Culture.png",
+		description: "",
+		repo: "kick-culture-web",
+		techs: ["JavaScript", "React", "Redux", "Framer Motion"]
 	}
 ]

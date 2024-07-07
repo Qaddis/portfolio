@@ -1,7 +1,7 @@
 "use client"
 
 import type { SetActiveType } from "@/app/page"
-import { skills } from "@/skills"
+import { skills } from "@/data"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
 import styles from "./skills.module.scss"
@@ -28,7 +28,7 @@ export default function Skills({ setActive }: ISkillsProps) {
 	const articlesInView = useInView(articlesRef, { amount: 0.2 })
 
 	const skillsRef = useRef<HTMLDivElement>(null)
-	const skillsInView = useInView(skillsRef, { amount: 0.35 })
+	const skillsInView = useInView(skillsRef, { amount: 0.6 })
 
 	useEffect(() => {
 		if (skillsInView) setActive("skills")
