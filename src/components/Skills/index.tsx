@@ -36,27 +36,25 @@ export default function Skills({ setActive }: ISkillsProps) {
 
 	return (
 		<section id="skills" ref={skillsRef} className={styles.skills}>
-			<div className={styles.wrapper}>
-				<motion.h2
-					initial={false}
-					animate={{ y: headingInView ? 0 : "100%" }}
-					transition={{ duration: 0.25, type: "spring", damping: 8 }}
-					ref={headingRef}
-					className={styles.heading}
-				>
-					Навыки
-				</motion.h2>
-				<div ref={articlesRef} className={styles.articles}>
-					{skills.map(item => (
-						<Article
-							key={item.title}
-							img={item.image}
-							title={item.title}
-							color={item.color}
-							inView={articlesInView}
-						/>
-					))}
-				</div>
+			<motion.h2
+				initial={false}
+				animate={{ y: headingInView ? 0 : "100%" }}
+				transition={{ duration: 0.25, type: "spring", damping: 6 }}
+				ref={headingRef}
+				className={styles.heading}
+			>
+				Навыки
+			</motion.h2>
+			<div ref={articlesRef} className={styles.articles}>
+				{skills.map(item => (
+					<Article
+						key={item.title}
+						img={item.image}
+						title={item.title}
+						color={item.color}
+						inView={articlesInView}
+					/>
+				))}
 			</div>
 		</section>
 	)

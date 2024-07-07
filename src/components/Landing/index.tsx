@@ -1,10 +1,12 @@
 "use client"
 
+import { useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
 import styles from "./landing.module.scss"
 
 export default function Landing() {
-	const lnNode = useRef<HTMLDivElement>(null)
+	const landingRef = useRef<HTMLDivElement>(null)
+	const landingInView = useInView(landingRef, { once: true, amount: 0.5 })
 
 	const typing = (
 		text: string,
@@ -21,8 +23,8 @@ export default function Landing() {
 				input += symbols[index]
 				index++
 
-				if (lnNode.current) {
-					lnNode.current.innerHTML = `
+				if (landingRef.current) {
+					landingRef.current.innerHTML = `
 					${prev ? prev : ""}
 					<span class=${tagClass}>
 						${input.replace("<", "&lt;").replace("_", "<br />")}<div class=${
@@ -45,8 +47,8 @@ export default function Landing() {
 		timeout = 150 * ("section".length + 3)
 
 		setTimeout(() => {
-			if (lnNode.current)
-				lnNode.current.innerHTML = `
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
 					<div>
 						<span class=${styles.first_tag} style="display: inline">section</span>
 						<div class="${styles.cursor}"></div>
@@ -57,8 +59,8 @@ export default function Landing() {
 		timeout += 450
 
 		setTimeout(() => {
-			if (lnNode.current)
-				lnNode.current.innerHTML = `
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
 					<div class="${styles.cursor} ${styles.cursor_corr} ${styles.single_tab}"></div>
 					<span class=${styles.close_tag}>section</span>
@@ -77,8 +79,8 @@ export default function Landing() {
 		timeout += 150 * ("<Heading".length + 2)
 
 		setTimeout(() => {
-			if (lnNode.current)
-				lnNode.current.innerHTML = `
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
 						<span class="${styles.single_tag} ${styles.single_tab}">Heading<div class=${styles.cursor}></div></span>
 					<span class=${styles.close_tag}>section</span>
@@ -87,8 +89,8 @@ export default function Landing() {
 		timeout += 300
 
 		setTimeout(() => {
-			if (lnNode.current)
-				lnNode.current.innerHTML = `
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
 						<span class="${styles.single_tag} ${styles.single_tab}">Heading
 						<div class=${styles.cursor}></div></span>
@@ -107,8 +109,8 @@ export default function Landing() {
 					text += symbols[index]
 					index++
 
-					if (lnNode.current)
-						lnNode.current.innerHTML = `
+					if (landingRef.current)
+						landingRef.current.innerHTML = `
 							<span class=${styles.first_tag}>section</span>
 								<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>${text}</i><div class=${styles.cursor}></div></span>
 							<span class=${styles.close_tag}>section</span>
@@ -121,8 +123,8 @@ export default function Landing() {
 		timeout += 150 * ("title=".length + 3)
 
 		setTimeout(() => {
-			if (lnNode.current)
-				lnNode.current.innerHTML = `
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
 						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"<div class=${styles.cursor}></div>"</b></span>
 					<span class=${styles.close_tag}>section</span>
@@ -140,8 +142,8 @@ export default function Landing() {
 					text += symbols[index]
 					index++
 
-					if (lnNode.current)
-						lnNode.current.innerHTML = `
+					if (landingRef.current)
+						landingRef.current.innerHTML = `
 							<span class=${styles.first_tag}>section</span>
 								<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"${text}<div class=${styles.cursor}></div>"</b></span>
 							<span class=${styles.close_tag}>section</span>
@@ -154,8 +156,8 @@ export default function Landing() {
 		timeout += 150 * ("Hello!".length + 3)
 
 		setTimeout(() => {
-			if (lnNode.current)
-				lnNode.current.innerHTML = `
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
 					<div>
 					<span class="${styles.single_tag} ${styles.single_tab}" style="display: inline-block">Heading <i>title</i><em>=</em><b>"Hello!"</b></span><div class=${styles.cursor}></div>
@@ -167,19 +169,19 @@ export default function Landing() {
 		timeout += 450
 
 		setTimeout(() => {
-			if (lnNode.current)
-				lnNode.current.innerHTML = `
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
 						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"Hello!"</b></span>
 						<div class="${styles.cursor} ${styles.cursor_corr} ${styles.single_tab}"></div>
 					<span class=${styles.close_tag}>section</span>
 					`
 		}, timeout)
-		timeout += 450
+		timeout += 300
 
 		setTimeout(() => {
-			if (lnNode.current)
-				lnNode.current.innerHTML = `
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
 						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"Hello!"</b></span>
 						<div class=${styles.space}></div>
@@ -190,8 +192,8 @@ export default function Landing() {
 		timeout += 300
 
 		setTimeout(() => {
-			if (lnNode.current)
-				lnNode.current.innerHTML = `
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
 						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"Hello!"</b></span>
 						<div class=${styles.space}></div>
@@ -199,27 +201,27 @@ export default function Landing() {
 					<span class=${styles.close_tag}>section</span>
 					`
 		}, timeout)
-		timeout += 300
+		timeout += 450
 
 		setTimeout(() => {
-			if (lnNode.current)
-				lnNode.current.innerHTML = `
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
 						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"Hello!"</b></span>
 						<div class=${styles.space}></div>
 						<div>
-							<span class="${styles.first_tag} ${styles.single_tab}" style="display: inline-block">p</span>
+							<span style="display: inline-block;" class="${styles.first_tag} ${styles.single_tab}" style="display: inline-block">p</span>
 							<div class=${styles.cursor}></div>
+							<span style="display: inline-block;" class="${styles.close_tag}">p</span>
 						</div>
-						<span class="${styles.close_tag} ${styles.single_tab}">p</span>
 					<span class=${styles.close_tag}>section</span>
 					`
 		}, timeout)
 		timeout += 450
 
 		setTimeout(() => {
-			if (lnNode.current)
-				lnNode.current.innerHTML = `
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
 						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"Hello!"</b></span>
 						<div class=${styles.space}></div>
@@ -246,12 +248,8 @@ export default function Landing() {
 	}
 
 	useEffect(() => {
-		typeAnim()
-	})
+		if (landingInView) typeAnim()
+	}, [landingInView])
 
-	return (
-		<section className={styles.landing}>
-			<div ref={lnNode} className={styles.wrapper} />
-		</section>
-	)
+	return <section ref={landingRef} className={styles.landing}></section>
 }

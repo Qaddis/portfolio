@@ -41,66 +41,62 @@ export default function About({ setActive }: IProps) {
 
 	return (
 		<section id="about" ref={aboutRef} className={styles.about}>
-			<div className={styles.wrapper}>
-				<div ref={infoRef} className={styles.info}>
-					<motion.h2
-						initial={false}
-						animate={{ translateY: infoInView ? 0 : "200%" }}
-						transition={transition}
-						className={styles.heading}
-					>
-						<span>Молодой</span>, но <span>амбициозный</span>.
-					</motion.h2>
+			<div ref={infoRef} className={styles.info}>
+				<motion.h2
+					initial={false}
+					animate={{ translateY: infoInView ? 0 : "200%" }}
+					transition={transition}
+					className={styles.heading}
+				>
+					<span>Молодой</span>, но <span>амбициозный</span>.
+				</motion.h2>
 
-					<motion.p
-						initial={false}
-						animate={{ translateY: infoInView ? 0 : "125%" }}
-						transition={transition}
-						className={styles.description}
-					>
-						В свои 17 лет я обладаю набором разнообразных навыков для создания
-						современных, удобных для пользователя веб сайтов и веб приложений.
-						Моя страсть быть в тренде заставляет меня постоянно изучать что-то
-						новое и создавать более сложные и интересные проекты.
-					</motion.p>
-				</div>
+				<motion.p
+					initial={false}
+					animate={{ translateY: infoInView ? 0 : "125%" }}
+					transition={transition}
+					className={styles.description}
+				>
+					В свои 17 лет я обладаю набором разнообразных навыков для создания
+					современных, удобных для пользователя веб сайтов и веб приложений. Моя
+					страсть быть в тренде заставляет меня постоянно изучать что-то новое и
+					создавать более сложные и интересные проекты.
+				</motion.p>
+			</div>
+
+			<motion.div
+				initial={false}
+				animate={
+					imageInView ? { rotateZ: 0, scale: 1 } : { rotateZ: 135, scale: 0.6 }
+				}
+				transition={transition}
+				ref={imageRef}
+				className={styles.portrait}
+			>
+				<Image
+					src="/face.jpg"
+					alt="Portrait"
+					width={960}
+					height={960}
+					className={styles.image}
+				/>
 
 				<motion.div
-					initial={false}
-					animate={
-						imageInView
-							? { rotateZ: 0, scale: 1 }
-							: { rotateZ: 135, scale: 0.6 }
-					}
-					transition={transition}
-					ref={imageRef}
-					className={styles.portrait}
-				>
-					<Image
-						src="/face.jpg"
-						alt="Portrait"
-						width={960}
-						height={960}
-						className={styles.image}
-					/>
+					style={{ zIndex: 1 }}
+					initial={{ translateX: "3%" }}
+					animate={{ translateX: "-3%" }}
+					transition={{ ...layerTransition, delay: 0.2 }}
+					className={styles.back_layer}
+				/>
 
-					<motion.div
-						style={{ zIndex: 1 }}
-						initial={{ translateX: "3%" }}
-						animate={{ translateX: "-3%" }}
-						transition={{ ...layerTransition, delay: 0.2 }}
-						className={styles.back_layer}
-					/>
-
-					<motion.div
-						initial={{ translateY: "-3%" }}
-						animate={{ translateY: "3%" }}
-						transition={layerTransition}
-						style={{ zIndex: 2 }}
-						className={styles.back_layer}
-					/>
-				</motion.div>
-			</div>
+				<motion.div
+					initial={{ translateY: "-3%" }}
+					animate={{ translateY: "3%" }}
+					transition={layerTransition}
+					style={{ zIndex: 2 }}
+					className={styles.back_layer}
+				/>
+			</motion.div>
 		</section>
 	)
 }

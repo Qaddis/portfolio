@@ -20,11 +20,13 @@ export default function Home() {
 			<Header active={active} />
 
 			<main>
-				<Landing />
+				<div className="wrapper">
+					<Landing />
 
-				<About setActive={setActive} />
+					<About setActive={setActive} />
 
-				<Skills setActive={setActive} />
+					<Skills setActive={setActive} />
+				</div>
 			</main>
 
 			<Footer />
