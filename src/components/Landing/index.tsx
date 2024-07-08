@@ -100,7 +100,7 @@ export default function Landing() {
 		timeout += 300
 
 		setTimeout(() => {
-			let symbols: string[] = "title=".split("")
+			let symbols: string[] = "text=".split("")
 			let index: number = 0
 			let text: string = ""
 
@@ -126,7 +126,7 @@ export default function Landing() {
 			if (landingRef.current)
 				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
-						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"<div class=${styles.cursor}></div>"</b></span>
+						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"<div class=${styles.cursor}></div>"</b></span>
 					<span class=${styles.close_tag}>section</span>
 					`
 		}, timeout)
@@ -145,7 +145,7 @@ export default function Landing() {
 					if (landingRef.current)
 						landingRef.current.innerHTML = `
 							<span class=${styles.first_tag}>section</span>
-								<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"${text}<div class=${styles.cursor}></div>"</b></span>
+								<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"${text}<div class=${styles.cursor}></div>"</b></span>
 							<span class=${styles.close_tag}>section</span>
 							`
 				} else {
@@ -160,7 +160,7 @@ export default function Landing() {
 				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
 					<div>
-					<span class="${styles.single_tag} ${styles.single_tab}" style="display: inline-block">Heading <i>title</i><em>=</em><b>"Hello!"</b></span><div class=${styles.cursor}></div>
+					<span class="${styles.single_tag} ${styles.single_tab}" style="display: inline-block">Heading <i>text</i><em>=</em><b>"Hello!"</b></span><div class=${styles.cursor}></div>
 					</div>
 
 					<span class=${styles.close_tag}>section</span>
@@ -172,7 +172,7 @@ export default function Landing() {
 			if (landingRef.current)
 				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
-						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"Hello!"</b></span>
+						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"Hello!"</b></span>
 						<div class="${styles.cursor} ${styles.cursor_corr} ${styles.single_tab}"></div>
 					<span class=${styles.close_tag}>section</span>
 					`
@@ -183,7 +183,7 @@ export default function Landing() {
 			if (landingRef.current)
 				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
-						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"Hello!"</b></span>
+						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"Hello!"</b></span>
 						<div class=${styles.space}></div>
 						<div class="${styles.cursor} ${styles.cursor_corr} ${styles.single_tab}"></div>
 					<span class=${styles.close_tag}>section</span>
@@ -195,7 +195,7 @@ export default function Landing() {
 			if (landingRef.current)
 				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
-						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"Hello!"</b></span>
+						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"Hello!"</b></span>
 						<div class=${styles.space}></div>
 						<span class="${styles.inner} ${styles.single_tab}">p<div class=${styles.cursor}></div></span>
 					<span class=${styles.close_tag}>section</span>
@@ -207,7 +207,7 @@ export default function Landing() {
 			if (landingRef.current)
 				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
-						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"Hello!"</b></span>
+						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"Hello!"</b></span>
 						<div class=${styles.space}></div>
 						<div>
 							<span style="display: inline-block;" class="${styles.first_tag} ${styles.single_tab}" style="display: inline-block">p</span>
@@ -223,7 +223,7 @@ export default function Landing() {
 			if (landingRef.current)
 				landingRef.current.innerHTML = `
 					<span class=${styles.first_tag}>section</span>
-						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"Hello!"</b></span>
+						<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"Hello!"</b></span>
 						<div class=${styles.space}></div>
 						<span class="${styles.first_tag} ${styles.single_tab}">p</span>
 						<div class="${styles.cursor} ${styles.cursor_corr} ${styles.double_tab}"></div>
@@ -238,7 +238,7 @@ export default function Landing() {
 				"My name is Svyatoslav._I am a full-stack web developer.",
 				`"${styles.inner} ${styles.double_tab}"`,
 				`<span class=${styles.first_tag}>section</span>
-				<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>title</i><em>=</em><b>"Hello!"</b></span>
+				<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"Hello!"</b></span>
 				<div class=${styles.space}></div>
 				<span class="${styles.first_tag} ${styles.single_tab}">p</span>`,
 				`<span class="${styles.close_tag} ${styles.single_tab}">p</span>
