@@ -4,6 +4,7 @@ import type { SetActiveType } from "@/app/page"
 import { skills } from "@/data"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
+import Heading from "../ui/Heading"
 import styles from "./skills.module.scss"
 
 interface ISkillsProps {
@@ -36,15 +37,8 @@ export default function Skills({ setActive }: ISkillsProps) {
 
 	return (
 		<section id="skills" ref={skillsRef} className={styles.skills}>
-			<motion.h2
-				initial={false}
-				animate={{ y: headingInView ? 0 : "100%" }}
-				transition={{ duration: 0.25, type: "spring", damping: 6 }}
-				ref={headingRef}
-				className={styles.heading}
-			>
-				Навыки
-			</motion.h2>
+			<Heading>Навыки</Heading>
+
 			<div ref={articlesRef} className={styles.articles}>
 				{skills.map(item => (
 					<Article

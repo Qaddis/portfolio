@@ -4,6 +4,7 @@ import type { SetActiveType } from "@/app/page"
 import { carousel } from "@/data"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
+import Heading from "../ui/Heading"
 import styles from "./projects.module.scss"
 
 interface IProps {
@@ -32,7 +33,7 @@ export default function Projects({ setActive }: IProps) {
 
 	return (
 		<section id="projects" ref={projectsRef} className={styles.projects}>
-			<h2 className={styles.heading}>Проекты</h2>
+			<Heading>Проекты</Heading>
 
 			<div className={styles.carousel}>
 				<button
