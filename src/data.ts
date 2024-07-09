@@ -4,7 +4,7 @@ interface ISkill {
 	color: `#${string}`
 }
 
-interface ICarousel {
+export interface IProject {
 	title: string
 	img: string
 	description: string
@@ -75,25 +75,28 @@ export const skills: ISkill[] = [
 	}
 ]
 
-export const carousel: ICarousel[] = [
+export const projects: IProject[] = [
 	{
 		title: "DL Guard",
 		img: "/carousel/DL_Guard.png",
-		description: "",
+		description:
+			"Сайт для системы электронных пропусков. Сама система имеет открытый исходный код и создавалась в качестве школьного проекта за 10ый класс. На сайте можно найти как готовые компоненты системы (приложение для ПК, код сервера, чертежи считывающих устройств), так и ссылку на репозиторий с исходниками.",
 		repo: "dl-guard",
 		techs: ["TypeScript", "Next.js", "Redux", "Framer Motion", "Three.js"]
 	},
 	{
 		title: `Project "Eraser"`,
 		img: "/carousel/Project_Eraser.png",
-		description: "",
+		description:
+			"Игра-кликер в Telegram. Есть сюжет, топ игроков, механика циклов с обнулением ресурсов и возможность прокачки.",
 		repo: "tg-clicker",
 		techs: ["TypeScript", "React", "Redux", "Framer Motion"]
 	},
 	{
 		title: "Kick Culture",
 		img: "/carousel/Kick_Culture.png",
-		description: "",
+		description:
+			"Сайт интернет магазина кроссовок (только Front-end). Есть возможность как добавлять товар в корзину, так и удалять его оттуда; Автоматический пересчёт скидок и цен со скидками; Автоматические подборки рекомендаций на странице товара.",
 		repo: "kick-culture-web",
 		techs: ["JavaScript", "React", "Redux", "Framer Motion"]
 	}

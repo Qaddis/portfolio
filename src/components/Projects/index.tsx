@@ -1,7 +1,7 @@
 "use client"
 
-import type { SetActiveType } from "@/app/page"
-import { carousel } from "@/data"
+import type { SetActiveType, SetModalTargetType } from "@/app/page"
+import { projects } from "@/data"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 import Heading from "../ui/Heading"
@@ -9,17 +9,18 @@ import styles from "./projects.module.scss"
 
 interface IProps {
 	setActive: SetActiveType
+	setModalTarget: SetModalTargetType
 }
 
-export default function Projects({ setActive }: IProps) {
+export default function Projects({ setActive, setModalTarget }: IProps) {
 	const [widget, setWidget] = useState<number>(0)
 
 	const handleButtonClick = (direction: "left" | "right"): void => {
 		if (direction === "right") {
-			if (widget + 1 > carousel.length - 1) setWidget(0)
+			if (widget + 1 > projects.length - 1) setWidget(0)
 			else setWidget(widget + 1)
 		} else {
-			if (widget - 1 < 0) setWidget(carousel.length - 1)
+			if (widget - 1 < 0) setWidget(projects.length - 1)
 			else setWidget(widget - 1)
 		}
 	}
@@ -50,8 +51,9 @@ export default function Projects({ setActive }: IProps) {
 						transition={{ duration: 0.25 }}
 						className={styles.cards}
 					>
-						{carousel.map((item, index) => (
+						{projects.map((item, index) => (
 							<motion.article
+								onClick={() => setModalTarget(item.title)}
 								initial={false}
 								animate={widget === index ? "show" : "hidden"}
 								variants={{
