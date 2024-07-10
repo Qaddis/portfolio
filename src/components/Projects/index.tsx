@@ -96,6 +96,17 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 									>
 										{item.title}
 									</motion.h3>
+									<hr />
+									<motion.p
+										initial={false}
+										variants={{ show: { y: 0 }, hidden: { y: "150%" } }}
+										transition={{
+											delay: widget === index ? 0.3 : 0,
+											duration: 0.2
+										}}
+									>
+										{item.description.split(". ")[0]}
+									</motion.p>
 								</motion.div>
 							</motion.article>
 						))}

@@ -76,6 +76,13 @@
 			border-radius: 8px;
 		}
 
+		hr {
+			border: none;
+			border-bottom: 5px dotted var(--violet);
+			width: 45px;
+			margin: 5px 0;
+		}
+
 		h3 {
 			font-family: var(--jsf-font);
 			font-size: 1.6rem;
