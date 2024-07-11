@@ -33,7 +33,7 @@ export default function About({ setActive }: IProps) {
 	const infoInView = useInView(infoRef, { once: true, amount: 0.45 })
 
 	const aboutRef = useRef<HTMLDivElement>(null)
-	const aboutInView = useInView(aboutRef, { once: false, amount: 0.6 })
+	const aboutInView = useInView(aboutRef, { once: false, amount: 1 })
 
 	useEffect(() => {
 		if (aboutInView) setActive("about")

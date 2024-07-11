@@ -29,7 +29,7 @@ export default function Skills({ setActive }: ISkillsProps) {
 	const articlesInView = useInView(articlesRef, { amount: 0.2 })
 
 	const skillsRef = useRef<HTMLDivElement>(null)
-	const skillsInView = useInView(skillsRef, { amount: 0.6 })
+	const skillsInView = useInView(skillsRef, { amount: 0.8 })
 
 	useEffect(() => {
 		if (skillsInView) setActive("skills")

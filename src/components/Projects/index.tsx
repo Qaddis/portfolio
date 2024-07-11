@@ -26,7 +26,7 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 	}
 
 	const projectsRef = useRef<HTMLDivElement>(null)
-	const projectsInView = useInView(projectsRef, { amount: 0.6 })
+	const projectsInView = useInView(projectsRef, { amount: 0.8 })
 
 	useEffect(() => {
 		if (projectsInView) setActive("projects")
