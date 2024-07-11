@@ -50,10 +50,10 @@ export default function Landing() {
 			if (landingRef.current)
 				landingRef.current.innerHTML = `
 					<div>
-						<span class=${styles.first_tag} style="display: inline">section</span>
+					<span class=${styles.first_tag} style="display: inline">section</span>
 						<div class="${styles.cursor}"></div>
+					<span class=${styles.close_tag} style="display: inline">section</span>
 					</div>
-					<span class=${styles.close_tag}>section</span>
 					`
 		}, timeout)
 		timeout += 450
@@ -66,7 +66,7 @@ export default function Landing() {
 					<span class=${styles.close_tag}>section</span>
 					`
 		}, timeout)
-		timeout += 300
+		timeout += 450
 
 		setTimeout(() => {
 			typing(
@@ -235,12 +235,42 @@ export default function Landing() {
 
 		setTimeout(() => {
 			typing(
-				"My name is Svyatoslav._I am a full-stack web developer.",
+				"My name is Svyatoslav.",
 				`"${styles.inner} ${styles.double_tab}"`,
 				`<span class=${styles.first_tag}>section</span>
 				<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"Hello!"</b></span>
 				<div class=${styles.space}></div>
 				<span class="${styles.first_tag} ${styles.single_tab}">p</span>`,
+				`<span class="${styles.close_tag} ${styles.single_tab}">p</span>
+				<span class=${styles.close_tag}>section</span>`
+			)
+		}, timeout)
+		timeout += 150 * ("My name is Svyatoslav.".length + 2)
+
+		setTimeout(() => {
+			if (landingRef.current)
+				landingRef.current.innerHTML = `
+				<span class=${styles.first_tag}>section</span>
+					<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"Hello!"</b></span>
+					<div class=${styles.space}></div>
+					<span class="${styles.first_tag} ${styles.single_tab}">p</span>
+						<span class="${styles.inner} ${styles.double_tab}">My name is Svyatoslav.</span>
+					<div class="${styles.cursor} ${styles.cursor_corr} ${styles.double_tab}"></div>
+					<span class="${styles.close_tag} ${styles.single_tab}">p</span>
+				<span class=${styles.close_tag}>section</span>`
+		}, timeout)
+		timeout += 150
+
+		setTimeout(() => {
+			typing(
+				"I am a full-stack web developer.",
+				`"${styles.inner} ${styles.double_tab}"`,
+				`<span class=${styles.first_tag}>section</span>
+				<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"Hello!"</b></span>
+				<div class=${styles.space}></div>
+				<span class="${styles.first_tag} ${styles.single_tab}">p</span>
+				<span class="${styles.inner} ${styles.double_tab}">My name is Svyatoslav.</span>
+				`,
 				`<span class="${styles.close_tag} ${styles.single_tab}">p</span>
 				<span class=${styles.close_tag}>section</span>`
 			)

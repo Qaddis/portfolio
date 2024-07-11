@@ -20,7 +20,7 @@ export default function Footer() {
 						</a>
 					</li>
 					<li>
-						<a href="https://github.com/Qaddis" target="_blank">
+						<a href="https://github.com/Qaddis/portfolio" target="_blank">
 							<svg>
 								<use xlinkHref="#github-logo"></use>
 							</svg>

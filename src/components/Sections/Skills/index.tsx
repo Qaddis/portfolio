@@ -1,10 +1,10 @@
 "use client"
 
 import type { SetActiveType } from "@/app/page"
+import Heading from "@/components/ui/Heading"
 import { skills } from "@/data"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
-import Heading from "../ui/Heading"
 import styles from "./skills.module.scss"
 
 interface ISkillsProps {

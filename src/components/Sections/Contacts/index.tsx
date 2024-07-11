@@ -1,9 +1,9 @@
 "use client"
 
 import type { SetActiveType } from "@/app/page"
+import Heading from "@/components/ui/Heading"
 import { useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
-import Heading from "../ui/Heading"
 import styles from "./contacts.module.scss"
 
 interface IProps {

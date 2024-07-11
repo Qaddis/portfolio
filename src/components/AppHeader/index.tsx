@@ -3,7 +3,7 @@
 import type { SectionsType } from "@/app/page"
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { useState } from "react"
-import NavLink from "../NavLink"
+import NavLink from "../ui/NavLink"
 import styles from "./header.module.scss"
 
 interface IProps {

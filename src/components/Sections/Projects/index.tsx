@@ -1,10 +1,10 @@
 "use client"
 
 import type { SetActiveType, SetModalTargetType } from "@/app/page"
+import Heading from "@/components/ui/Heading"
 import { projects } from "@/data"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
-import Heading from "../ui/Heading"
 import styles from "./projects.module.scss"
 
 interface IProps {

@@ -8,8 +8,8 @@ import styles from "./heading.module.scss"
 
 export default function Heading({ children }: PropsWithChildren) {
 	const variants: Variants = {
-		show: { y: 0 },
-		hidden: { y: "100%" }
+		show: { y: 0, opacity: 1 },
+		hidden: { y: "100%", opacity: 0 }
 	}
 
 	const transition: Transition = {
