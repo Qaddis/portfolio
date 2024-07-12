@@ -24,8 +24,25 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://qaddis.vercel.app/"),
 	title: "Portfolio | by Qaddis",
-	description: "On Next.js"
+	description:
+		"Hi! I'm Qaddis, a full-stack web developer. Check out my web development projects and skills on my portfolio site!",
+	creator: 'Svyatoslav "Qaddis" Barsukov',
+	openGraph: {
+		type: "website",
+		title: "Portfolio | By Qaddis",
+		description:
+			"Hi! I'm Qaddis, a full-stack web developer. Check out my web development projects and skills on my portfolio site!",
+		url: "https://qaddis.vercel.app/"
+	},
+	twitter: {
+		card: "summary_large_image"
+	},
+	robots: {
+		follow: false,
+		index: true
+	}
 }
 
 export default function RootLayout({
