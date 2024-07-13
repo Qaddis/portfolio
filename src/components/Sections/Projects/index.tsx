@@ -4,6 +4,7 @@ import type { SetActiveType, SetModalTargetType } from "@/app/page"
 import Heading from "@/components/ui/Heading"
 import { projects } from "@/data"
 import { motion, useInView } from "framer-motion"
+import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import styles from "./projects.module.scss"
 
@@ -38,6 +39,7 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 
 			<div className={styles.carousel}>
 				<button
+					title="Перейти к предыдущему проекту"
 					onClick={() => handleButtonClick("left")}
 					className={styles.carousel__btn}
 				>
@@ -53,6 +55,7 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 					>
 						{projects.map((item, index) => (
 							<motion.article
+								title={`Подробнее о ${item.title}`}
 								onClick={() => setModalTarget(item.title)}
 								initial={false}
 								animate={widget === index ? "show" : "hidden"}
@@ -67,7 +70,13 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 								key={item.repo}
 								className={styles.carousel__card}
 							>
-								<img src={item.img} />
+								<Image
+									src={item.img}
+									alt={`${item.title} Banner`}
+									width={900}
+									height={535}
+									quality={100}
+								/>
 								<motion.div
 									initial={false}
 									variants={{
@@ -114,6 +123,7 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 				</div>
 
 				<button
+					title="Перейти к следующему проекту"
 					onClick={() => handleButtonClick("right")}
 					className={styles.carousel__btn}
 				>

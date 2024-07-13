@@ -10,7 +10,20 @@ interface IProps {
 	active: SectionsType
 }
 
+type LinksType = {
+	to: SectionsType
+	text: string
+	title?: string
+}
+
 export default function Header({ active }: IProps) {
+	const links: LinksType[] = [
+		{ to: "about", text: "Обо мне" },
+		{ to: "skills", text: "Навыки" },
+		{ to: "projects", text: "Проекты" },
+		{ to: "contacts", text: "Контакты" }
+	]
+
 	const logoClick = (): void => {
 		window.scrollTo({
 			top: 0,
@@ -71,18 +84,16 @@ export default function Header({ active }: IProps) {
 					}}
 					className={styles.nav}
 				>
-					<NavLink to="about" active={active}>
-						Обо мне
-					</NavLink>
-					<NavLink to="skills" active={active}>
-						Навыки
-					</NavLink>
-					<NavLink to="projects" active={active}>
-						Проекты
-					</NavLink>
-					<NavLink to="contacts" active={active}>
-						Контакты
-					</NavLink>
+					{links.map(item => (
+						<NavLink
+							key={item.to}
+							to={item.to}
+							title={`Перейти к разделу "${item.text}"`}
+							active={active}
+						>
+							{item.text}
+						</NavLink>
+					))}
 				</motion.nav>
 			</div>
 		</motion.header>

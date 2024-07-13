@@ -39,6 +39,11 @@
 			opacity: 0.6;
 			translate: 0 2px;
 		}
+
+		&:focus-visible {
+			color: var(--yellow);
+			border-color: var(--violet);
+		}
 	}
 
 	&__card {

@@ -31,10 +31,16 @@ export default function NotFoundPage() {
 			<p>
 				Страница не найдена <b>┐(‘～` )┌</b>
 				<br />
-				Более того - тут всего одна <span onClick={handleClick}>страница</span>!
+				Более того - тут всего одна{" "}
+				<span title="Перейти на главную страницу" onClick={handleClick}>
+					страница
+				</span>
+				!
 			</p>
 
-			<button onClick={handleClick}>На главную!</button>
+			<button title="Перейти на главную страницу" onClick={handleClick}>
+				На главную!
+			</button>
 		</section>
 	)
 }

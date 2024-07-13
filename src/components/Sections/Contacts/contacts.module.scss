@@ -50,5 +50,13 @@
 			fill: var(--light);
 			transition: fill 0.25s;
 		}
+
+		&:focus-visible {
+			outline: none;
+
+			svg {
+				fill: var(--yellow);
+			}
+		}
 	}
 }

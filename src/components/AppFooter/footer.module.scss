@@ -45,6 +45,14 @@
 				translate: 0 3px;
 			}
 		}
+
+		&:focus-visible {
+			outline: none;
+
+			svg {
+				fill: var(--yellow);
+			}
+		}
 	}
 }
 

@@ -62,8 +62,8 @@ export default function ProjectModal({ target, setModalTarget }: IProps) {
 							className={styles.image}
 							src={project!.img}
 							alt={`${project!.title} Banner`}
-							width={740}
-							height={442}
+							width={900}
+							height={535}
 						/>
 
 						<div className={styles["tech-sect"]}>

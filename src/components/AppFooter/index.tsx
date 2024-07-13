@@ -6,21 +6,33 @@ export default function Footer() {
 			<div className={styles.wrapper}>
 				<ul className={styles.socials}>
 					<li>
-						<a href="https://vk.com/qaddis" target="_blank">
+						<a
+							title="Мой профиль в ВКонтакте"
+							href="https://vk.com/qaddis"
+							target="_blank"
+						>
 							<svg>
 								<use xlinkHref="#vk-logo"></use>
 							</svg>
 						</a>
 					</li>
 					<li>
-						<a href="https://t.me/qaddis" target="_blank">
+						<a
+							title="Мой профиль в Telegram"
+							href="https://t.me/qaddis"
+							target="_blank"
+						>
 							<svg>
 								<use xlinkHref="#telegram-logo"></use>
 							</svg>
 						</a>
 					</li>
 					<li>
-						<a href="https://github.com/Qaddis/portfolio" target="_blank">
+						<a
+							title="Репозиторий проекта на Github"
+							href="https://github.com/Qaddis/portfolio"
+							target="_blank"
+						>
 							<svg>
 								<use xlinkHref="#github-logo"></use>
 							</svg>

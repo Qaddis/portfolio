@@ -31,28 +31,44 @@ export default function Contacts({ setActive }: IProps) {
 
 			<ul className={styles["contacts-list"]}>
 				<li>
-					<a target="_blank" href="mailto:svyatoslavb1107@gmail.com">
+					<a
+						title="Моя электронная почта"
+						target="_blank"
+						href="mailto:svyatoslavb1107@gmail.com"
+					>
 						<svg>
 							<use xlinkHref="#email-logo"></use>
 						</svg>
 					</a>
 				</li>
 				<li>
-					<a target="_blank" href="https://vk.com/qaddis">
+					<a
+						title="Мой профиль в ВКонтакте"
+						target="_blank"
+						href="https://vk.com/qaddis"
+					>
 						<svg>
 							<use xlinkHref="#vk-logo"></use>
 						</svg>
 					</a>
 				</li>
 				<li>
-					<a target="_blank" href="https://t.me/qaddis">
+					<a
+						title="Мой профиль в Telegram"
+						target="_blank"
+						href="https://t.me/qaddis"
+					>
 						<svg>
 							<use xlinkHref="#telegram-logo"></use>
 						</svg>
 					</a>
 				</li>
 				<li>
-					<a target="_blank" href="https://github.com/Qaddis">
+					<a
+						title="Мой профиль на Github"
+						target="_blank"
+						href="https://github.com/Qaddis"
+					>
 						<svg>
 							<use xlinkHref="#github-logo"></use>
 						</svg>

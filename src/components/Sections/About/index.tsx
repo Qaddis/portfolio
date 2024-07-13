@@ -5,7 +5,9 @@ import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useRef } from "react"
+
 import styles from "./about.module.scss"
+import img from "/public/face.jpg"
 
 interface IProps {
 	setActive: SetActiveType
@@ -74,24 +76,24 @@ export default function About({ setActive }: IProps) {
 				className={styles.portrait}
 			>
 				<Image
-					src="/face.jpg"
+					src={img}
 					alt="Portrait"
-					width={960}
-					height={960}
+					quality={100}
+					priority
 					className={styles.image}
 				/>
 
 				<motion.div
 					style={{ zIndex: 1 }}
-					initial={{ translateX: "3%" }}
-					animate={{ translateX: "-3%" }}
+					initial={{ x: "3%" }}
+					animate={{ x: "-3%" }}
 					transition={{ ...layerTransition, delay: 0.2 }}
 					className={styles.back_layer}
 				/>
 
 				<motion.div
-					initial={{ translateY: "-3%" }}
-					animate={{ translateY: "3%" }}
+					initial={{ y: "-3%" }}
+					animate={{ y: "3%" }}
 					transition={layerTransition}
 					style={{ zIndex: 2 }}
 					className={styles.back_layer}
