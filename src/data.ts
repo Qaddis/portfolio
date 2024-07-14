@@ -1,3 +1,10 @@
+import type { SectionsType } from "./app/page"
+
+interface ILink {
+	to: SectionsType
+	text: string
+}
+
 interface ISkill {
 	title: string
 	image: string
@@ -11,6 +18,13 @@ export interface IProject {
 	techs: string[]
 	repo: string
 }
+
+export const links: ILink[] = [
+	{ to: "about", text: "Обо мне" },
+	{ to: "skills", text: "Навыки" },
+	{ to: "projects", text: "Проекты" },
+	{ to: "contacts", text: "Контакты" }
+]
 
 export const skills: ISkill[] = [
 	{

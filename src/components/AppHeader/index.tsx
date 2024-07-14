@@ -1,6 +1,7 @@
 "use client"
 
-import type { SectionsType } from "@/app/page"
+import type { SectionsType, SetBurgerType } from "@/app/page"
+import { links } from "@/data"
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { useState } from "react"
 import NavLink from "../ui/NavLink"
@@ -8,22 +9,10 @@ import styles from "./header.module.scss"
 
 interface IProps {
 	active: SectionsType
+	setBurgerVisible: SetBurgerType
 }
 
-type LinksType = {
-	to: SectionsType
-	text: string
-	title?: string
-}
-
-export default function Header({ active }: IProps) {
-	const links: LinksType[] = [
-		{ to: "about", text: "Обо мне" },
-		{ to: "skills", text: "Навыки" },
-		{ to: "projects", text: "Проекты" },
-		{ to: "contacts", text: "Контакты" }
-	]
-
+export default function Header({ active, setBurgerVisible }: IProps) {
 	const logoClick = (): void => {
 		window.scrollTo({
 			top: 0,
@@ -85,16 +74,29 @@ export default function Header({ active }: IProps) {
 					className={styles.nav}
 				>
 					{links.map(item => (
-						<NavLink
-							key={item.to}
-							to={item.to}
-							title={`Перейти к разделу "${item.text}"`}
-							active={active}
-						>
+						<NavLink key={item.to} to={item.to} active={active}>
 							{item.text}
 						</NavLink>
 					))}
 				</motion.nav>
+
+				<motion.button
+					variants={{
+						show: { x: 0 },
+						hide: { x: "420%" }
+					}}
+					transition={{
+						delay: isShow ? 0.25 : 0,
+						duration: 0.25,
+						ease: "easeOut"
+					}}
+					onClick={() => setBurgerVisible(true)}
+					className={styles["burger-btn"]}
+				>
+					<svg>
+						<use xlinkHref="#burger-logo"></use>
+					</svg>
+				</motion.button>
 			</div>
 		</motion.header>
 	)
