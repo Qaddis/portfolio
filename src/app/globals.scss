@@ -88,3 +88,18 @@ main {
 		}
 	}
 }
+
+@supports selector(::-webkit-scrollbar) {
+	body::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	body::-webkit-scrollbar-track {
+		background-color: var(--spec);
+	}
+
+	body::-webkit-scrollbar-thumb {
+		background-color: var(--violet);
+		border-radius: 5px;
+	}
+}

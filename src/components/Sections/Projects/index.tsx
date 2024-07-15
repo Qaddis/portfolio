@@ -3,6 +3,7 @@
 import type { SetActiveType, SetModalTargetType } from "@/app/page"
 import Heading from "@/components/ui/Heading"
 import { projects } from "@/data"
+import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
@@ -26,6 +27,21 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 		}
 	}
 
+	const sliderRef = useRef<HTMLDivElement>(null)
+	const sliderInView = useInView(sliderRef, { amount: 0.5, once: true })
+
+	const buttonsRef = useRef<HTMLButtonElement>(null)
+	const buttonsInView = useInView(buttonsRef, {
+		amount: 0.5,
+		once: true,
+		margin: "100% 0px 0px 0px"
+	})
+
+	const transition: Transition = {
+		duration: 0.25,
+		ease: "easeIn"
+	}
+
 	const projectsRef = useRef<HTMLDivElement>(null)
 	const projectsInView = useInView(projectsRef, { amount: 0.8 })
 
@@ -38,15 +54,31 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 			<Heading>Проекты</Heading>
 
 			<div className={styles.carousel}>
-				<button
+				<motion.button
+					ref={buttonsRef}
+					initial={false}
+					animate={
+						buttonsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "100%" }
+					}
+					transition={transition}
 					title="Перейти к предыдущему проекту"
 					onClick={() => handleButtonClick("left")}
 					className={styles.carousel__btn}
 				>
 					&lt;
-				</button>
+				</motion.button>
 
-				<div className={styles.window}>
+				<motion.div
+					ref={sliderRef}
+					initial={false}
+					animate={
+						sliderInView
+							? { scale: 1, filter: "none" }
+							: { scale: 0.82, filter: "blur(8px)" }
+					}
+					transition={transition}
+					className={styles.window}
+				>
 					<motion.div
 						initial={false}
 						animate={{ x: `-${widget * 100}%` }}
@@ -120,15 +152,20 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 							</motion.article>
 						))}
 					</motion.div>
-				</div>
+				</motion.div>
 
-				<button
+				<motion.button
+					initial={false}
+					animate={
+						buttonsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "100%" }
+					}
+					transition={transition}
 					title="Перейти к следующему проекту"
 					onClick={() => handleButtonClick("right")}
 					className={styles.carousel__btn}
 				>
 					&gt;
-				</button>
+				</motion.button>
 			</div>
 		</section>
 	)

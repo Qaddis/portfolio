@@ -26,7 +26,7 @@ export default function Skills({ setActive }: ISkillsProps) {
 	})
 
 	const articlesRef = useRef<HTMLDivElement>(null)
-	const articlesInView = useInView(articlesRef, { amount: 0.2 })
+	const articlesInView = useInView(articlesRef, { amount: 0.2, once: true })
 
 	const skillsRef = useRef<HTMLDivElement>(null)
 	const skillsInView = useInView(skillsRef, { amount: 0.8 })
