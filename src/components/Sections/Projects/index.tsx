@@ -33,8 +33,7 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 	const buttonsRef = useRef<HTMLButtonElement>(null)
 	const buttonsInView = useInView(buttonsRef, {
 		amount: 0.5,
-		once: true,
-		margin: "100% 0px 0px 0px"
+		once: true
 	})
 
 	const transition: Transition = {
@@ -57,9 +56,7 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 				<motion.button
 					ref={buttonsRef}
 					initial={false}
-					animate={
-						buttonsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "100%" }
-					}
+					animate={{ opacity: buttonsInView ? 1 : 0 }}
 					transition={transition}
 					title="Перейти к предыдущему проекту"
 					onClick={() => handleButtonClick("left")}
@@ -156,9 +153,7 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 
 				<motion.button
 					initial={false}
-					animate={
-						buttonsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "100%" }
-					}
+					animate={{ opacity: buttonsInView ? 1 : 0 }}
 					transition={transition}
 					title="Перейти к следующему проекту"
 					onClick={() => handleButtonClick("right")}

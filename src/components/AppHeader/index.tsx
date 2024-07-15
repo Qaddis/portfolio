@@ -51,21 +51,24 @@ export default function Header({ active, setBurgerVisible }: IProps) {
 			className={styles.header}
 		>
 			<div className={styles.wrapper}>
-				<motion.h1
-					variants={{ show: { x: 0 }, hide: { x: "-300%" } }}
+				<motion.button
+					variants={{ show: { x: 0 }, hide: { x: "-40vw" } }}
 					transition={{
 						delay: isShow ? 0.25 : 0,
 						duration: 0.25,
 						ease: "easeOut"
 					}}
 					onClick={logoClick}
+					onFocus={() => {
+						setIsShow(true)
+					}}
 					className={styles.logo}
 				>
-					Qaddis
-				</motion.h1>
+					<h1>Qaddis</h1>
+				</motion.button>
 
 				<motion.nav
-					variants={{ show: { x: 0 }, hide: { x: "150%" } }}
+					variants={{ show: { x: 0 }, hide: { x: "40vw" } }}
 					transition={{
 						delay: isShow ? 0.25 : 0,
 						duration: 0.25,
@@ -74,7 +77,12 @@ export default function Header({ active, setBurgerVisible }: IProps) {
 					className={styles.nav}
 				>
 					{links.map(item => (
-						<NavLink key={item.to} to={item.to} active={active}>
+						<NavLink
+							key={item.to}
+							to={item.to}
+							active={active}
+							setHeader={setIsShow}
+						>
 							{item.text}
 						</NavLink>
 					))}
