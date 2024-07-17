@@ -35,3 +35,37 @@
 		margin-top: 5px;
 	}
 }
+
+/* Adaptability */
+
+@media (max-width: 685px) {
+	.articles {
+		grid-template-columns: repeat(2, auto);
+		grid-template-rows: repeat(6, auto);
+	}
+}
+
+@media (max-width: 465px) {
+	.article__title {
+		display: none;
+	}
+
+	.articles {
+		grid-template-columns: repeat(3, auto);
+		grid-template-rows: repeat(4, auto);
+		gap: 25px;
+	}
+}
+
+@media (max-width: 375px) {
+	.articles {
+		gap: 15px;
+	}
+
+	.article {
+		padding: 10px;
+	}
+}
+
+@media (max-width: 320px) {
+}

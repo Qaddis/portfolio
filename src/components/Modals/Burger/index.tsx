@@ -36,6 +36,10 @@ export default function BurgerMenu({
 					onClick={closeModal}
 					className={styles.overlay}
 				>
+					<button onClick={closeModal} className={styles["close-btn"]}>
+						✕
+					</button>
+
 					<motion.nav
 						variants={{
 							show: { x: 0 },
@@ -45,16 +49,13 @@ export default function BurgerMenu({
 						onClick={e => e.stopPropagation()}
 						className={styles.burger}
 					>
-						<button onClick={closeModal} className={styles["close-btn"]}>
-							✕
-						</button>
-
-						{links.map(item => (
+						{links.map((item, index) => (
 							<NavLink
 								key={item.to}
 								to={item.to}
 								active={active}
 								setBurgerVisible={setBurgerVisible}
+								tabIndex={index}
 							>
 								{item.text}
 							</NavLink>

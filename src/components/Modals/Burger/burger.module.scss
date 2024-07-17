@@ -13,11 +13,7 @@
 }
 
 .burger {
-	position: relative;
-	top: 0;
-	right: 0;
-
-	width: 40%;
+	width: 50%;
 	height: 100%;
 	background-color: var(--main);
 	border-left: 3px solid var(--violet);
@@ -30,14 +26,13 @@
 }
 
 .close-btn {
-	font-size: 1.35rem;
 	position: absolute;
-	right: 35px;
-	top: 35px;
+	left: 25px;
+	top: 25px;
+
+	font-size: 1.35rem;
 	padding: 10px 16px;
-	border: 1px solid var(--spec);
-	border-radius: 50%;
-	color: var(--violet);
+	color: var(--light);
 	transition-property: opacity, border-color, color, translate;
 	transition-duration: 0.25s;
 
@@ -54,5 +49,11 @@
 	&:focus-visible {
 		color: var(--yellow);
 		border-color: var(--add);
+	}
+}
+
+@media (max-width: 425px) {
+	.burger {
+		width: 65%;
 	}
 }

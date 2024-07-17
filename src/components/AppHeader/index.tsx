@@ -52,7 +52,7 @@ export default function Header({ active, setBurgerVisible }: IProps) {
 		>
 			<div className={styles.wrapper}>
 				<motion.button
-					variants={{ show: { x: 0 }, hide: { x: "-40vw" } }}
+					variants={{ show: { x: 0 }, hide: { x: "-60vw" } }}
 					transition={{
 						delay: isShow ? 0.25 : 0,
 						duration: 0.25,
@@ -68,7 +68,7 @@ export default function Header({ active, setBurgerVisible }: IProps) {
 				</motion.button>
 
 				<motion.nav
-					variants={{ show: { x: 0 }, hide: { x: "40vw" } }}
+					variants={{ show: { x: 0 }, hide: { x: "60vw" } }}
 					transition={{
 						delay: isShow ? 0.25 : 0,
 						duration: 0.25,

@@ -2,9 +2,25 @@
 	width: 100%;
 	height: calc(100vh - 86px);
 	padding: 50px 0;
+}
 
+.type-animation,
+.mobile {
+	width: 100%;
+	height: 100%;
+}
+
+.type-animation {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	font-size: clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.mobile {
+	display: none;
+	flex-direction: column;
+	align-items: center;
 	justify-content: center;
 }
 
@@ -12,7 +28,7 @@
 .close_tag,
 .single_tag {
 	display: block;
-	font-size: 3.5em;
+	font-size: inherit;
 	font-family: var(--jsf-font);
 	color: var(--violet);
 	user-select: none;
@@ -72,29 +88,29 @@
 		content: "/>";
 		font-size: inherit;
 		color: var(--add);
-		margin-left: 20px;
+		margin-left: 0.3em;
 	}
 }
 
 .space {
 	display: block;
 	width: 100%;
-	height: 63px;
+	height: 1em;
 }
 
 .inner {
-	font-size: 3.5em;
+	font-size: inherit;
 	font-family: var(--jsf-font);
 	user-select: none;
 }
 
 .cursor {
 	display: inline-block;
-	width: 5px;
-	height: 63px;
+	width: 0.075em;
+	height: 1em;
 	background-color: var(--violet);
-	translate: 0 13px;
-	margin-left: 3px;
+	translate: 0 0.2em;
+	margin: 0 0.05em;
 	border-radius: 2px;
 	animation: blinking 0.75s infinite 0.35s step-end;
 }
@@ -102,16 +118,16 @@
 .cursor_corr {
 	translate: 0;
 	display: block;
-	margin-top: 13px;
-	margin-bottom: 3px;
+	margin-top: 0.125em;
+	margin-bottom: 0.125em;
 }
 
 .single_tab {
-	margin-left: 50px;
+	margin-left: 1.35em;
 }
 
 .double_tab {
-	margin-left: 100px;
+	margin-left: 2.7em;
 }
 
 @keyframes blinking {
@@ -125,5 +141,68 @@
 
 	100% {
 		background-color: var(--violet);
+	}
+}
+
+.greeting {
+	color: var(--yellow);
+	font-family: var(--jost-font);
+	font-size: clamp(1.2rem, 8vw, 1.85rem);
+	font-weight: 600;
+}
+
+.meeting {
+	font-family: var(--jost-font);
+	font-size: clamp(1rem, 6vw, 1.6rem);
+	text-align: center;
+	font-weight: 600;
+	line-height: 0.98;
+	width: 100%;
+
+	b {
+		font-weight: inherit;
+		color: var(--violet);
+		line-height: 0.8;
+	}
+
+	span {
+		font-family: var(--jsf-font);
+		color: var(--violet);
+	}
+}
+
+.gif-wrapper {
+	width: 90%;
+	height: auto;
+	margin-bottom: 15px;
+}
+
+.gif {
+	width: 100%;
+	height: auto;
+	border: 1px solid var(--spec);
+	border-radius: 10px;
+	box-shadow: 3px 3px 10px rgba($color: #000, $alpha: 0.75);
+}
+
+/* Adaptability */
+
+@media (max-width: 550px) {
+	.single_tab {
+		margin-left: 1em;
+	}
+
+	.double_tab {
+		margin-left: 2em;
+	}
+}
+
+@media (max-width: 525px) {
+	.type-animation {
+		display: none;
+	}
+
+	.mobile {
+		display: flex;
 	}
 }

@@ -2,7 +2,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 10;
+	z-index: 8;
 	background-color: var(--main);
 	width: 100%;
 	padding: 0 25px;
@@ -10,7 +10,7 @@
 }
 
 .wrapper {
-	width: 1140px;
+	max-width: 1140px;
 	margin: 0 auto;
 	padding: 20px 0;
 
@@ -21,8 +21,7 @@
 
 .logo {
 	font-family: var(--jsf-font);
-	font-size: 2.2rem;
-	line-height: 1.1;
+	font-size: clamp(1.65rem, 8vw, 2.2rem);
 	letter-spacing: -1.5px;
 	color: var(--violet);
 	cursor: pointer;
@@ -31,13 +30,19 @@
 	position: relative;
 	margin-left: 1rem;
 
+	h1 {
+		line-height: 0.8;
+		padding-top: 5px;
+	}
+
 	&::before {
 		content: "<";
 		display: inline-block;
 		color: var(--add);
 		position: absolute;
 		top: 0;
-		left: -20px;
+		left: -0.5em;
+		height: 100%;
 		transition-property: color, left;
 		transition-duration: 0.2s;
 	}
@@ -48,7 +53,8 @@
 		color: var(--add);
 		position: absolute;
 		top: 0;
-		right: -40px;
+		right: -1.15em;
+		height: 100%;
 		transition-property: color, right;
 		transition-duration: 0.2s;
 	}
@@ -82,11 +88,8 @@
 }
 
 .burger-btn {
-	width: 65px;
-	height: 65px;
-	padding: 10px;
-	border: 1px solid var(--spec);
-	border-radius: 50%;
+	width: 45px;
+	height: 45px;
 	transition-property: border-color, opacity, translate;
 	transition-duration: 0.25s;
 	display: none;
@@ -118,5 +121,15 @@
 		svg {
 			fill: var(--yellow);
 		}
+	}
+}
+
+@media (max-width: 768px) {
+	.nav {
+		display: none;
+	}
+
+	.burger-btn {
+		display: block;
 	}
 }

@@ -38,6 +38,7 @@ main {
 .not-found {
 	width: 100vw;
 	height: 100vh;
+	padding: 0 20px;
 
 	display: flex;
 	flex-direction: column;
@@ -46,14 +47,14 @@ main {
 
 	h1 {
 		font-family: var(--jost-font);
-		font-size: 3rem;
+		font-size: clamp(1.5rem, 8vw, 3rem);
 		font-weight: 600;
 		color: var(--violet);
 		position: relative;
 	}
 
 	p {
-		font-size: 1.2rem;
+		font-size: clamp(16px, 4vw, 1.2rem);
 		text-align: center;
 		margin: 5px 0 35px;
 
@@ -70,7 +71,7 @@ main {
 
 	button {
 		font-family: var(--jost-font);
-		font-size: 1.45rem;
+		font-size: clamp(1.2rem, 4vw, 1.45rem);
 		font-weight: 600;
 		padding: 5px 35px;
 		background-color: var(--violet);

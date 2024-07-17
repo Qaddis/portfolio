@@ -7,6 +7,7 @@ interface IProps extends PropsWithChildren {
 	active: SectionsType
 	setBurgerVisible?: SetBurgerType
 	setHeader?: SetBurgerType
+	tabIndex?: number
 }
 
 export default function NavLink({
@@ -14,7 +15,8 @@ export default function NavLink({
 	to,
 	active,
 	setBurgerVisible,
-	setHeader
+	setHeader,
+	tabIndex
 }: IProps) {
 	const handleClick = (): void => {
 		if (to !== active) {
@@ -35,6 +37,7 @@ export default function NavLink({
 				active === to ? `${styles.link} ${styles.active}` : styles.link
 			}
 			onFocus={() => setHeader && setHeader(true)}
+			tabIndex={tabIndex}
 		>
 			{children}
 		</button>

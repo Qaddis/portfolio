@@ -90,7 +90,7 @@
 
 		h3 {
 			font-family: var(--jsf-font);
-			font-size: 1.6rem;
+			font-size: clamp(1.1rem, 3vw, 1.6rem);
 			font-weight: 600;
 			z-index: 3;
 		}
@@ -105,4 +105,85 @@
 
 .cards {
 	display: flex;
+}
+
+.mobile-controls {
+	width: 100%;
+	height: auto;
+	margin-top: 20px;
+	align-items: center;
+	justify-content: center;
+	column-gap: 20px;
+	display: none;
+
+	button {
+		font-family: var(--jsf-font);
+		font-size: 1.8rem;
+		padding: 5px 20px;
+		border: 1px solid var(--spec);
+		border-radius: 10px;
+		transition-property: border-color, opacity, translate;
+		transition-duration: 0.25s;
+
+		&:active {
+			border-color: var(--add);
+			opacity: 0.75;
+			translate: 0 2px;
+		}
+	}
+}
+
+/* Adaptability */
+
+@media (max-width: 768px) {
+	.carousel__btn {
+		display: none;
+	}
+
+	.mobile-controls {
+		display: flex;
+	}
+
+	.carousel {
+		max-width: 100%;
+
+		&__card {
+			div {
+				padding: 10px;
+			}
+
+			p {
+				display: none;
+			}
+
+			hr {
+				display: none;
+			}
+		}
+	}
+}
+
+@media (max-width: 425px) {
+	.mobile-controls {
+		column-gap: 10px;
+		margin-top: 10px;
+
+		button {
+			font-size: 1.35rem;
+		}
+	}
+
+	.carousel__card {
+		h3 {
+			font-size: 1rem;
+		}
+	}
+}
+
+@media (max-width: 375px) {
+	.mobile-controls {
+		button {
+			padding: 5px 15px;
+		}
+	}
 }

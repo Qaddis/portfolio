@@ -46,7 +46,9 @@ export default function About({ setActive }: IProps) {
 			<div ref={infoRef} className={styles.info}>
 				<motion.h2
 					initial={false}
-					animate={{ translateY: infoInView ? 0 : "200%" }}
+					animate={
+						infoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "100%" }
+					}
 					transition={transition}
 					className={styles.heading}
 				>
@@ -55,7 +57,7 @@ export default function About({ setActive }: IProps) {
 
 				<motion.p
 					initial={false}
-					animate={{ translateY: infoInView ? 0 : "125%" }}
+					animate={infoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "50%" }}
 					transition={transition}
 					className={styles.description}
 				>

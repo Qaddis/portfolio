@@ -162,6 +162,22 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 					&gt;
 				</motion.button>
 			</div>
+
+			<div className={styles["mobile-controls"]}>
+				<button
+					title="Перейти к предыдущему проекту"
+					onClick={() => handleButtonClick("left")}
+				>
+					&lt;
+				</button>
+
+				<button
+					title="Перейти к следующему проекту"
+					onClick={() => handleButtonClick("right")}
+				>
+					&gt;
+				</button>
+			</div>
 		</section>
 	)
 }
