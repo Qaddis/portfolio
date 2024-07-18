@@ -107,6 +107,14 @@
 	display: flex;
 }
 
+.clue {
+	margin-top: 20px;
+	text-align: center;
+	line-height: 1;
+	font-size: 1rem;
+	opacity: 0.35;
+}
+
 .mobile-controls {
 	width: 100%;
 	height: auto;
@@ -166,7 +174,7 @@
 @media (max-width: 425px) {
 	.mobile-controls {
 		column-gap: 10px;
-		margin-top: 10px;
+		margin-top: 15px;
 
 		button {
 			font-size: 1.35rem;
@@ -177,6 +185,11 @@
 		h3 {
 			font-size: 1rem;
 		}
+	}
+
+	.clue {
+		font-size: 16px;
+		margin-top: 15px;
 	}
 }
 

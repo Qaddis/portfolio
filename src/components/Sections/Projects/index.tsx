@@ -163,6 +163,10 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 				</motion.button>
 			</div>
 
+			<p className={styles.clue}>
+				Нажмите на баннер, чтобы узнать о проекте больше
+			</p>
+
 			<div className={styles["mobile-controls"]}>
 				<button
 					title="Перейти к предыдущему проекту"

@@ -48,7 +48,11 @@ export default function ProjectModal({ target, setModalTarget }: IProps) {
 					transition={{ duration: 0.35 }}
 					className={styles.modal}
 				>
-					<button onClick={closeModal} className={styles["close-btn"]}>
+					<button
+						title="Вернуться назад"
+						onClick={closeModal}
+						className={styles["close-btn"]}
+					>
 						✕
 					</button>
 
@@ -74,6 +78,7 @@ export default function ProjectModal({ target, setModalTarget }: IProps) {
 								</ul>
 
 								<a
+									title="Перейти в репозиторий проекта"
 									className={styles.link}
 									tabIndex={0}
 									target="_blank"
@@ -104,6 +109,7 @@ export default function ProjectModal({ target, setModalTarget }: IProps) {
 							</ul>
 
 							<a
+								title="Перейти в репозиторий проекта"
 								className={styles.link}
 								tabIndex={0}
 								target="_blank"

@@ -119,7 +119,7 @@
 	font-family: var(--jost-font);
 	font-size: 1.1rem;
 	color: var(--light);
-	text-decoration: underline;
+	text-decoration: underline !important;
 	transition-property: fill, color, opacity;
 	transition-duration: 0.2s;
 
@@ -232,6 +232,8 @@
 @media (max-width: 500px) {
 	.image {
 		max-width: 100%;
+		border-left: none;
+		border-right: none;
 	}
 
 	.about-sect {

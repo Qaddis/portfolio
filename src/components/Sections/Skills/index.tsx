@@ -19,12 +19,6 @@ interface IArticleProps {
 }
 
 export default function Skills({ setActive }: ISkillsProps) {
-	const headingRef = useRef<HTMLHeadingElement>(null)
-	const headingInView = useInView(headingRef, {
-		once: true,
-		margin: "10px 0px 0px 0px"
-	})
-
 	const articlesRef = useRef<HTMLDivElement>(null)
 	const articlesInView = useInView(articlesRef, { amount: 0.2, once: true })
 
