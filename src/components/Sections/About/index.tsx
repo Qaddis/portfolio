@@ -9,7 +9,7 @@ import { useEffect, useRef } from "react"
 
 import Button from "@/components/ui/Button"
 import styles from "./about.module.scss"
-import img from "/public/face.jpg"
+import img from "/public/face.webp"
 
 interface IProps {
 	setActive: SetActiveType
