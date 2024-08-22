@@ -11,7 +11,7 @@ import Projects from "@/components/Sections/Projects"
 import Skills from "@/components/Sections/Skills"
 
 import type { Dispatch, SetStateAction } from "react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export type SectionsType = "about" | "skills" | "projects" | "contacts"
 export type SetActiveType = Dispatch<SetStateAction<SectionsType>>

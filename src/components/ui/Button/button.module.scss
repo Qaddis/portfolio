@@ -1,0 +1,26 @@
+.button {
+	font-family: var(--jost-font);
+	font-size: clamp(1.2rem, 4vw, 1.45rem);
+	font-weight: 600;
+	padding: 5px 35px;
+	background-color: var(--violet);
+	border-radius: 10px;
+
+	transition-property: box-shadow, opacity, translate, background-color, color;
+	transition-duration: 0.25s;
+
+	&:hover {
+		box-shadow: 0 0 15px var(--violet);
+	}
+
+	&:active {
+		translate: 0 2px;
+		opacity: 0.75;
+		box-shadow: 1px 1px 1px #5e0ecf80;
+	}
+
+	&:focus-visible {
+		background-color: var(--yellow);
+		color: var(--main);
+	}
+}

@@ -4,8 +4,10 @@ import type { SetActiveType } from "@/app/page"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { useEffect, useRef } from "react"
 
+import Button from "@/components/ui/Button"
 import styles from "./about.module.scss"
 import img from "/public/face.jpg"
 
@@ -28,6 +30,8 @@ export default function About({ setActive }: IProps) {
 		repeatType: "mirror"
 	}
 
+	const router = useRouter()
+
 	const imageRef = useRef<HTMLDivElement>(null)
 	const infoRef = useRef<HTMLDivElement>(null)
 
@@ -43,64 +47,77 @@ export default function About({ setActive }: IProps) {
 
 	return (
 		<section id="about" ref={aboutRef} className={styles.about}>
-			<div ref={infoRef} className={styles.info}>
-				<motion.h2
+			<div className={styles.cover}>
+				<div ref={infoRef} className={styles.info}>
+					<motion.h2
+						initial={false}
+						animate={
+							infoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "100%" }
+						}
+						transition={transition}
+						className={styles.heading}
+					>
+						<span>Молодой</span>, но <span>амбициозный</span>.
+					</motion.h2>
+
+					<motion.p
+						initial={false}
+						animate={
+							infoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "50%" }
+						}
+						transition={transition}
+						className={styles.description}
+					>
+						В свои 17 лет я обладаю набором разнообразных навыков для создания
+						современных, удобных для пользователя веб сайтов и веб приложений.
+						Моя страсть быть в тренде заставляет меня постоянно изучать что-то
+						новое и создавать более сложные и интересные проекты.
+					</motion.p>
+				</div>
+
+				<motion.div
 					initial={false}
 					animate={
-						infoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "100%" }
+						imageInView
+							? { rotateZ: 0, scale: 1 }
+							: { rotateZ: 135, scale: 0.6 }
 					}
 					transition={transition}
-					className={styles.heading}
+					ref={imageRef}
+					className={styles.portrait}
 				>
-					<span>Молодой</span>, но <span>амбициозный</span>.
-				</motion.h2>
+					<Image
+						src={img}
+						alt="Portrait"
+						quality={100}
+						priority
+						className={styles.image}
+					/>
 
-				<motion.p
-					initial={false}
-					animate={infoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "50%" }}
-					transition={transition}
-					className={styles.description}
-				>
-					В свои 17 лет я обладаю набором разнообразных навыков для создания
-					современных, удобных для пользователя веб сайтов и веб приложений. Моя
-					страсть быть в тренде заставляет меня постоянно изучать что-то новое и
-					создавать более сложные и интересные проекты.
-				</motion.p>
+					<motion.div
+						style={{ zIndex: 1 }}
+						initial={{ x: "3%" }}
+						animate={{ x: "-3%" }}
+						transition={{ ...layerTransition, delay: 0.2 }}
+						className={styles.back_layer}
+					/>
+
+					<motion.div
+						initial={{ y: "-3%" }}
+						animate={{ y: "3%" }}
+						transition={layerTransition}
+						style={{ zIndex: 2 }}
+						className={styles.back_layer}
+					/>
+				</motion.div>
 			</div>
 
-			<motion.div
-				initial={false}
-				animate={
-					imageInView ? { rotateZ: 0, scale: 1 } : { rotateZ: 135, scale: 0.6 }
-				}
-				transition={transition}
-				ref={imageRef}
-				className={styles.portrait}
+			<Button
+				onClick={() => router.push("/blog")}
+				title="Перейти на страницу блога"
 			>
-				<Image
-					src={img}
-					alt="Portrait"
-					quality={100}
-					priority
-					className={styles.image}
-				/>
-
-				<motion.div
-					style={{ zIndex: 1 }}
-					initial={{ x: "3%" }}
-					animate={{ x: "-3%" }}
-					transition={{ ...layerTransition, delay: 0.2 }}
-					className={styles.back_layer}
-				/>
-
-				<motion.div
-					initial={{ y: "-3%" }}
-					animate={{ y: "3%" }}
-					transition={layerTransition}
-					style={{ zIndex: 2 }}
-					className={styles.back_layer}
-				/>
-			</motion.div>
+				Больше обо мне
+			</Button>
 		</section>
 	)
 }
