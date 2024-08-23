@@ -41,6 +41,13 @@ export default function About({ setActive }: IProps) {
 	const aboutRef = useRef<HTMLDivElement>(null)
 	const aboutInView = useInView(aboutRef, { once: false, amount: 1 })
 
+	const buttonRef = useRef<HTMLDivElement>(null)
+	const buttonInView = useInView(buttonRef, {
+		once: true,
+		amount: 0.65,
+		margin: "20px 0px 0px 0px"
+	})
+
 	useEffect(() => {
 		if (aboutInView) setActive("about")
 	}, [aboutInView])
@@ -112,12 +119,23 @@ export default function About({ setActive }: IProps) {
 				</motion.div>
 			</div>
 
-			<Button
-				onClick={() => router.push("/blog")}
-				title="Перейти на страницу блога"
+			<motion.div
+				ref={buttonRef}
+				initial={false}
+				animate={buttonInView ? "show" : "hide"}
+				variants={{
+					hide: { opacity: 0, translateY: "50%" },
+					show: { opacity: 1, translateY: 0 }
+				}}
+				transition={{ ease: "easeInOut", duration: 0.2 }}
 			>
-				Больше обо мне
-			</Button>
+				<Button
+					onClick={() => router.push("/blog")}
+					title="Перейти на страницу блога"
+				>
+					Больше обо мне
+				</Button>
+			</motion.div>
 		</section>
 	)
 }
