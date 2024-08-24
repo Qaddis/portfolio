@@ -1,4 +1,4 @@
-import type { SectionsType, SetBurgerType } from "@/app/page"
+import type { SectionsType, SetBurgerType } from "@/app/MainPage"
 import type { PropsWithChildren } from "react"
 import styles from "./link.module.scss"
 

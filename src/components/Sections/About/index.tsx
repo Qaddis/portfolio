@@ -1,13 +1,13 @@
 "use client"
 
-import type { SetActiveType } from "@/app/page"
+import type { SetActiveType } from "@/app/MainPage"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useEffect, useRef } from "react"
 
-import Button from "@/components/ui/Button"
+import PageLink from "@/components/ui/Buttons/PageLink"
 import styles from "./about.module.scss"
 import img from "/public/face.webp"
 
@@ -129,12 +129,9 @@ export default function About({ setActive }: IProps) {
 				}}
 				transition={{ ease: "easeInOut", duration: 0.2 }}
 			>
-				<Button
-					onClick={() => router.push("/blog")}
-					title="Перейти на страницу блога"
-				>
+				<PageLink href="/blog" title="Перейти на страницу блога">
 					Больше обо мне
-				</Button>
+				</PageLink>
 			</motion.div>
 		</section>
 	)

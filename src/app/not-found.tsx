@@ -1,6 +1,6 @@
 "use client"
 
-import Button from "@/components/ui/Button"
+import PageLink from "@/components/ui/Buttons/PageLink"
 import { motion, type Transition } from "framer-motion"
 import { useRouter } from "next/navigation"
 
@@ -39,9 +39,9 @@ export default function NotFoundPage() {
 				!
 			</p>
 
-			<Button title="Перейти на главную страницу" onClick={handleClick}>
+			<PageLink href="/" title="Перейти на главную страницу">
 				На главную!
-			</Button>
+			</PageLink>
 		</section>
 	)
 }

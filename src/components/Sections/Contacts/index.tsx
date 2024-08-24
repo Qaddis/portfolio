@@ -1,6 +1,6 @@
 "use client"
 
-import type { SetActiveType } from "@/app/page"
+import type { SetActiveType } from "@/app/MainPage"
 import Heading from "@/components/ui/Heading"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"

@@ -1,6 +1,6 @@
 "use client"
 
-import type { SectionsType, SetBurgerType } from "@/app/page"
+import type { SectionsType, SetBurgerType } from "@/app/MainPage"
 import { links } from "@/data"
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { useState } from "react"

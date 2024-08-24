@@ -1,6 +1,6 @@
 "use client"
 
-import type { SectionsType, SetBurgerType } from "@/app/page"
+import type { SectionsType, SetBurgerType } from "@/app/MainPage"
 import NavLink from "@/components/ui/NavLink"
 import { links } from "@/data"
 import { AnimatePresence, motion } from "framer-motion"

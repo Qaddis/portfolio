@@ -1,6 +1,6 @@
 "use client"
 
-import type { SetActiveType, SetModalTargetType } from "@/app/page"
+import type { SetActiveType, SetModalTargetType } from "@/app/MainPage"
 import Heading from "@/components/ui/Heading"
 import { projects } from "@/data"
 import type { Transition } from "framer-motion"

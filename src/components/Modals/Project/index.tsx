@@ -1,6 +1,6 @@
 "use client"
 
-import type { SetModalTargetType } from "@/app/page"
+import type { SetModalTargetType } from "@/app/MainPage"
 import type { IProject } from "@/data"
 import { projects } from "@/data"
 import { AnimatePresence, motion } from "framer-motion"
