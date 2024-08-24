@@ -1,0 +1,16 @@
+.overlay {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 15;
+	top: 0;
+	left: 0;
+
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+	grid-row: 100%;
+}
+
+.block {
+	background-color: var(--violet);
+}

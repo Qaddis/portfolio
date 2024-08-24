@@ -1,3 +1,4 @@
+import Overlay from "@/components/PageTransition"
 import StoreProvider from "@/redux/StoreProvider"
 import type { Metadata } from "next"
 import { Inter, Josefin_Sans, Jost } from "next/font/google"
@@ -76,7 +77,11 @@ export default function RootLayout({
 					</symbol>
 				</svg>
 
-				<StoreProvider>{children}</StoreProvider>
+				<StoreProvider>
+					{children}
+
+					<Overlay />
+				</StoreProvider>
 			</body>
 		</html>
 	)
