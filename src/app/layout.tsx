@@ -1,3 +1,4 @@
+import StoreProvider from "@/redux/StoreProvider"
 import type { Metadata } from "next"
 import { Inter, Josefin_Sans, Jost } from "next/font/google"
 import "./globals.scss"
@@ -75,7 +76,7 @@ export default function RootLayout({
 					</symbol>
 				</svg>
 
-				{children}
+				<StoreProvider>{children}</StoreProvider>
 			</body>
 		</html>
 	)
