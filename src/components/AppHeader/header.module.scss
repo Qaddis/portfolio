@@ -4,9 +4,12 @@
 	left: 0;
 	z-index: 8;
 	background-color: var(--main);
-	width: 100%;
 	padding: 0 25px;
 	border-bottom: 3px solid var(--spec);
+
+	width: 100vw;
+	overflow-x: hidden;
+	padding-right: 33px;
 }
 
 .wrapper {
@@ -125,6 +128,10 @@
 }
 
 @media (max-width: 768px) {
+	.header {
+		padding-right: 25px;
+	}
+
 	.nav {
 		display: none;
 	}

@@ -23,6 +23,9 @@ body {
 	background-color: var(--main);
 	color: var(--light);
 	font-family: var(--int-font);
+
+	width: 100vw;
+	overflow-x: hidden;
 }
 
 main {

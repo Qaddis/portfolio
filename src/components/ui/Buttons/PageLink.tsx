@@ -25,8 +25,8 @@ export default function PageLink({ children, href, title, ...props }: IProps) {
 		setTransState(true)
 		await sleep(550)
 		router.push(href)
-		await sleep(550)
-		setTransState(false)
+		// await sleep(550)
+		// setTransState(false)
 	}
 
 	return (

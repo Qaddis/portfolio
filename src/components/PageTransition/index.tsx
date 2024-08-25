@@ -1,13 +1,18 @@
 "use client"
 
-import { useAppSelector } from "@/redux/hooks"
+import { useActions, useAppSelector } from "@/redux/hooks"
 import { motion } from "framer-motion"
+import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import styles from "./overlay.module.scss"
 
 export default function Overlay() {
 	const isTransition = useAppSelector(state => state.system.isTransition)
 	const [isAnimate, setIsAnimate] = useState<boolean>(false)
+
+	const { setTransState } = useActions()
+
+	const path = usePathname()
 
 	useEffect(() => {
 		if (isTransition) {
@@ -20,6 +25,10 @@ export default function Overlay() {
 			}, 550)
 		}
 	}, [isTransition])
+
+	useEffect(() => {
+		setTransState(false)
+	}, [path])
 
 	const blocks: number[] = [0, 0.1, 0.2, 0.3]
 
