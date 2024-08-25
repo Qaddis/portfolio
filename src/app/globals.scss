@@ -74,16 +74,23 @@ main {
 }
 
 @supports selector(::-webkit-scrollbar) {
-	body::-webkit-scrollbar {
+	::-webkit-scrollbar {
 		width: 8px;
 	}
 
-	body::-webkit-scrollbar-track {
+	::-webkit-scrollbar-track {
 		background-color: var(--spec);
 	}
 
-	body::-webkit-scrollbar-thumb {
+	::-webkit-scrollbar-thumb {
 		background-color: var(--violet);
 		border-radius: 5px;
+	}
+}
+
+@supports (scrollbar-width: thin) {
+	body {
+		scrollbar-width: thin;
+		scrollbar-color: var(--violet) var(--spec);
 	}
 }

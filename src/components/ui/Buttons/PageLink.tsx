@@ -1,19 +1,21 @@
 import { useActions } from "@/redux/hooks"
 import Link, { type LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
-import { PropsWithChildren } from "react"
+import type { AnchorHTMLAttributes, PropsWithChildren } from "react"
 import styles from "./button.module.scss"
 
-interface IProps extends PropsWithChildren, LinkProps {
+interface IProps
+	extends PropsWithChildren,
+		LinkProps,
+		Exclude<AnchorHTMLAttributes<HTMLAnchorElement>, LinkProps> {
 	href: string
-	title?: string
 }
 
 async function sleep(ms: number): Promise<void> {
 	return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-export default function PageLink({ children, href, title, ...props }: IProps) {
+export default function PageLink({ children, href, ...props }: IProps) {
 	const router = useRouter()
 	const { setTransState } = useActions()
 
@@ -25,8 +27,6 @@ export default function PageLink({ children, href, title, ...props }: IProps) {
 		setTransState(true)
 		await sleep(550)
 		router.push(href)
-		// await sleep(550)
-		// setTransState(false)
 	}
 
 	return (
@@ -34,7 +34,6 @@ export default function PageLink({ children, href, title, ...props }: IProps) {
 			onClick={handleClick}
 			className={styles.button}
 			href={href}
-			title={title}
 			{...props}
 		>
 			{children}

@@ -10,10 +10,6 @@ export default function Overlay() {
 	const isTransition = useAppSelector(state => state.system.isTransition)
 	const [isAnimate, setIsAnimate] = useState<boolean>(false)
 
-	const { setTransState } = useActions()
-
-	const path = usePathname()
-
 	useEffect(() => {
 		if (isTransition) {
 			document.body.style.overflowY = "hidden"
@@ -25,6 +21,9 @@ export default function Overlay() {
 			}, 550)
 		}
 	}, [isTransition])
+
+	const path = usePathname()
+	const { setTransState } = useActions()
 
 	useEffect(() => {
 		setTransState(false)

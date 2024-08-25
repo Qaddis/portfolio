@@ -2,15 +2,13 @@
 
 import Footer from "@/components/AppFooter"
 import PageLink from "@/components/ui/Buttons/PageLink"
-import { motion } from "framer-motion"
-import { useRouter } from "next/navigation"
+import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import styles from "./blog.module.scss"
 
 import { blog } from "@/data"
+import { useState } from "react"
 
 export default function BlogPage() {
-	const router = useRouter()
-
 	const logoClick = (): void => {
 		window.scrollTo({
 			top: 0,
@@ -18,19 +16,75 @@ export default function BlogPage() {
 		})
 	}
 
+	const [isShow, setIsShow] = useState<boolean>(true)
+	const { scrollY } = useScroll()
+
+	useMotionValueEvent(scrollY, "change", latest => {
+		const previously = scrollY.getPrevious()
+
+		if (previously) {
+			if (latest > 100 && latest > previously) {
+				if (latest - previously > 5) setIsShow(false)
+			} else {
+				if (previously - latest > 5) setIsShow(true)
+			}
+		}
+	})
+
 	return (
 		<section className={styles.blog}>
-			<header className={styles.header}>
+			<motion.header
+				initial={false}
+				animate={isShow ? "show" : "hide"}
+				variants={{
+					hide: { y: "-100%" },
+					show: { y: 0 }
+				}}
+				transition={{
+					delay: isShow ? 0 : 0.25,
+					duration: 0.25,
+					ease: "easeInOut"
+				}}
+				className={styles.header}
+			>
 				<div className={styles.wrapper}>
-					<button onClick={logoClick} className={styles.logo}>
+					<motion.button
+						variants={{
+							show: { x: 0 },
+							hide: { x: "-60vw" }
+						}}
+						transition={{
+							delay: isShow ? 0.25 : 0,
+							duration: 0.25,
+							ease: "easeOut"
+						}}
+						onFocus={() => {
+							setIsShow(true)
+						}}
+						onClick={logoClick}
+						className={styles.logo}
+					>
 						<h1>Qaddis</h1>
-					</button>
+					</motion.button>
 
-					<PageLink href="/" title="Перейти на главную страницу">
-						На главную
-					</PageLink>
+					<motion.div
+						variants={{ show: { x: 0 }, hide: { x: "60vw" } }}
+						transition={{
+							delay: isShow ? 0.25 : 0,
+							duration: 0.25,
+							ease: "easeInOut"
+						}}
+					>
+						<PageLink
+							href="/"
+							onFocus={() => setIsShow(true)}
+							title="Перейти на главную страницу"
+						>
+							На главную
+						</PageLink>
+					</motion.div>
 				</div>
-			</header>
+			</motion.header>
 
 			<main className={styles.main}>
 				<div className={styles.wrapper}>
