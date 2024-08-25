@@ -159,6 +159,10 @@
 			font-size: 3rem;
 			color: var(--violet);
 			text-shadow: 2.5px 2.5px 1px #5e0ecf65;
+
+			span {
+				display: inline-block;
+			}
 		}
 
 		p {
@@ -172,6 +176,10 @@
 
 		&.--right {
 			flex-direction: row-reverse;
+
+			h4::before {
+				left: -25%;
+			}
 
 			p {
 				text-align: right;

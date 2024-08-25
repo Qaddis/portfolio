@@ -2,11 +2,16 @@
 
 import Footer from "@/components/AppFooter"
 import PageLink from "@/components/ui/Buttons/PageLink"
-import { motion, useMotionValueEvent, useScroll } from "framer-motion"
+import {
+	motion,
+	useInView,
+	useMotionValueEvent,
+	useScroll
+} from "framer-motion"
 import styles from "./blog.module.scss"
 
 import { blog } from "@/data"
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 export default function BlogPage() {
 	const logoClick = (): void => {
@@ -15,6 +20,9 @@ export default function BlogPage() {
 			behavior: "smooth"
 		})
 	}
+
+	const historyRef = useRef<HTMLDivElement>(null)
+	const historyInView = useInView(historyRef, { once: true, amount: 0.25 })
 
 	const [isShow, setIsShow] = useState<boolean>(true)
 	const { scrollY } = useScroll()
@@ -90,37 +98,58 @@ export default function BlogPage() {
 				<div className={styles.wrapper}>
 					<h2 className={styles["main-heading"]}>Блог</h2>
 
-					<section className={styles.history}>
+					<section ref={historyRef} className={styles.history}>
 						<h3 className={styles.heading}>
 							Как я стал <b>web разработчиком</b>?
 						</h3>
 
 						<div className={styles["history__container"]}>
 							{blog.map((item, index) => (
-								<article
-									key={index + 1}
+								<motion.article
+									initial={false}
+									animate={historyInView ? "show" : "hide"}
 									className={
 										index % 2 === 0
 											? styles["history__card"]
 											: `${styles["history__card"]} ${styles["--right"]}`
 									}
+									key={index + 1}
 								>
 									<motion.h4
-										initial={{ y: "-15%" }}
-										animate={{ y: "15%" }}
-										transition={{
-											duration: 1,
-											repeat: Infinity,
-											repeatType: "reverse",
-											ease: "easeInOut",
-											delay: index / 5
+										variants={{
+											hide: { scale: 0.3, opacity: 0 },
+											show: { scale: 1, opacity: 1 }
 										}}
+										transition={{ duration: 0.35, delay: index / 2 }}
 									>
-										{index + 1}
+										<motion.span
+											initial={{ y: "-15%" }}
+											animate={{ y: "15%" }}
+											transition={{
+												duration: 1,
+												repeat: Infinity,
+												repeatType: "reverse",
+												ease: "easeInOut",
+												delay: (index + 1) / 4
+											}}
+										>
+											{index + 1}
+										</motion.span>
 									</motion.h4>
 
-									<p dangerouslySetInnerHTML={{ __html: item }} />
-								</article>
+									<motion.p
+										variants={{
+											hide: { y: "25%", opacity: 0 },
+											show: { y: 0, opacity: 1 }
+										}}
+										transition={{
+											duration: 0.25,
+											ease: "easeIn",
+											delay: 0.175 + index / 2
+										}}
+										dangerouslySetInnerHTML={{ __html: item }}
+									/>
+								</motion.article>
 							))}
 						</div>
 					</section>
