@@ -1,21 +1,18 @@
 "use client"
 
-import type { SetActiveType } from "@/app/MainPage"
+import { useActions } from "@/redux/hooks"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
-import { useRouter } from "next/navigation"
 import { useEffect, useRef } from "react"
 
 import PageLink from "@/components/ui/Buttons/PageLink"
 import styles from "./about.module.scss"
 import img from "/public/face.webp"
 
-interface IProps {
-	setActive: SetActiveType
-}
+export default function About() {
+	const { setActiveSect } = useActions()
 
-export default function About({ setActive }: IProps) {
 	const transition: Transition = {
 		delay: 0.12,
 		duration: 0.35,
@@ -30,8 +27,6 @@ export default function About({ setActive }: IProps) {
 		repeatType: "mirror"
 	}
 
-	const router = useRouter()
-
 	const imageRef = useRef<HTMLDivElement>(null)
 	const infoRef = useRef<HTMLDivElement>(null)
 
@@ -44,12 +39,12 @@ export default function About({ setActive }: IProps) {
 	const buttonRef = useRef<HTMLDivElement>(null)
 	const buttonInView = useInView(buttonRef, {
 		once: true,
-		amount: 0.65,
+		amount: 0.8,
 		margin: "20px 0px 0px 0px"
 	})
 
 	useEffect(() => {
-		if (aboutInView) setActive("about")
+		if (aboutInView) setActiveSect("about")
 	}, [aboutInView])
 
 	return (

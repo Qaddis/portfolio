@@ -1,24 +1,17 @@
 "use client"
 
-import type { SectionsType, SetBurgerType } from "@/app/MainPage"
 import NavLink from "@/components/ui/NavLink"
 import { links } from "@/data"
+import { useActions, useAppSelector } from "@/redux/hooks"
 import { AnimatePresence, motion } from "framer-motion"
 import styles from "./burger.module.scss"
 
-interface IProps {
-	active: SectionsType
-	isBurgerVisible: boolean
-	setBurgerVisible: SetBurgerType
-}
+export default function BurgerMenu() {
+	const isBurgerVisible = useAppSelector(state => state.modals.burger)
+	const { setBurger } = useActions()
 
-export default function BurgerMenu({
-	active,
-	isBurgerVisible,
-	setBurgerVisible
-}: IProps) {
 	const closeModal = () => {
-		setBurgerVisible(false)
+		setBurger(false)
 	}
 
 	return (
@@ -50,13 +43,7 @@ export default function BurgerMenu({
 						className={styles.burger}
 					>
 						{links.map((item, index) => (
-							<NavLink
-								key={item.to}
-								to={item.to}
-								active={active}
-								setBurgerVisible={setBurgerVisible}
-								tabIndex={index}
-							>
+							<NavLink key={item.to} to={item.to} tabIndex={index} burger>
 								{item.text}
 							</NavLink>
 						))}

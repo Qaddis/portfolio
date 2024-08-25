@@ -1,15 +1,11 @@
 "use client"
 
-import type { SetActiveType } from "@/app/MainPage"
 import Heading from "@/components/ui/Heading"
+import { useActions } from "@/redux/hooks"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
 import styles from "./contacts.module.scss"
-
-interface IProps {
-	setActive: SetActiveType
-}
 
 type ContactType = {
 	title: string
@@ -17,7 +13,7 @@ type ContactType = {
 	svg: `#${string}-logo`
 }
 
-export default function Contacts({ setActive }: IProps) {
+export default function Contacts() {
 	const contacts: ContactType[] = [
 		{
 			title: "Моя электронная почта",
@@ -60,8 +56,10 @@ export default function Contacts({ setActive }: IProps) {
 	const contactsRef = useRef<HTMLDivElement>(null)
 	const contactsInView = useInView(contactsRef, { amount: 1 })
 
+	const { setActiveSect } = useActions()
+
 	useEffect(() => {
-		if (contactsInView) setActive("contacts")
+		if (contactsInView) setActiveSect("contacts")
 	}, [contactsInView])
 
 	return (

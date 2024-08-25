@@ -1,19 +1,17 @@
 "use client"
 
-import type { SetModalTargetType } from "@/app/MainPage"
 import type { IProject } from "@/data"
 import { projects } from "@/data"
+import { useActions, useAppSelector } from "@/redux/hooks"
 import { AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import styles from "./modal.module.scss"
 
-interface IProps {
-	target: string
-	setModalTarget: SetModalTargetType
-}
+export default function ProjectModal() {
+	const target = useAppSelector(state => state.modals.project)
+	const { setProjectTarget } = useActions()
 
-export default function ProjectModal({ target, setModalTarget }: IProps) {
 	const [isActive, setIsActive] = useState<boolean>(false)
 	const [project, setProject] = useState<IProject>()
 
@@ -31,7 +29,7 @@ export default function ProjectModal({ target, setModalTarget }: IProps) {
 	}, [target])
 
 	const closeModal = (): void => {
-		setModalTarget("none")
+		setProjectTarget("none")
 	}
 
 	return (

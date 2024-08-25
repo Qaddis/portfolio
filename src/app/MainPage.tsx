@@ -10,42 +10,26 @@ import Landing from "@/components/Sections/Landing"
 import Projects from "@/components/Sections/Projects"
 import Skills from "@/components/Sections/Skills"
 
-import type { Dispatch, SetStateAction } from "react"
-import { useState } from "react"
-
-export type SectionsType = "about" | "skills" | "projects" | "contacts"
-export type SetActiveType = Dispatch<SetStateAction<SectionsType>>
-export type SetModalTargetType = Dispatch<SetStateAction<string>>
-export type SetBurgerType = Dispatch<SetStateAction<boolean>>
-
 export default function MainPage() {
-	const [active, setActive] = useState<SectionsType>("about")
-	const [modalTarget, setModalTarget] = useState<string>("none")
-	const [isBurgerVisible, setBurgerVisible] = useState<boolean>(false)
-
 	return (
 		<>
-			<Header active={active} setBurgerVisible={setBurgerVisible} />
+			<Header />
 
-			<BurgerMenu
-				active={active}
-				isBurgerVisible={isBurgerVisible}
-				setBurgerVisible={setBurgerVisible}
-			/>
+			<BurgerMenu />
 
 			<main>
 				<div className="wrapper">
 					<Landing />
 
-					<About setActive={setActive} />
+					<About />
 
-					<Skills setActive={setActive} />
+					<Skills />
 
-					<Projects setActive={setActive} setModalTarget={setModalTarget} />
+					<Projects />
 
-					<ProjectModal target={modalTarget} setModalTarget={setModalTarget} />
+					<ProjectModal />
 
-					<Contacts setActive={setActive} />
+					<Contacts />
 				</div>
 			</main>
 

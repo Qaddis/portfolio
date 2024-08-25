@@ -1,15 +1,11 @@
 "use client"
 
-import type { SetActiveType } from "@/app/MainPage"
 import Heading from "@/components/ui/Heading"
 import { skills } from "@/data"
+import { useActions } from "@/redux/hooks"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
 import styles from "./skills.module.scss"
-
-interface ISkillsProps {
-	setActive: SetActiveType
-}
 
 interface IArticleProps {
 	img: string
@@ -18,7 +14,9 @@ interface IArticleProps {
 	inView: boolean
 }
 
-export default function Skills({ setActive }: ISkillsProps) {
+export default function Skills() {
+	const { setActiveSect } = useActions()
+
 	const articlesRef = useRef<HTMLDivElement>(null)
 	const articlesInView = useInView(articlesRef, { amount: 0.2, once: true })
 
@@ -26,7 +24,7 @@ export default function Skills({ setActive }: ISkillsProps) {
 	const skillsInView = useInView(skillsRef, { amount: 0.8 })
 
 	useEffect(() => {
-		if (skillsInView) setActive("skills")
+		if (skillsInView) setActiveSect("skills")
 	}, [skillsInView])
 
 	return (

@@ -1,24 +1,21 @@
 "use client"
 
-import type { SectionsType, SetBurgerType } from "@/app/MainPage"
 import { links } from "@/data"
+import { useActions } from "@/redux/hooks"
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { useState } from "react"
 import NavLink from "../ui/NavLink"
 import styles from "./header.module.scss"
 
-interface IProps {
-	active: SectionsType
-	setBurgerVisible: SetBurgerType
-}
-
-export default function Header({ active, setBurgerVisible }: IProps) {
+export default function Header() {
 	const logoClick = (): void => {
 		window.scrollTo({
 			top: 0,
 			behavior: "smooth"
 		})
 	}
+
+	const { setBurger } = useActions()
 
 	const [isShow, setIsShow] = useState<boolean>(true)
 	const { scrollY } = useScroll()
@@ -77,12 +74,7 @@ export default function Header({ active, setBurgerVisible }: IProps) {
 					className={styles.nav}
 				>
 					{links.map(item => (
-						<NavLink
-							key={item.to}
-							to={item.to}
-							active={active}
-							setHeader={setIsShow}
-						>
+						<NavLink key={item.to} to={item.to} setHeader={setIsShow}>
 							{item.text}
 						</NavLink>
 					))}
@@ -98,7 +90,7 @@ export default function Header({ active, setBurgerVisible }: IProps) {
 						duration: 0.25,
 						ease: "easeOut"
 					}}
-					onClick={() => setBurgerVisible(true)}
+					onClick={() => setBurger(true)}
 					className={styles["burger-btn"]}
 				>
 					<svg>

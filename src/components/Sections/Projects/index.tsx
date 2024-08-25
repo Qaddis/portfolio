@@ -1,20 +1,15 @@
 "use client"
 
-import type { SetActiveType, SetModalTargetType } from "@/app/MainPage"
 import Heading from "@/components/ui/Heading"
 import { projects } from "@/data"
+import { useActions } from "@/redux/hooks"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import styles from "./projects.module.scss"
 
-interface IProps {
-	setActive: SetActiveType
-	setModalTarget: SetModalTargetType
-}
-
-export default function Projects({ setActive, setModalTarget }: IProps) {
+export default function Projects() {
 	const [widget, setWidget] = useState<number>(0)
 
 	const handleButtonClick = (direction: "left" | "right"): void => {
@@ -44,8 +39,10 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 	const projectsRef = useRef<HTMLDivElement>(null)
 	const projectsInView = useInView(projectsRef, { amount: 0.8 })
 
+	const { setActiveSect, setProjectTarget } = useActions()
+
 	useEffect(() => {
-		if (projectsInView) setActive("projects")
+		if (projectsInView) setActiveSect("projects")
 	}, [projectsInView])
 
 	return (
@@ -85,7 +82,7 @@ export default function Projects({ setActive, setModalTarget }: IProps) {
 						{projects.map((item, index) => (
 							<motion.article
 								title={`Подробнее о ${item.title}`}
-								onClick={() => setModalTarget(item.title)}
+								onClick={() => setProjectTarget(item.title)}
 								initial={false}
 								animate={widget === index ? "show" : "hidden"}
 								variants={{
