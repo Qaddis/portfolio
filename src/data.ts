@@ -1,7 +1,5 @@
-import type { SectionsType } from "./app/MainPage"
-
 interface ILink {
-	to: SectionsType
+	to: string
 	text: string
 }
 
