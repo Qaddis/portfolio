@@ -6,7 +6,6 @@ import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useRef } from "react"
 
-import PageLink from "@/components/ui/Buttons/PageLink"
 import styles from "./about.module.scss"
 import img from "/public/face.webp"
 
@@ -113,7 +112,7 @@ export default function About() {
 					/>
 				</motion.div>
 			</div>
-
+			{/* 
 			<motion.div
 				ref={buttonRef}
 				initial={false}
@@ -127,7 +126,7 @@ export default function About() {
 				<PageLink href="/blog" title="Перейти на страницу блога">
 					Больше обо мне
 				</PageLink>
-			</motion.div>
+			</motion.div> */}
 		</section>
 	)
 }
