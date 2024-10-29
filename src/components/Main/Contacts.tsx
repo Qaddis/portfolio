@@ -1,7 +1,7 @@
 "use client"
 
 import Heading from "@/components/ui/Heading"
-import { useActions } from "@/redux/hooks"
+import { useSystemStore } from "@/stores/systemStore"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
@@ -56,7 +56,7 @@ export default function Contacts() {
 	const contactsRef = useRef<HTMLDivElement>(null)
 	const contactsInView = useInView(contactsRef, { amount: 1 })
 
-	const { setActiveSect } = useActions()
+	const setActiveSect = useSystemStore(state => state.setActiveSect)
 
 	useEffect(() => {
 		if (contactsInView) setActiveSect("contacts")

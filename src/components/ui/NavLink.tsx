@@ -1,4 +1,5 @@
-import { useActions, useAppSelector } from "@/redux/hooks"
+import { useModalsStore } from "@/stores/modalsStore"
+import { useSystemStore } from "@/stores/systemStore"
 import type { Dispatch, PropsWithChildren } from "react"
 import styles from "./link.module.scss"
 
@@ -16,8 +17,8 @@ export default function NavLink({
 	setHeader,
 	tabIndex
 }: IProps) {
-	const activeSect = useAppSelector(state => state.system.activeSection)
-	const { setBurger } = useActions()
+	const activeSect = useSystemStore(state => state.activeSection)
+	const setBurger = useModalsStore(state => state.setBurger)
 
 	const handleClick = (): void => {
 		if (to !== activeSect) {

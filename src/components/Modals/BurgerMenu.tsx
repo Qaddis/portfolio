@@ -2,13 +2,13 @@
 
 import NavLink from "@/components/ui/NavLink"
 import { links } from "@/data"
-import { useActions, useAppSelector } from "@/redux/hooks"
+import { useModalsStore } from "@/stores/modalsStore"
 import { AnimatePresence, motion } from "framer-motion"
 import styles from "./burger.module.scss"
 
 export default function BurgerMenu() {
-	const isBurgerVisible = useAppSelector(state => state.modals.burger)
-	const { setBurger } = useActions()
+	const isBurgerVisible = useModalsStore(state => state.burger)
+	const setBurger = useModalsStore(state => state.setBurger)
 
 	const closeModal = () => {
 		setBurger(false)

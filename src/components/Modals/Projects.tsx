@@ -2,15 +2,15 @@
 
 import type { IProject } from "@/data"
 import { projects } from "@/data"
-import { useActions, useAppSelector } from "@/redux/hooks"
+import { useModalsStore } from "@/stores/modalsStore"
 import { AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import styles from "./modal.module.scss"
 
 export default function ProjectModal() {
-	const target = useAppSelector(state => state.modals.project)
-	const { setProjectTarget } = useActions()
+	const target = useModalsStore(state => state.project)
+	const setProjectTarget = useModalsStore(state => state.setProject)
 
 	const [isActive, setIsActive] = useState<boolean>(false)
 	const [project, setProject] = useState<IProject>()

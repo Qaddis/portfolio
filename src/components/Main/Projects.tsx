@@ -1,6 +1,5 @@
 "use client"
 
-import { useActions } from "@/redux/hooks"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
@@ -8,6 +7,8 @@ import { useEffect, useRef, useState } from "react"
 
 import Heading from "@/components/ui/Heading"
 import { projects } from "@/data"
+import { useModalsStore } from "@/stores/modalsStore"
+import { useSystemStore } from "@/stores/systemStore"
 import styles from "./scss/projects.module.scss"
 
 export default function Projects() {
@@ -40,7 +41,9 @@ export default function Projects() {
 	const projectsRef = useRef<HTMLDivElement>(null)
 	const projectsInView = useInView(projectsRef, { amount: 0.8 })
 
-	const { setActiveSect, setProjectTarget } = useActions()
+	// const { setActiveSect, setProjectTarget } = useActions()
+	const setActiveSect = useSystemStore(state => state.setActiveSect)
+	const setProject = useModalsStore(state => state.setProject)
 
 	useEffect(() => {
 		if (projectsInView) setActiveSect("projects")
@@ -83,7 +86,7 @@ export default function Projects() {
 						{projects.map((item, index) => (
 							<motion.article
 								title={`Подробнее о ${item.title}`}
-								onClick={() => setProjectTarget(item.title)}
+								onClick={() => setProject(item.title)}
 								initial={false}
 								animate={widget === index ? "show" : "hidden"}
 								variants={{

@@ -1,7 +1,7 @@
 "use client"
 
 import { links } from "@/data"
-import { useActions } from "@/redux/hooks"
+import { useModalsStore } from "@/stores/modalsStore"
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { useState } from "react"
 import NavLink from "../ui/NavLink"
@@ -15,7 +15,7 @@ export default function Header() {
 		})
 	}
 
-	const { setBurger } = useActions()
+	const setBurger = useModalsStore(state => state.setBurger)
 
 	const [isShow, setIsShow] = useState<boolean>(true)
 	const { scrollY } = useScroll()

@@ -1,16 +1,17 @@
 "use client"
 
-import { useActions } from "@/redux/hooks"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useRef } from "react"
 
+import { useSystemStore } from "@/stores/systemStore"
+import PageLink from "../ui/PageLink"
 import styles from "./scss/about.module.scss"
 import img from "/public/face.webp"
 
 export default function About() {
-	const { setActiveSect } = useActions()
+	const setActiveSect = useSystemStore(state => state.setActiveSect)
 
 	const transition: Transition = {
 		delay: 0.12,
@@ -112,7 +113,7 @@ export default function About() {
 					/>
 				</motion.div>
 			</div>
-			{/* 
+
 			<motion.div
 				ref={buttonRef}
 				initial={false}
@@ -126,7 +127,7 @@ export default function About() {
 				<PageLink href="/blog" title="Перейти на страницу блога">
 					Больше обо мне
 				</PageLink>
-			</motion.div> */}
+			</motion.div>
 		</section>
 	)
 }

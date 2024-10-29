@@ -1,11 +1,11 @@
 "use client"
 
-import { useActions } from "@/redux/hooks"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
 
 import Heading from "@/components/ui/Heading"
 import { skills } from "@/data"
+import { useSystemStore } from "@/stores/systemStore"
 import styles from "./scss/skills.module.scss"
 
 interface IArticleProps {
@@ -16,7 +16,7 @@ interface IArticleProps {
 }
 
 export default function Skills() {
-	const { setActiveSect } = useActions()
+	const setActiveSect = useSystemStore(state => state.setActiveSect)
 
 	const articlesRef = useRef<HTMLDivElement>(null)
 	const articlesInView = useInView(articlesRef, { amount: 0.2, once: true })

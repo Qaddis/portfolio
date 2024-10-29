@@ -1,4 +1,4 @@
-import { useActions } from "@/redux/hooks"
+import { useSystemStore } from "@/stores/systemStore"
 import Link, { type LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
 import type { AnchorHTMLAttributes, PropsWithChildren } from "react"
@@ -17,14 +17,14 @@ async function sleep(ms: number): Promise<void> {
 
 export default function PageLink({ children, href, ...props }: IProps) {
 	const router = useRouter()
-	const { setTransState } = useActions()
+	const setTransition = useSystemStore(state => state.setTransition)
 
 	const handleClick = async (
 		evt: React.MouseEvent<HTMLAnchorElement, MouseEvent>
 	): Promise<void> => {
 		evt.preventDefault()
 
-		setTransState(true)
+		setTransition(true)
 		await sleep(550)
 		router.push(href)
 	}
