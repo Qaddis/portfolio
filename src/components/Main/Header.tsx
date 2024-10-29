@@ -5,7 +5,7 @@ import { useActions } from "@/redux/hooks"
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { useState } from "react"
 import NavLink from "../ui/NavLink"
-import styles from "./header.module.scss"
+import styles from "./scss/header.module.scss"
 
 export default function Header() {
 	const logoClick = (): void => {

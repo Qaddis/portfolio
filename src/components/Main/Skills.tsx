@@ -1,11 +1,12 @@
 "use client"
 
-import Heading from "@/components/ui/Heading"
-import { skills } from "@/data"
 import { useActions } from "@/redux/hooks"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
-import styles from "./skills.module.scss"
+
+import Heading from "@/components/ui/Heading"
+import { skills } from "@/data"
+import styles from "./scss/skills.module.scss"
 
 interface IArticleProps {
 	img: string

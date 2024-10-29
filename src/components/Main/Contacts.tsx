@@ -5,7 +5,7 @@ import { useActions } from "@/redux/hooks"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
-import styles from "./contacts.module.scss"
+import styles from "./scss/contacts.module.scss"
 
 type ContactType = {
 	title: string

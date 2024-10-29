@@ -1,17 +1,17 @@
 "use client"
 
-import Footer from "@/components/AppFooter"
-import PageLink from "@/components/ui/Buttons/PageLink"
 import {
 	motion,
 	useInView,
 	useMotionValueEvent,
 	useScroll
 } from "framer-motion"
-import styles from "./blog.module.scss"
-
-import { blog } from "@/data"
 import { useRef, useState } from "react"
+
+import Footer from "@/components/AppFooter"
+import PageLink from "@/components/ui/PageLink"
+import { blog } from "@/data"
+import styles from "./blog.module.scss"
 
 export default function BlogPage() {
 	const logoClick = (): void => {
@@ -155,8 +155,6 @@ export default function BlogPage() {
 					</section>
 				</div>
 			</main>
-
-			<Footer />
 		</section>
 	)
 }

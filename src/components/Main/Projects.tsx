@@ -1,13 +1,14 @@
 "use client"
 
-import Heading from "@/components/ui/Heading"
-import { projects } from "@/data"
 import { useActions } from "@/redux/hooks"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import styles from "./projects.module.scss"
+
+import Heading from "@/components/ui/Heading"
+import { projects } from "@/data"
+import styles from "./scss/projects.module.scss"
 
 export default function Projects() {
 	const [widget, setWidget] = useState<number>(0)

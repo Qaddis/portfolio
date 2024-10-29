@@ -1,14 +1,13 @@
 "use client"
 
-import Footer from "@/components/AppFooter"
-import Header from "@/components/AppHeader"
-import BurgerMenu from "@/components/Modals/Burger"
-import ProjectModal from "@/components/Modals/Project"
-import About from "@/components/Sections/About"
-import Contacts from "@/components/Sections/Contacts"
-import Landing from "@/components/Sections/Landing"
-import Projects from "@/components/Sections/Projects"
-import Skills from "@/components/Sections/Skills"
+import About from "@/components/Main/About"
+import Contacts from "@/components/Main/Contacts"
+import Header from "@/components/Main/Header"
+import Landing from "@/components/Main/Landing"
+import Projects from "@/components/Main/Projects"
+import Skills from "@/components/Main/Skills"
+import BurgerMenu from "@/components/Modals/BurgerMenu"
+import ProjectModal from "@/components/Modals/Projects"
 
 export default function MainPage() {
 	return (
@@ -32,8 +31,6 @@ export default function MainPage() {
 					<Contacts />
 				</div>
 			</main>
-
-			<Footer />
 		</>
 	)
 }

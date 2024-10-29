@@ -3,6 +3,7 @@ import StoreProvider from "@/redux/StoreProvider"
 import type { Metadata } from "next"
 import { Inter, Josefin_Sans, Jost } from "next/font/google"
 import "./globals.scss"
+import Footer from "@/components/AppFooter"
 
 const josefin = Josefin_Sans({
 	subsets: ["latin"],
@@ -82,6 +83,8 @@ export default function RootLayout({
 
 					<Overlay />
 				</StoreProvider>
+
+				<Footer />
 			</body>
 		</html>
 	)

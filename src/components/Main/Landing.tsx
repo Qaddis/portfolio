@@ -4,7 +4,7 @@ import { motion, type Transition, useInView } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useRef } from "react"
 
-import styles from "./landing.module.scss"
+import styles from "./scss/landing.module.scss"
 import gif from "/public/terminal.gif"
 
 export default function Landing() {
