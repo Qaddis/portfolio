@@ -1,6 +1,6 @@
 "use client"
 
-import type { Transition } from "framer-motion"
+import type { PanInfo, Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
@@ -13,6 +13,7 @@ import styles from "./scss/projects.module.scss"
 
 export default function Projects() {
 	const [widget, setWidget] = useState<number>(0)
+	const [dragStart, setDragStart] = useState<number>()
 
 	const handleButtonClick = (direction: "left" | "right"): void => {
 		if (direction === "right") {
@@ -22,6 +23,29 @@ export default function Projects() {
 			if (widget - 1 < 0) setWidget(projects.length - 1)
 			else setWidget(widget - 1)
 		}
+	}
+
+	const handleDragStart = (
+		evt: MouseEvent | TouchEvent | PointerEvent,
+		info: PanInfo
+	): void => {
+		setDragStart(info.point.x)
+	}
+
+	const handleDragEnd = (
+		evt: MouseEvent | TouchEvent | PointerEvent,
+		info: PanInfo
+	): void => {
+		const dragDistance = dragStart! - info.point.x
+		const threshold = 50
+
+		if (Math.abs(dragDistance) > threshold) {
+			if (dragDistance > 0 && widget + 1 <= projects.length - 1)
+				handleButtonClick("right")
+			else if (dragDistance < 0 && widget - 1 >= 0) handleButtonClick("left")
+		}
+
+		setDragStart(0)
 	}
 
 	const sliderRef = useRef<HTMLDivElement>(null)
@@ -41,7 +65,6 @@ export default function Projects() {
 	const projectsRef = useRef<HTMLDivElement>(null)
 	const projectsInView = useInView(projectsRef, { amount: 0.8 })
 
-	// const { setActiveSect, setProjectTarget } = useActions()
 	const setActiveSect = useSystemStore(state => state.setActiveSect)
 	const setProject = useModalsStore(state => state.setProject)
 
@@ -85,8 +108,10 @@ export default function Projects() {
 					>
 						{projects.map((item, index) => (
 							<motion.article
-								title={`Подробнее о ${item.title}`}
+								key={item.repo}
+								className={styles.carousel__card}
 								onClick={() => setProject(item.title)}
+								title={`Подробнее о ${item.title}`}
 								initial={false}
 								animate={widget === index ? "show" : "hidden"}
 								variants={{
@@ -97,8 +122,11 @@ export default function Projects() {
 									delay: widget === index ? 0.3 : 0,
 									duration: 0.2
 								}}
-								key={item.repo}
-								className={styles.carousel__card}
+								drag="x"
+								dragConstraints={{ left: 0, right: 0 }}
+								dragElastic={0.2}
+								onDragStart={handleDragStart}
+								onDragEnd={handleDragEnd}
 							>
 								<Image
 									src={item.img}

@@ -7,7 +7,7 @@ interface ISystemStore {
 	setTransition: (newState: boolean) => void
 }
 
-export const useSystemStore = create<ISystemStore>(set => ({
+export const useSystemStore = create<ISystemStore>()(set => ({
 	activeSection: "about",
 	isTransition: false,
 	setActiveSect: sect => set({ activeSection: sect }),

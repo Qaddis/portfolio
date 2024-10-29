@@ -7,7 +7,7 @@ interface IModalsStore {
 	setProject: (newState: string) => void
 }
 
-export const useModalsStore = create<IModalsStore>(set => ({
+export const useModalsStore = create<IModalsStore>()(set => ({
 	burger: false,
 	project: "none",
 	setBurger: newState => set({ burger: newState }),
