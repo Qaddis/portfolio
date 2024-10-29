@@ -1,0 +1,58 @@
+.history {
+	.heading {
+		margin-bottom: 25px;
+		text-align: center;
+		font-family: var(--jost-font);
+		font-size: 1.65rem;
+		font-weight: 600;
+
+		b {
+			font-weight: inherit;
+			color: var(--violet);
+		}
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+	}
+
+	&__card {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		column-gap: 15px;
+
+		h4 {
+			font-size: 3rem;
+			color: var(--violet);
+			text-shadow: 2.5px 2.5px 1px #5e0ecf65;
+
+			span {
+				display: inline-block;
+			}
+		}
+
+		p {
+			max-width: 65%;
+
+			i,
+			b {
+				color: var(--violet);
+			}
+		}
+
+		&.--right {
+			flex-direction: row-reverse;
+
+			h4::before {
+				left: -25%;
+			}
+
+			p {
+				text-align: right;
+			}
+		}
+	}
+}

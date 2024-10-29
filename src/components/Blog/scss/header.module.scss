@@ -1,0 +1,87 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 8;
+	background-color: var(--main);
+	padding: 0 25px;
+	border-bottom: 3px solid var(--spec);
+	width: 100vw;
+	padding-right: 35px;
+
+	.wrapper {
+		max-width: 1140px;
+		margin: 0 auto;
+		padding: 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.logo {
+		font-family: var(--jsf-font);
+		font-size: clamp(1.65rem, 8vw, 2.2rem);
+		letter-spacing: -1.5px;
+		color: var(--violet);
+		cursor: pointer;
+		transition: color 0.2s;
+
+		position: relative;
+		margin-left: 1rem;
+
+		h1 {
+			line-height: 0.8;
+			padding-top: 5px;
+		}
+
+		&::before {
+			content: "<";
+			display: inline-block;
+			color: var(--add);
+			position: absolute;
+			top: 0;
+			left: -0.5em;
+			height: 100%;
+			transition-property: color, left;
+			transition-duration: 0.2s;
+		}
+
+		&::after {
+			content: "/>";
+			display: inline-block;
+			color: var(--add);
+			position: absolute;
+			top: 0;
+			right: -1.15em;
+			height: 100%;
+			transition-property: color, right;
+			transition-duration: 0.2s;
+		}
+
+		&:hover {
+			&::before {
+				left: -30px;
+			}
+
+			&::after {
+				right: -50px;
+			}
+		}
+
+		&:focus-visible {
+			outline: none;
+			color: var(--yellow);
+
+			&::before,
+			&::after {
+				color: var(--light);
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		padding-right: 25px;
+	}
+}

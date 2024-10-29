@@ -1,5 +1,6 @@
 "use client"
 
+import Footer from "@/components/AppFooter"
 import About from "@/components/Main/About"
 import Contacts from "@/components/Main/Contacts"
 import Header from "@/components/Main/Header"
@@ -31,6 +32,8 @@ export default function MainPage() {
 					<Contacts />
 				</div>
 			</main>
+
+			<Footer />
 		</>
 	)
 }

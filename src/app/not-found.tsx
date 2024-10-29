@@ -2,15 +2,8 @@
 
 import PageLink from "@/components/ui/PageLink"
 import { motion, type Transition } from "framer-motion"
-import { useRouter } from "next/navigation"
 
 export default function NotFoundPage() {
-	const router = useRouter()
-
-	const handleClick = (): void => {
-		router.replace("/")
-	}
-
 	const transition: Transition = {
 		duration: 2,
 		repeat: Infinity,
@@ -31,10 +24,6 @@ export default function NotFoundPage() {
 			</motion.h1>
 			<p>
 				Страница не найдена <b>┐(‘～` )┌</b>
-				<span title="Перейти на главную страницу" onClick={handleClick}>
-					страница
-				</span>
-				!
 			</p>
 
 			<PageLink href="/" title="Перейти на главную страницу">

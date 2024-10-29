@@ -1,4 +1,3 @@
-import Footer from "@/components/AppFooter"
 import Overlay from "@/components/PageTransition"
 import type { Metadata } from "next"
 import { Inter, Josefin_Sans, Jost } from "next/font/google"
@@ -80,8 +79,6 @@ export default function RootLayout({
 				{children}
 
 				<Overlay />
-
-				<Footer />
 			</body>
 		</html>
 	)

@@ -12,4 +12,11 @@
 
 .block {
 	background-color: var(--violet);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--jsf-font);
+	font-size: clamp(3rem, 6vw, 6rem);
+	color: #3a0881;
+	text-transform: uppercase;
 }
