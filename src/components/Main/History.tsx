@@ -1,7 +1,7 @@
 import { blog } from "@/data"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import styles from "./scss/history.module.scss"
+import styles from "./history.module.scss"
 
 export default function History() {
 	const historyRef = useRef<HTMLDivElement>(null)

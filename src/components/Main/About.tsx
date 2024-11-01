@@ -5,8 +5,7 @@ import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { useRef } from "react"
 
-import PageLink from "../ui/PageLink"
-import styles from "./scss/about.module.scss"
+import styles from "./about.module.scss"
 import img from "/public/face.webp"
 
 export default function About() {
@@ -29,13 +28,6 @@ export default function About() {
 
 	const imageInView = useInView(imageRef, { once: true, amount: 0.45 })
 	const infoInView = useInView(infoRef, { once: true, amount: 0.45 })
-
-	const buttonRef = useRef<HTMLDivElement>(null)
-	const buttonInView = useInView(buttonRef, {
-		once: true,
-		amount: 0.8,
-		margin: "20px 0px 0px 0px"
-	})
 
 	return (
 		<section className={styles.about}>
@@ -103,21 +95,6 @@ export default function About() {
 					/>
 				</motion.div>
 			</div>
-
-			<motion.div
-				ref={buttonRef}
-				initial={false}
-				animate={buttonInView ? "show" : "hide"}
-				variants={{
-					hide: { opacity: 0, translateY: "50%" },
-					show: { opacity: 1, translateY: 0 }
-				}}
-				transition={{ ease: "easeInOut", duration: 0.2 }}
-			>
-				<PageLink href="/blog" title="Перейти на страницу блога">
-					Больше обо мне
-				</PageLink>
-			</motion.div>
 		</section>
 	)
 }

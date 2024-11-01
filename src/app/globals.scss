@@ -28,14 +28,25 @@ body {
 	overflow-x: hidden;
 }
 
-main {
-	margin-top: 86px;
+.main {
+	margin-top: 79px;
 	padding: 0 25px;
 }
 
 .wrapper {
 	max-width: 1140px;
 	margin: 0 auto;
+}
+
+.main-page {
+	padding-bottom: 50px;
+}
+
+.skills-page,
+.projects-page,
+.contacts-page {
+	padding: 50px 0;
+	min-height: calc(100vh - 271px);
 }
 
 .not-found {
@@ -92,5 +103,11 @@ main {
 	body {
 		scrollbar-width: thin;
 		scrollbar-color: var(--violet) var(--spec);
+	}
+}
+
+@media (max-width: 768px) {
+	.main {
+		margin-top: 85px;
 	}
 }

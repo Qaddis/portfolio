@@ -7,9 +7,8 @@ import { useSetAtom } from "jotai"
 import Image from "next/image"
 import { useRef, useState } from "react"
 
-import Heading from "@/components/ui/Heading"
 import { projects } from "@/data"
-import styles from "./scss/projects.module.scss"
+import styles from "./projects.module.scss"
 
 export default function Projects() {
 	const setProject = useSetAtom(projectAtom)
@@ -66,8 +65,6 @@ export default function Projects() {
 
 	return (
 		<section className={styles.projects}>
-			<Heading>Проекты</Heading>
-
 			<div className={styles.carousel}>
 				<motion.button
 					ref={buttonsRef}

@@ -3,9 +3,8 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
-import Heading from "@/components/ui/Heading"
 import { skills } from "@/data"
-import styles from "./scss/skills.module.scss"
+import styles from "./skills.module.scss"
 
 interface IArticleProps {
 	img: string
@@ -20,8 +19,6 @@ export default function Skills() {
 
 	return (
 		<section className={styles.skills}>
-			<Heading>Навыки</Heading>
-
 			<div ref={articlesRef} className={styles.articles}>
 				{skills.map(item => (
 					<Article

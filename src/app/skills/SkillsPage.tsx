@@ -1,16 +1,14 @@
 "use client"
 
-import History from "@/components/Blog/History"
-import styles from "./skills.module.scss"
+import Skills from "@/components/Skills/Skills"
+import Heading from "@/components/ui/Heading"
 
 export default function SkillsPage() {
 	return (
-		<>
-			<section className="skills">
-				<h2 className={styles["main-heading"]}>Блог</h2>
+		<section className="skills-page">
+			<Heading>Навыки</Heading>
 
-				<History />
-			</section>
-		</>
+			<Skills />
+		</section>
 	)
 }

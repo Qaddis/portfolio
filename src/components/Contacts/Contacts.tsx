@@ -4,8 +4,7 @@ import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
-import Heading from "@/components/ui/Heading"
-import styles from "./scss/contacts.module.scss"
+import styles from "./contacts.module.scss"
 
 type ContactType = {
 	title: string
@@ -55,8 +54,6 @@ export default function Contacts() {
 
 	return (
 		<section className={styles.contacts}>
-			<Heading>Контакты</Heading>
-
 			<p>
 				Если вы хотите связаться со мной для обсуждения проекта, предложения
 				сотрудничества или задать вопрос, воспользуйтесь контактами, указанными

@@ -6,8 +6,8 @@ import { useState } from "react"
 
 import { links } from "@/data"
 import { burgerAtom } from "@/store/store"
-import NavLink from "../ui/NavLink"
-import styles from "./scss/header.module.scss"
+import styles from "./header.module.scss"
+import NavLink from "./ui/NavLink"
 
 export default function Header() {
 	const logoClick = (): void => {

@@ -1,26 +1,22 @@
 "use client"
 
 import About from "@/components/Main/About"
-import Contacts from "@/components/Main/Contacts"
+import History from "@/components/Main/History"
 import Landing from "@/components/Main/Landing"
-import Projects from "@/components/Main/Projects"
-import Skills from "@/components/Main/Skills"
-import ProjectModal from "@/components/Modals/Projects"
+import styles from "./main.module.scss"
 
 export default function MainPage() {
 	return (
-		<section className="home">
+		<section className="main-page">
 			<Landing />
 
 			<About />
 
-			<Skills />
+			<div className={styles["heading-wrapper"]}>
+				<h2 className={styles["blog-heading"]}>Блог</h2>
+			</div>
 
-			<Projects />
-
-			<ProjectModal />
-
-			<Contacts />
+			<History />
 		</section>
 	)
 }
