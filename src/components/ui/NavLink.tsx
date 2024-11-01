@@ -1,5 +1,5 @@
-import { useModalsStore } from "@/stores/modalsStore"
-import { useSystemStore } from "@/stores/systemStore"
+import { activeSectionAtom, burgerAtom } from "@/store/store"
+import { useAtomValue, useSetAtom } from "jotai"
 import type { Dispatch, PropsWithChildren } from "react"
 import styles from "./link.module.scss"
 
@@ -17,8 +17,8 @@ export default function NavLink({
 	setHeader,
 	tabIndex
 }: IProps) {
-	const activeSect = useSystemStore(state => state.activeSection)
-	const setBurger = useModalsStore(state => state.setBurger)
+	const activeSect = useAtomValue(activeSectionAtom)
+	const setBurger = useSetAtom(burgerAtom)
 
 	const handleClick = (): void => {
 		if (to !== activeSect) {

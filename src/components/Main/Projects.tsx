@@ -1,14 +1,14 @@
 "use client"
 
+import { activeSectionAtom, projectAtom } from "@/store/store"
 import type { PanInfo, Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
+import { useSetAtom } from "jotai"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 
 import Heading from "@/components/ui/Heading"
 import { projects } from "@/data"
-import { useModalsStore } from "@/stores/modalsStore"
-import { useSystemStore } from "@/stores/systemStore"
 import styles from "./scss/projects.module.scss"
 
 export default function Projects() {
@@ -65,8 +65,8 @@ export default function Projects() {
 	const projectsRef = useRef<HTMLDivElement>(null)
 	const projectsInView = useInView(projectsRef, { amount: 0.8 })
 
-	const setActiveSect = useSystemStore(state => state.setActiveSect)
-	const setProject = useModalsStore(state => state.setProject)
+	const setActiveSect = useSetAtom(activeSectionAtom)
+	const setProject = useSetAtom(projectAtom)
 
 	useEffect(() => {
 		if (projectsInView) setActiveSect("projects")

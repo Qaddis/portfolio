@@ -1,9 +1,11 @@
 "use client"
 
-import { links } from "@/data"
-import { useModalsStore } from "@/stores/modalsStore"
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
+import { useSetAtom } from "jotai"
 import { useState } from "react"
+
+import { links } from "@/data"
+import { burgerAtom } from "@/store/store"
 import NavLink from "../ui/NavLink"
 import styles from "./scss/header.module.scss"
 
@@ -15,7 +17,7 @@ export default function Header() {
 		})
 	}
 
-	const setBurger = useModalsStore(state => state.setBurger)
+	const setBurger = useSetAtom(burgerAtom)
 
 	const [isShow, setIsShow] = useState<boolean>(true)
 	const { scrollY } = useScroll()

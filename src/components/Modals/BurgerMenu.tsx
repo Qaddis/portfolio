@@ -1,14 +1,15 @@
 "use client"
 
+import { AnimatePresence, motion } from "framer-motion"
+import { useAtom } from "jotai"
+
 import NavLink from "@/components/ui/NavLink"
 import { links } from "@/data"
-import { useModalsStore } from "@/stores/modalsStore"
-import { AnimatePresence, motion } from "framer-motion"
+import { burgerAtom } from "@/store/store"
 import styles from "./burger.module.scss"
 
 export default function BurgerMenu() {
-	const isBurgerVisible = useModalsStore(state => state.burger)
-	const setBurger = useModalsStore(state => state.setBurger)
+	const [isBurgerVisible, setBurger] = useAtom(burgerAtom)
 
 	const closeModal = () => {
 		setBurger(false)

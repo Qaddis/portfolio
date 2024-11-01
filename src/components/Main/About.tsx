@@ -2,16 +2,17 @@
 
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
+import { useSetAtom } from "jotai"
 import Image from "next/image"
 import { useEffect, useRef } from "react"
 
-import { useSystemStore } from "@/stores/systemStore"
+import { activeSectionAtom } from "@/store/store"
 import PageLink from "../ui/PageLink"
 import styles from "./scss/about.module.scss"
 import img from "/public/face.webp"
 
 export default function About() {
-	const setActiveSect = useSystemStore(state => state.setActiveSect)
+	const setActiveSect = useSetAtom(activeSectionAtom)
 
 	const transition: Transition = {
 		delay: 0.12,

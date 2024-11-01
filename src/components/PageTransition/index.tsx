@@ -1,13 +1,14 @@
 "use client"
 
-import { useSystemStore } from "@/stores/systemStore"
+import { isTransitionAtom } from "@/store/store"
 import { motion } from "framer-motion"
+import { useAtom } from "jotai"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import styles from "./overlay.module.scss"
 
 export default function Overlay() {
-	const isTransition = useSystemStore(state => state.isTransition)
+	const [isTransition, setTransition] = useAtom(isTransitionAtom)
 	const [isAnimate, setIsAnimate] = useState<boolean>(false)
 
 	useEffect(() => {
@@ -23,7 +24,6 @@ export default function Overlay() {
 	}, [isTransition])
 
 	const path = usePathname()
-	const setTransition = useSystemStore(state => state.setTransition)
 
 	useEffect(() => {
 		setTransition(false)

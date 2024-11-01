@@ -1,29 +1,27 @@
 "use client"
 
-import type { IProject } from "@/data"
-import { projects } from "@/data"
-import { useModalsStore } from "@/stores/modalsStore"
 import { AnimatePresence, motion } from "framer-motion"
+import { useAtom } from "jotai"
 import Image from "next/image"
 import { useEffect, useState } from "react"
+
+import type { IProject } from "@/data"
+import { projects } from "@/data"
+import { projectAtom } from "@/store/store"
 import styles from "./modal.module.scss"
 
 export default function ProjectModal() {
-	const target = useModalsStore(state => state.project)
-	const setProjectTarget = useModalsStore(state => state.setProject)
-
-	const [isActive, setIsActive] = useState<boolean>(false)
+	const [target, setProjectTarget] = useAtom(projectAtom)
 	const [project, setProject] = useState<IProject>()
 
 	useEffect(() => {
 		const data = projects.find(item => item.title === target)
 
 		if (data) {
-			setIsActive(true)
 			setProject(data)
 			document.body.style.overflowY = "hidden"
 		} else {
-			setIsActive(false)
+			setProject(undefined)
 			document.body.style.overflowY = "scroll"
 		}
 	}, [target])
@@ -34,7 +32,7 @@ export default function ProjectModal() {
 
 	return (
 		<AnimatePresence>
-			{isActive && (
+			{project != undefined && (
 				<motion.section
 					initial="hidden"
 					animate="show"

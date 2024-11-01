@@ -1,10 +1,12 @@
 "use client"
 
-import Heading from "@/components/ui/Heading"
-import { useSystemStore } from "@/stores/systemStore"
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
+import { useSetAtom } from "jotai"
 import { useEffect, useRef } from "react"
+
+import Heading from "@/components/ui/Heading"
+import { activeSectionAtom } from "@/store/store"
 import styles from "./scss/contacts.module.scss"
 
 type ContactType = {
@@ -56,7 +58,7 @@ export default function Contacts() {
 	const contactsRef = useRef<HTMLDivElement>(null)
 	const contactsInView = useInView(contactsRef, { amount: 1 })
 
-	const setActiveSect = useSystemStore(state => state.setActiveSect)
+	const setActiveSect = useSetAtom(activeSectionAtom)
 
 	useEffect(() => {
 		if (contactsInView) setActiveSect("contacts")

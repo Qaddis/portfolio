@@ -1,4 +1,5 @@
-import { useSystemStore } from "@/stores/systemStore"
+import { isTransitionAtom } from "@/store/store"
+import { useSetAtom } from "jotai"
 import Link, { type LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
 import type { AnchorHTMLAttributes, PropsWithChildren } from "react"
@@ -17,7 +18,7 @@ async function sleep(ms: number): Promise<void> {
 
 export default function PageLink({ children, href, ...props }: IProps) {
 	const router = useRouter()
-	const setTransition = useSystemStore(state => state.setTransition)
+	const setTransition = useSetAtom(isTransitionAtom)
 
 	const handleClick = async (
 		evt: React.MouseEvent<HTMLAnchorElement, MouseEvent>
