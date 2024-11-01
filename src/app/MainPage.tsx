@@ -1,39 +1,26 @@
 "use client"
 
-import Footer from "@/components/AppFooter"
 import About from "@/components/Main/About"
 import Contacts from "@/components/Main/Contacts"
-import Header from "@/components/Main/Header"
 import Landing from "@/components/Main/Landing"
 import Projects from "@/components/Main/Projects"
 import Skills from "@/components/Main/Skills"
-import BurgerMenu from "@/components/Modals/BurgerMenu"
 import ProjectModal from "@/components/Modals/Projects"
 
 export default function MainPage() {
 	return (
-		<>
-			<Header />
+		<section className="home">
+			<Landing />
 
-			<BurgerMenu />
+			<About />
 
-			<main>
-				<div className="wrapper">
-					<Landing />
+			<Skills />
 
-					<About />
+			<Projects />
 
-					<Skills />
+			<ProjectModal />
 
-					<Projects />
-
-					<ProjectModal />
-
-					<Contacts />
-				</div>
-			</main>
-
-			<Footer />
-		</>
+			<Contacts />
+		</section>
 	)
 }

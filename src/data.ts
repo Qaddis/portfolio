@@ -1,4 +1,4 @@
-interface ILink {
+type Link = {
 	to: string
 	text: string
 }
@@ -17,11 +17,23 @@ export interface IProject {
 	repo: string
 }
 
-export const links: ILink[] = [
-	{ to: "about", text: "Обо мне" },
-	{ to: "skills", text: "Навыки" },
-	{ to: "projects", text: "Проекты" },
-	{ to: "contacts", text: "Контакты" }
+export const links: Link[] = [
+	{
+		to: "/",
+		text: "Главная"
+	},
+	{
+		to: "/skills",
+		text: "Навыки"
+	},
+	{
+		to: "/projects",
+		text: "Проекты"
+	},
+	{
+		to: "/contacts",
+		text: "Контакты"
+	}
 ]
 
 export const skills: ISkill[] = [

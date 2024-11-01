@@ -76,7 +76,7 @@ export default function Header() {
 					className={styles.nav}
 				>
 					{links.map(item => (
-						<NavLink key={item.to} to={item.to} setHeader={setIsShow}>
+						<NavLink key={item.to} href={item.to} setHeader={setIsShow}>
 							{item.text}
 						</NavLink>
 					))}

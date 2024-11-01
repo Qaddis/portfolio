@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import BlogPage from "./BlogPage"
+import SkillsPage from "./SkillsPage"
 
 export const metadata: Metadata = {
 	description:
@@ -15,5 +15,5 @@ export const metadata: Metadata = {
 }
 
 export default function Blog() {
-	return <BlogPage />
+	return <SkillsPage />
 }

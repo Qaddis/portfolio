@@ -1,12 +1,10 @@
 "use client"
 
 import { motion, useInView } from "framer-motion"
-import { useSetAtom } from "jotai"
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 
 import Heading from "@/components/ui/Heading"
 import { skills } from "@/data"
-import { activeSectionAtom } from "@/store/store"
 import styles from "./scss/skills.module.scss"
 
 interface IArticleProps {
@@ -17,20 +15,11 @@ interface IArticleProps {
 }
 
 export default function Skills() {
-	const setActiveSect = useSetAtom(activeSectionAtom)
-
 	const articlesRef = useRef<HTMLDivElement>(null)
 	const articlesInView = useInView(articlesRef, { amount: 0.2, once: true })
 
-	const skillsRef = useRef<HTMLDivElement>(null)
-	const skillsInView = useInView(skillsRef, { amount: 0.8 })
-
-	useEffect(() => {
-		if (skillsInView) setActiveSect("skills")
-	}, [skillsInView])
-
 	return (
-		<section id="skills" ref={skillsRef} className={styles.skills}>
+		<section className={styles.skills}>
 			<Heading>Навыки</Heading>
 
 			<div ref={articlesRef} className={styles.articles}>

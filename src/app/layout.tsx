@@ -1,3 +1,6 @@
+import Footer from "@/components/AppFooter"
+import Header from "@/components/Main/Header"
+import BurgerMenu from "@/components/Modals/BurgerMenu"
 import Overlay from "@/components/PageTransition"
 import type { Metadata } from "next"
 import { Inter, Josefin_Sans, Jost } from "next/font/google"
@@ -76,9 +79,17 @@ export default function RootLayout({
 					</symbol>
 				</svg>
 
-				{children}
+				<Header />
+
+				<main className="main">
+					<div className="wrapper">{children}</div>
+				</main>
+
+				<BurgerMenu />
 
 				<Overlay />
+
+				<Footer />
 			</body>
 		</html>
 	)

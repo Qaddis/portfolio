@@ -1,17 +1,19 @@
 "use client"
 
-import { activeSectionAtom, projectAtom } from "@/store/store"
+import { projectAtom } from "@/store/store"
 import type { PanInfo, Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import { useSetAtom } from "jotai"
 import Image from "next/image"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 
 import Heading from "@/components/ui/Heading"
 import { projects } from "@/data"
 import styles from "./scss/projects.module.scss"
 
 export default function Projects() {
+	const setProject = useSetAtom(projectAtom)
+
 	const [widget, setWidget] = useState<number>(0)
 	const [dragStart, setDragStart] = useState<number>()
 
@@ -62,18 +64,8 @@ export default function Projects() {
 		ease: "easeIn"
 	}
 
-	const projectsRef = useRef<HTMLDivElement>(null)
-	const projectsInView = useInView(projectsRef, { amount: 0.8 })
-
-	const setActiveSect = useSetAtom(activeSectionAtom)
-	const setProject = useSetAtom(projectAtom)
-
-	useEffect(() => {
-		if (projectsInView) setActiveSect("projects")
-	}, [projectsInView])
-
 	return (
-		<section id="projects" ref={projectsRef} className={styles.projects}>
+		<section className={styles.projects}>
 			<Heading>Проекты</Heading>
 
 			<div className={styles.carousel}>

@@ -44,7 +44,7 @@ export default function BurgerMenu() {
 						className={styles.burger}
 					>
 						{links.map((item, index) => (
-							<NavLink key={item.to} to={item.to} tabIndex={index} burger>
+							<NavLink key={item.to} href={item.to} tabIndex={index} isBurger>
 								{item.text}
 							</NavLink>
 						))}

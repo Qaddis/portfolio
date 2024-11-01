@@ -2,18 +2,14 @@
 
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
-import { useSetAtom } from "jotai"
 import Image from "next/image"
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 
-import { activeSectionAtom } from "@/store/store"
 import PageLink from "../ui/PageLink"
 import styles from "./scss/about.module.scss"
 import img from "/public/face.webp"
 
 export default function About() {
-	const setActiveSect = useSetAtom(activeSectionAtom)
-
 	const transition: Transition = {
 		delay: 0.12,
 		duration: 0.35,
@@ -34,9 +30,6 @@ export default function About() {
 	const imageInView = useInView(imageRef, { once: true, amount: 0.45 })
 	const infoInView = useInView(infoRef, { once: true, amount: 0.45 })
 
-	const aboutRef = useRef<HTMLDivElement>(null)
-	const aboutInView = useInView(aboutRef, { once: false, amount: 1 })
-
 	const buttonRef = useRef<HTMLDivElement>(null)
 	const buttonInView = useInView(buttonRef, {
 		once: true,
@@ -44,12 +37,8 @@ export default function About() {
 		margin: "20px 0px 0px 0px"
 	})
 
-	useEffect(() => {
-		if (aboutInView) setActiveSect("about")
-	}, [aboutInView])
-
 	return (
-		<section id="about" ref={aboutRef} className={styles.about}>
+		<section className={styles.about}>
 			<div className={styles.cover}>
 				<div ref={infoRef} className={styles.info}>
 					<motion.h2

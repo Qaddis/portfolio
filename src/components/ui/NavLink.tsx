@@ -1,47 +1,65 @@
-import { activeSectionAtom, burgerAtom } from "@/store/store"
-import { useAtomValue, useSetAtom } from "jotai"
+import { burgerAtom, isTransitionAtom } from "@/store/store"
+import { useSetAtom } from "jotai"
+import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
 import type { Dispatch, PropsWithChildren } from "react"
 import styles from "./link.module.scss"
 
 interface IProps extends PropsWithChildren {
-	to: string
-	burger?: boolean
+	href: string
+	isBurger?: boolean
 	tabIndex?: number
 	setHeader?: Dispatch<boolean>
 }
 
+async function sleep(ms: number): Promise<void> {
+	return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 export default function NavLink({
 	children,
-	to,
-	burger,
+	href,
+	isBurger,
 	setHeader,
 	tabIndex
 }: IProps) {
-	const activeSect = useAtomValue(activeSectionAtom)
+	const path = usePathname()
+	const router = useRouter()
 	const setBurger = useSetAtom(burgerAtom)
+	const setTransition = useSetAtom(isTransitionAtom)
 
-	const handleClick = (): void => {
-		if (to !== activeSect) {
-			const target = document.getElementById(to)
-			target?.scrollIntoView({
-				behavior: "smooth",
-				block: "center"
-			})
-			if (burger) setBurger(false)
+	const handleClick = async (
+		evt: React.MouseEvent<HTMLAnchorElement>
+	): Promise<void> => {
+		evt.preventDefault()
+
+		if (href !== path) {
+			if (isBurger) {
+				setBurger(false)
+				await sleep(150)
+				setTransition(true)
+				await sleep(550)
+				router.push(href)
+			} else {
+				setTransition(true)
+				await sleep(550)
+				router.push(href)
+			}
 		}
 	}
 
 	return (
-		<button
-			title={`Перейти к разделу "${children}"`}
+		<Link
+			href={href}
+			title={`Перейти на страницу "${children}"`}
 			onClick={handleClick}
 			className={
-				activeSect === to ? `${styles.link} ${styles.active}` : styles.link
+				href === path ? `${styles.link} ${styles.active}` : styles.link
 			}
 			onFocus={() => setHeader && setHeader(true)}
 			tabIndex={tabIndex}
 		>
 			{children}
-		</button>
+		</Link>
 	)
 }

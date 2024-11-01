@@ -2,11 +2,9 @@
 
 import type { Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
-import { useSetAtom } from "jotai"
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 
 import Heading from "@/components/ui/Heading"
-import { activeSectionAtom } from "@/store/store"
 import styles from "./scss/contacts.module.scss"
 
 type ContactType = {
@@ -55,17 +53,8 @@ export default function Contacts() {
 		margin: "50% 0px 0px 0px"
 	})
 
-	const contactsRef = useRef<HTMLDivElement>(null)
-	const contactsInView = useInView(contactsRef, { amount: 1 })
-
-	const setActiveSect = useSetAtom(activeSectionAtom)
-
-	useEffect(() => {
-		if (contactsInView) setActiveSect("contacts")
-	}, [contactsInView])
-
 	return (
-		<section id="contacts" ref={contactsRef} className={styles.contacts}>
+		<section className={styles.contacts}>
 			<Heading>Контакты</Heading>
 
 			<p>
