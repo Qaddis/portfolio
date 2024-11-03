@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { useAtom } from "jotai"
 
 import NavLink from "@/components/ui/NavLink"
-import { links } from "@/data"
+import { links } from "@/constants/navigation"
 import { burgerAtom } from "@/store/store"
 import styles from "./burger.module.scss"
 

@@ -1,13 +1,17 @@
-type Link = {
-	to: string
-	text: string
-}
-
 interface ISkill {
 	title: string
-	image: string
-	color: `#${string}`
+	category: SkillsCategoryType
 }
+
+export const skillsCategories = [
+	"База",
+	"Стилизация",
+	"Продвинутое",
+	"Стейт-менеджеры",
+	"Бэкенд"
+] as const
+
+type SkillsCategoryType = (typeof skillsCategories)[number]
 
 export interface IProject {
 	title: string
@@ -17,85 +21,70 @@ export interface IProject {
 	repo: string
 }
 
-export const links: Link[] = [
-	{
-		to: "/",
-		text: "Главная"
-	},
-	{
-		to: "/skills",
-		text: "Навыки"
-	},
-	{
-		to: "/projects",
-		text: "Проекты"
-	},
-	{
-		to: "/contacts",
-		text: "Контакты"
-	}
-]
-
 export const skills: ISkill[] = [
 	{
 		title: "HTML",
-		image: "/icons/html.svg",
-		color: "#ff6c39"
+		category: "База"
 	},
 	{
 		title: "CSS",
-		image: "/icons/css.svg",
-		color: "#347dc6"
+		category: "База"
 	},
 	{
 		title: "JavaScript",
-		image: "/icons/javascript.svg",
-		color: "#f0db4f"
+		category: "База"
 	},
 	{
 		title: "Bootstrap",
-		image: "/icons/bootstrap.svg",
-		color: "#7910f2"
+		category: "Стилизация"
 	},
 	{
 		title: "SASS",
-		image: "/icons/sass.svg",
-		color: "#cf649a"
+		category: "Стилизация"
 	},
 	{
 		title: "TypeScript",
-		image: "/icons/typescript.svg",
-		color: "#2f74c0"
+		category: "Продвинутое"
 	},
 	{
 		title: "React",
-		image: "/icons/react.svg",
-		color: "#63dafb"
+		category: "Продвинутое"
 	},
 	{
-		title: "Next.js",
-		image: "/icons/nextjs.svg",
-		color: "#ffffff"
+		title: "Next",
+		category: "Продвинутое"
 	},
 	{
-		title: "Vue.js",
-		image: "/icons/vuejs.svg",
-		color: "#3fb27f"
+		title: "Vue",
+		category: "Продвинутое"
+	},
+	{
+		title: "Redux",
+		category: "Стейт-менеджеры"
+	},
+	{
+		title: "Zustand",
+		category: "Стейт-менеджеры"
+	},
+	{
+		title: "Jotai",
+		category: "Стейт-менеджеры"
+	},
+	{
+		title: "Pinia",
+		category: "Стейт-менеджеры"
 	},
 	{
 		title: "Node.js",
-		image: "/icons/nodejs.svg",
-		color: "#65b648"
-	},
-	{
-		title: "MongoDB",
-		image: "/icons/mongodb.svg",
-		color: "#58aa50"
+		category: "Бэкенд"
 	},
 	{
 		title: "Express",
-		image: "/icons/express.svg",
-		color: "#ffffff"
+		category: "Бэкенд"
+	},
+	{
+		title: "MongoDB",
+		category: "Бэкенд"
 	}
 ]
 

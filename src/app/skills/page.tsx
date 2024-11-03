@@ -1,16 +1,17 @@
 import type { Metadata } from "next"
 import SkillsPage from "./SkillsPage"
 
+const description: string =
+	"Hi! I'm Qaddis, a front-end web developer. On this page you can learn about the technologies I use."
+
 export const metadata: Metadata = {
-	description:
-		"Hi! I'm Qaddis, a full-stack web developer. If you want to know more about me and my journey as a web developer, then welcome to my blog page!",
-	title: "Blog",
+	title: "Skills",
+	description: description,
 	openGraph: {
 		type: "website",
-		title: "Blog | By Qaddis",
-		description:
-			"Hi! I'm Qaddis, a full-stack web developer. If you want to know more about me and my journey as a web developer, then welcome to my blog page!",
-		url: "https://qaddis.vercel.app/blog"
+		title: "Skills | By Qaddis",
+		description: description,
+		url: "https://qaddis.vercel.app/skills"
 	}
 }
 

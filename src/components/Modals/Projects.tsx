@@ -5,8 +5,8 @@ import { useAtom } from "jotai"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
-import type { IProject } from "@/data"
-import { projects } from "@/data"
+import type { IProject } from "@/constants/data"
+import { projects } from "@/constants/data"
 import { projectAtom } from "@/store/store"
 import styles from "./modal.module.scss"
 

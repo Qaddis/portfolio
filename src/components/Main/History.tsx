@@ -1,4 +1,4 @@
-import { blog } from "@/data"
+import { blog } from "@/constants/data"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import styles from "./history.module.scss"

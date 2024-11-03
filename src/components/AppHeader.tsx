@@ -4,7 +4,7 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { useSetAtom } from "jotai"
 import { useState } from "react"
 
-import { links } from "@/data"
+import { links } from "@/constants/navigation"
 import { burgerAtom } from "@/store/store"
 import styles from "./header.module.scss"
 import NavLink from "./ui/NavLink"

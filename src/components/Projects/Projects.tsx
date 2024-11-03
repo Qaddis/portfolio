@@ -7,7 +7,7 @@ import { useSetAtom } from "jotai"
 import Image from "next/image"
 import { useRef, useState } from "react"
 
-import { projects } from "@/data"
+import { projects } from "@/constants/data"
 import styles from "./projects.module.scss"
 
 export default function Projects() {
