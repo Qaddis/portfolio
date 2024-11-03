@@ -16,7 +16,7 @@ async function sleep(ms: number): Promise<void> {
 	return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-export default function PageLink({ children, href, ...props }: IProps) {
+export default function NavButton({ children, href, ...props }: IProps) {
 	const router = useRouter()
 	const setTransition = useSetAtom(isTransitionAtom)
 
