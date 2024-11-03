@@ -21,6 +21,35 @@ export interface IProject {
 	repo: string
 }
 
+type ContactType = {
+	title: string
+	link: string
+	svg: `#${string}-logo`
+}
+
+export const contacts: ContactType[] = [
+	{
+		title: "Моя электронная почта",
+		link: "mailto:svyatoslavb1107@gmail.com",
+		svg: "#email-logo"
+	},
+	{
+		title: "Мой профиль в ВКонтакте",
+		link: "https://vk.com/qaddis",
+		svg: "#vk-logo"
+	},
+	{
+		title: "Мой профиль в Telegram",
+		link: "https://t.me/qaddis",
+		svg: "#telegram-logo"
+	},
+	{
+		title: "Мой профиль на Github",
+		link: "https://github.com/Qaddis",
+		svg: "#github-logo"
+	}
+]
+
 export const skills: ISkill[] = [
 	{
 		title: "HTML",

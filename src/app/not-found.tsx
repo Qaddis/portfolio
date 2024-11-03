@@ -1,6 +1,6 @@
 "use client"
 
-import PageLink from "@/components/ui/PageLink"
+import PageLink from "@/components/ui/NavButton"
 import { motion, type Transition } from "framer-motion"
 
 export default function NotFoundPage() {

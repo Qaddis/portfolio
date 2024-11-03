@@ -1,15 +1,5 @@
-.contacts {
-	p {
-		text-align: center;
-	}
-
-	h3 {
-		font-family: var(--jost-font);
-		font-size: 1.35rem;
-		color: var(--yellow);
-		line-height: 0.95;
-		text-align: center;
-	}
+.disclaimer {
+	text-align: center;
 }
 
 .contacts-list {
@@ -23,7 +13,7 @@
 		width: 100px;
 		height: 100px;
 
-		background-color: #2b2b2b;
+		background-color: var(--darker-add);
 		border-radius: 10px;
 		padding: 10px;
 		transition-property: opacity, translate;
@@ -57,6 +47,16 @@
 			}
 		}
 	}
+}
+
+.parting {
+	font-family: var(--jost-font);
+	font-size: clamp(1.1rem, 6vw, 1.35rem);
+	font-weight: bold;
+	font-style: italic;
+	line-height: 0.85;
+	color: var(--yellow);
+	text-align: center;
 }
 
 /* Adaptability */
