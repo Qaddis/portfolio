@@ -1,19 +1,18 @@
-import { burgerAtom, isTransitionAtom } from "@/store/store"
 import { useSetAtom } from "jotai"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import type { Dispatch, PropsWithChildren } from "react"
+
+import { PagesEnum } from "@/constants/navigation"
+import sleep from "@/functions/sleep"
+import { burgerAtom, isTransitionAtom } from "@/store/store"
 import styles from "./link.module.scss"
 
 interface IProps extends PropsWithChildren {
-	href: string
+	href: PagesEnum
 	isBurger?: boolean
 	tabIndex?: number
 	setHeader?: Dispatch<boolean>
-}
-
-async function sleep(ms: number): Promise<void> {
-	return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 export default function NavLink({

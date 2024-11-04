@@ -4,20 +4,26 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { useSetAtom } from "jotai"
 import { useState } from "react"
 
-import { links } from "@/constants/navigation"
-import { burgerAtom } from "@/store/store"
+import { links, PagesEnum } from "@/constants/navigation"
+import sleep from "@/functions/sleep"
+import { burgerAtom, isTransitionAtom } from "@/store/store"
+import { usePathname, useRouter } from "next/navigation"
 import styles from "./header.module.scss"
 import NavLink from "./ui/NavLink"
 
 export default function Header() {
-	const logoClick = (): void => {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth"
-		})
-	}
-
+	const router = useRouter()
+	const path = usePathname()
+	const setTransition = useSetAtom(isTransitionAtom)
 	const setBurger = useSetAtom(burgerAtom)
+
+	const logoClick = async (): Promise<void> => {
+		if (path !== "/") {
+			setTransition(true)
+			await sleep(550)
+			router.push(PagesEnum.HOME)
+		}
+	}
 
 	const [isShow, setIsShow] = useState<boolean>(true)
 	const { scrollY } = useScroll()

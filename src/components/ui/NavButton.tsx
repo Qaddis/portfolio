@@ -1,19 +1,18 @@
-import { isTransitionAtom } from "@/store/store"
 import { useSetAtom } from "jotai"
 import Link, { type LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
 import type { AnchorHTMLAttributes, PropsWithChildren } from "react"
+
+import { PagesEnum } from "@/constants/navigation"
+import sleep from "@/functions/sleep"
+import { isTransitionAtom } from "@/store/store"
 import styles from "./button.module.scss"
 
 interface IProps
 	extends PropsWithChildren,
 		LinkProps,
 		Exclude<AnchorHTMLAttributes<HTMLAnchorElement>, LinkProps> {
-	href: string
-}
-
-async function sleep(ms: number): Promise<void> {
-	return new Promise(resolve => setTimeout(resolve, ms))
+	href: PagesEnum
 }
 
 export default function NavButton({ children, href, ...props }: IProps) {
@@ -21,7 +20,7 @@ export default function NavButton({ children, href, ...props }: IProps) {
 	const setTransition = useSetAtom(isTransitionAtom)
 
 	const handleClick = async (
-		evt: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+		evt: React.MouseEvent<HTMLAnchorElement>
 	): Promise<void> => {
 		evt.preventDefault()
 

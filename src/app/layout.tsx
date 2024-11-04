@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image"
 	},
 	robots: {
-		follow: false,
+		follow: true,
 		index: true
 	}
 }

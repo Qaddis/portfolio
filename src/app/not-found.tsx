@@ -1,6 +1,7 @@
 "use client"
 
 import NavButton from "@/components/ui/NavButton"
+import { PagesEnum } from "@/constants/navigation"
 import { motion, type Transition } from "framer-motion"
 
 export default function NotFoundPage() {
@@ -26,7 +27,7 @@ export default function NotFoundPage() {
 				Страница не найдена <b>┐(‘～` )┌</b>
 			</p>
 
-			<NavButton href="/" title="Перейти на главную страницу">
+			<NavButton href={PagesEnum.HOME} title="Перейти на главную страницу">
 				На главную!
 			</NavButton>
 		</section>

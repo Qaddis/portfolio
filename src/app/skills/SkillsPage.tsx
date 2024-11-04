@@ -63,6 +63,7 @@ export const SkillsArticle = ({
 	return (
 		<motion.div
 			ref={cardRef}
+			initial={false}
 			animate={cardInView ? { y: 0, opacity: 1 } : { y: "10%", opacity: 0 }}
 			transition={{ delay: delay, duration: 0.25, ease: "easeOut" }}
 		>
@@ -77,12 +78,12 @@ export const SkillsArticle = ({
 									duration: 0.65,
 									ease: "linear"
 								}
-						  }
+							}
 						: {
 								transition: {
 									duration: 0
 								}
-						  }
+							}
 				}
 				transition={{ delay: 0 }}
 				onAnimationComplete={handleAnimationComplete}
