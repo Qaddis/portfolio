@@ -5,6 +5,8 @@ import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { useRef } from "react"
 
+import { PagesEnum } from "@/constants/navigation"
+import NavButton from "../ui/NavButton"
 import styles from "./about.module.scss"
 import img from "/public/face.webp"
 
@@ -31,70 +33,76 @@ export default function About() {
 
 	return (
 		<section className={styles.about}>
-			<div className={styles.cover}>
-				<div ref={infoRef} className={styles.info}>
-					<motion.h2
-						initial={false}
-						animate={
-							infoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "100%" }
-						}
-						transition={transition}
-						className={styles.heading}
-					>
-						<span>Молодой</span>, но <span>амбициозный</span>.
-					</motion.h2>
+			<motion.div
+				initial={false}
+				animate={infoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "50%" }}
+				transition={transition}
+				ref={infoRef}
+				className={styles.info}
+			>
+				<h2 className={styles.heading}>
+					<span>Молодой</span>, но <span>амбициозный</span>.
+				</h2>
 
-					<motion.p
-						initial={false}
-						animate={
-							infoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "50%" }
-						}
-						transition={transition}
-						className={styles.description}
+				<p>
+					В свои 17 лет я обладаю набором разнообразных навыков для создания
+					современных, удобных для пользователя веб сайтов и веб приложений. Моя
+					страсть быть в тренде заставляет меня постоянно изучать что-то новое и
+					создавать более сложные и интересные проекты.
+				</p>
+
+				<div className={styles["buttons-wrapper"]}>
+					<NavButton href={PagesEnum.SKILLS}>Навыки</NavButton>
+					<NavButton href={PagesEnum.PROJECTS}>Проекты</NavButton>
+					<NavButton
+						href={PagesEnum.CONTACTS}
+						style={{
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							padding: "5px"
+						}}
 					>
-						В свои 17 лет я обладаю набором разнообразных навыков для создания
-						современных, удобных для пользователя веб сайтов и веб приложений.
-						Моя страсть быть в тренде заставляет меня постоянно изучать что-то
-						новое и создавать более сложные и интересные проекты.
-					</motion.p>
+						<svg fill="var(--light)">
+							<use xlinkHref="#contacts-logo"></use>
+						</svg>
+					</NavButton>
 				</div>
+			</motion.div>
+
+			<motion.div
+				initial={false}
+				animate={
+					imageInView ? { rotateZ: 0, scale: 1 } : { rotateZ: 135, scale: 0.6 }
+				}
+				transition={transition}
+				ref={imageRef}
+				className={styles.portrait}
+			>
+				<Image
+					src={img}
+					alt="Portrait"
+					quality={100}
+					priority
+					className={styles.image}
+				/>
 
 				<motion.div
-					initial={false}
-					animate={
-						imageInView
-							? { rotateZ: 0, scale: 1 }
-							: { rotateZ: 135, scale: 0.6 }
-					}
-					transition={transition}
-					ref={imageRef}
-					className={styles.portrait}
-				>
-					<Image
-						src={img}
-						alt="Portrait"
-						quality={100}
-						priority
-						className={styles.image}
-					/>
+					style={{ zIndex: 1 }}
+					initial={{ x: "3%" }}
+					animate={{ x: "-3%" }}
+					transition={{ ...layerTransition, delay: 0.2 }}
+					className={styles.back_layer}
+				/>
 
-					<motion.div
-						style={{ zIndex: 1 }}
-						initial={{ x: "3%" }}
-						animate={{ x: "-3%" }}
-						transition={{ ...layerTransition, delay: 0.2 }}
-						className={styles.back_layer}
-					/>
-
-					<motion.div
-						initial={{ y: "-3%" }}
-						animate={{ y: "3%" }}
-						transition={layerTransition}
-						style={{ zIndex: 2 }}
-						className={styles.back_layer}
-					/>
-				</motion.div>
-			</div>
+				<motion.div
+					initial={{ y: "-3%" }}
+					animate={{ y: "3%" }}
+					transition={layerTransition}
+					style={{ zIndex: 2 }}
+					className={styles.back_layer}
+				/>
+			</motion.div>
 		</section>
 	)
 }

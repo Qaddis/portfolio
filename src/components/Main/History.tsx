@@ -10,7 +10,7 @@ export default function History() {
 	return (
 		<section ref={historyRef} className={styles.history}>
 			<h3 className={styles.heading}>
-				Как я стал <b>web разработчиком</b>?
+				Мой путь <b>разработчика</b>
 			</h3>
 
 			<div className={styles["history__container"]}>

@@ -57,6 +57,7 @@ export default function Header() {
 		>
 			<div className={styles.wrapper}>
 				<motion.button
+					title="Перейти на главную страницу"
 					variants={{ show: { x: 0 }, hide: { x: "-60vw" } }}
 					transition={{
 						delay: isShow ? 0.25 : 0,
