@@ -1,20 +1,30 @@
 "use client"
 
-import { projectAtom } from "@/store/store"
 import type { PanInfo, Transition } from "framer-motion"
 import { motion, useInView } from "framer-motion"
 import { useSetAtom } from "jotai"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { useRef, useState } from "react"
 
 import { projects } from "@/constants/data"
+import { PagesEnum } from "@/constants/navigation"
+import { getSlug } from "@/functions/getSlug"
+import sleep from "@/functions/sleep"
+import { isTransitionAtom } from "@/store/store"
 import styles from "./projects.module.scss"
 
 export default function Projects() {
-	const setProject = useSetAtom(projectAtom)
-
 	const [widget, setWidget] = useState<number>(0)
 	const [dragStart, setDragStart] = useState<number>()
+	const router = useRouter()
+	const setTransition = useSetAtom(isTransitionAtom)
+
+	const handleBannerClick = async (project: string): Promise<void> => {
+		setTransition(true)
+		await sleep(550)
+		router.push(PagesEnum.PROJECTS + `/${getSlug(project)}`)
+	}
 
 	const handleButtonClick = (direction: "left" | "right"): void => {
 		if (direction === "right") {
@@ -99,7 +109,7 @@ export default function Projects() {
 							<motion.article
 								key={item.repo}
 								className={styles.carousel__card}
-								onClick={() => setProject(item.title)}
+								onClick={() => handleBannerClick(item.title)}
 								title={`Подробнее о ${item.title}`}
 								initial={false}
 								animate={widget === index ? "show" : "hidden"}

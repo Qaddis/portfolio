@@ -1,6 +1,6 @@
 import { useSetAtom } from "jotai"
 import Link, { type LinkProps } from "next/link"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import type { AnchorHTMLAttributes, PropsWithChildren } from "react"
 
 import { PagesEnum } from "@/constants/navigation"
@@ -13,29 +13,30 @@ interface IProps
 		LinkProps,
 		Exclude<AnchorHTMLAttributes<HTMLAnchorElement>, LinkProps> {
 	href: PagesEnum
+	param?: string
 }
 
-export default function NavButton({ children, href, ...props }: IProps) {
+export default function NavButton({ children, href, param, ...props }: IProps) {
 	const router = useRouter()
+	const path = usePathname()
 	const setTransition = useSetAtom(isTransitionAtom)
+
+	const to = param ? PagesEnum.PROJECTS + `/${param}` : href
 
 	const handleClick = async (
 		evt: React.MouseEvent<HTMLAnchorElement>
 	): Promise<void> => {
 		evt.preventDefault()
 
-		setTransition(true)
-		await sleep(550)
-		router.push(href)
+		if (path !== to) {
+			setTransition(true)
+			await sleep(550)
+			router.push(to)
+		}
 	}
 
 	return (
-		<Link
-			onClick={handleClick}
-			className={styles.button}
-			href={href}
-			{...props}
-		>
+		<Link onClick={handleClick} className={styles.button} href={to} {...props}>
 			{children}
 		</Link>
 	)

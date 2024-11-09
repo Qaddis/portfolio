@@ -1,0 +1,81 @@
+.best-projects {
+	.heading {
+		position: relative;
+
+		&::after {
+			content: "👑";
+			font-size: 1.5rem;
+			position: absolute;
+			top: -1rem;
+			left: calc(50% - 1.5rem);
+		}
+	}
+}
+
+.heading {
+	color: var(--light);
+	font-size: 1.8rem;
+	font-family: var(--jost-font);
+	font-weight: bold;
+	text-align: center;
+	margin: 25px 0 10px;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 25px;
+}
+
+.article {
+	width: 80%;
+	border: 3px solid var(--darker-add);
+	border-radius: 10px;
+	display: block;
+	position: relative;
+	overflow: hidden;
+
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		background: linear-gradient(0deg, #000000c0 20%, #00000000);
+	}
+
+	&__img {
+		width: 100%;
+		height: auto;
+		z-index: -1;
+	}
+
+	.wrapper {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: 2;
+
+		width: 100%;
+		padding: 0 20px 20px;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__title {
+		font-family: var(--jsf-font);
+		font-weight: bold;
+		font-size: clamp(1.15rem, 4vh, 1.35rem);
+	}
+
+	&__description {
+		position: absolute;
+		left: 1rem;
+		bottom: 1rem;
+		z-index: 2;
+	}
+}

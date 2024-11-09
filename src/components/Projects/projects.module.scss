@@ -49,11 +49,7 @@
 		min-width: 100%;
 		height: auto;
 		border-radius: 8px;
-		cursor: grab;
-
-		&:active {
-			cursor: grabbing;
-		}
+		cursor: pointer;
 
 		img {
 			width: 100%;
