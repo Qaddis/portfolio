@@ -31,7 +31,7 @@ export default function NavButton({ children, href, param, ...props }: IProps) {
 		if (path !== to) {
 			setTransition(true)
 			await sleep(550)
-			router.push(to)
+			router.push(to, { scroll: true })
 		}
 	}
 

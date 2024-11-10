@@ -21,7 +21,7 @@ export default function Header() {
 		if (path !== "/") {
 			setTransition(true)
 			await sleep(550)
-			router.push(PagesEnum.HOME)
+			router.push(PagesEnum.HOME, { scroll: true })
 		}
 	}
 

@@ -38,11 +38,11 @@ export default function NavLink({
 				await sleep(150)
 				setTransition(true)
 				await sleep(550)
-				router.push(href)
+				router.push(href, { scroll: true })
 			} else {
 				setTransition(true)
 				await sleep(550)
-				router.push(href)
+				router.push(href, { scroll: true })
 			}
 		}
 	}
