@@ -16,12 +16,18 @@ interface IProps
 	param?: string
 }
 
-export default function NavButton({ children, href, param, ...props }: IProps) {
+export default function NavButton({
+	children,
+	href,
+	param,
+	className,
+	...props
+}: IProps) {
 	const router = useRouter()
 	const path = usePathname()
 	const setTransition = useSetAtom(isTransitionAtom)
 
-	const to = param ? PagesEnum.PROJECTS + `/${param}` : href
+	const to = param ? href + `/${param}` : href
 
 	const handleClick = async (
 		evt: React.MouseEvent<HTMLAnchorElement>
@@ -36,7 +42,12 @@ export default function NavButton({ children, href, param, ...props }: IProps) {
 	}
 
 	return (
-		<Link onClick={handleClick} className={styles.button} href={to} {...props}>
+		<Link
+			onClick={handleClick}
+			className={`${styles.button} ` + className}
+			href={to}
+			{...props}
+		>
 			{children}
 		</Link>
 	)

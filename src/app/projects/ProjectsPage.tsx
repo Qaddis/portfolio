@@ -2,7 +2,7 @@
 
 import { useInView } from "framer-motion"
 import { article as MotionArticle } from "framer-motion/client"
-import { useRef, type FC } from "react"
+import { useEffect, useRef, type FC } from "react"
 
 import Projects from "@/components/Projects/Projects"
 import Heading from "@/components/ui/Heading"
@@ -13,6 +13,10 @@ import { getSlug } from "@/functions/getSlug"
 import styles from "./projects.module.scss"
 
 export default function ProjectsPage() {
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: "instant" })
+	})
+
 	return (
 		<section className="projects-page">
 			<Heading>Проекты</Heading>
@@ -30,7 +34,7 @@ export default function ProjectsPage() {
 					{projects.map(project => (
 						<ProjectsArticle
 							key={project.title}
-							img={project.img}
+							img={project.preview}
 							title={project.title}
 							description={project.description}
 						/>

@@ -1,0 +1,68 @@
+.carousel-section {
+	width: 100%;
+	height: auto;
+}
+
+.carousel {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+
+	&__btn {
+		font-family: var(--jsf-font);
+		font-size: 2rem;
+		padding: 5px 12.5px;
+		border: 1px solid var(--spec);
+		border-radius: 50%;
+		transition-property: opacity, translate, color;
+		transition-duration: 0.25s, 0.25s, 0.15s;
+
+		&:hover {
+			color: var(--violet);
+		}
+
+		&:active {
+			opacity: 0.8;
+			translate: 0 2px;
+		}
+	}
+
+	&__card {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.window {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+.cards {
+	display: flex;
+}
+
+.minimap {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 5px;
+	margin-top: 10px;
+
+	&__btn {
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		background-color: var(--add);
+		border-radius: 50%;
+		transition-property: scale, background-color;
+		transition-duration: 0.25s;
+
+		&.--active {
+			scale: 1.2;
+			background-color: var(--violet);
+		}
+	}
+}

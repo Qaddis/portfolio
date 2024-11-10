@@ -15,10 +15,12 @@ type SkillsCategoryType = (typeof skillsCategories)[number]
 
 export interface IProject {
 	title: string
-	img: string
 	description: string
-	techs: string[]
+	isFavorite: boolean
+	preview: string
+	images: number
 	repo: string
+	techs: string[]
 }
 
 type ContactType = {
@@ -120,27 +122,51 @@ export const skills: ISkill[] = [
 export const projects: IProject[] = [
 	{
 		title: "DL Guard",
-		img: "/carousel/DL_Guard.webp",
 		description:
 			"Сайт для системы электронных пропусков. Сама система имеет открытый исходный код и создавалась в качестве школьного проекта за 10ый класс. На сайте можно найти как готовые компоненты системы (приложение для ПК, код сервера, чертежи считывающих устройств), так и ссылку на репозиторий с исходниками.",
+		isFavorite: true,
+		preview: "/projects/dl-guard-preview.png",
+		images: 4,
 		repo: "dl-guard",
 		techs: ["TypeScript", "Next.js", "Redux", "Framer Motion", "Three.js"]
 	},
 	{
 		title: `Project "Eraser"`,
-		img: "/carousel/Project_Eraser.webp",
 		description:
 			"Игра-кликер в Telegram. Есть сюжет, топ игроков, механика циклов с обнулением ресурсов и возможность прокачки.",
+		preview: "/projects/project-eraser-preview.webp",
+		isFavorite: true,
+		images: 0,
 		repo: "tg-clicker",
 		techs: ["TypeScript", "React", "Redux", "Framer Motion"]
 	},
 	{
 		title: "Kick Culture",
-		img: "/carousel/Kick_Culture.webp",
 		description:
 			"Сайт интернет магазина кроссовок (только Front-end). Есть возможность как добавлять товары в корзину, так и удалять их из корзины; Автоматический пересчёт скидок и цен со скидками; Автоматические подборки рекомендаций на странице товара.",
+		isFavorite: true,
+		preview: "/projects/kick-culture-preview.png",
+		images: 4,
 		repo: "kick-culture-web",
-		techs: ["TypeScript", "Vue", "Pinia"]
+		techs: ["TypeScript", "Vue", "Vue Router", "Pinia"]
+	},
+	{
+		title: "Simple ToDo",
+		description: "",
+		isFavorite: false,
+		preview: "/projects/todo-preview.png",
+		images: 2,
+		repo: "simple-todo",
+		techs: ["Vue", "Vue Router", "NodeJS", "Express", "Axios", "Mongoose"]
+	},
+	{
+		title: "#Simple_WebTemplates",
+		description: "",
+		isFavorite: false,
+		preview: "/projects/swt-preview.png",
+		images: 4,
+		repo: "Simple_WebTemplates",
+		techs: ["HTML", "CSS", "JavaScript"]
 	}
 ]
 

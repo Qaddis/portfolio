@@ -15,6 +15,8 @@ import { isTransitionAtom } from "@/store/store"
 import styles from "./projects.module.scss"
 
 export default function Projects() {
+	const favorites = projects.filter(item => item.isFavorite)
+
 	const [widget, setWidget] = useState<number>(0)
 	const [dragStart, setDragStart] = useState<number>()
 	const router = useRouter()
@@ -28,10 +30,10 @@ export default function Projects() {
 
 	const handleButtonClick = (direction: "left" | "right"): void => {
 		if (direction === "right") {
-			if (widget + 1 > projects.length - 1) setWidget(0)
+			if (widget + 1 > favorites.length - 1) setWidget(0)
 			else setWidget(widget + 1)
 		} else {
-			if (widget - 1 < 0) setWidget(projects.length - 1)
+			if (widget - 1 < 0) setWidget(favorites.length - 1)
 			else setWidget(widget - 1)
 		}
 	}
@@ -51,7 +53,7 @@ export default function Projects() {
 		const threshold = 50
 
 		if (Math.abs(dragDistance) > threshold) {
-			if (dragDistance > 0 && widget + 1 <= projects.length - 1)
+			if (dragDistance > 0 && widget + 1 <= favorites.length - 1)
 				handleButtonClick("right")
 			else if (dragDistance < 0 && widget - 1 >= 0) handleButtonClick("left")
 		}
@@ -105,7 +107,7 @@ export default function Projects() {
 						transition={{ duration: 0.25 }}
 						className={styles.cards}
 					>
-						{projects.map((item, index) => (
+						{favorites.map((item, index) => (
 							<motion.article
 								key={item.repo}
 								className={styles.carousel__card}
@@ -128,7 +130,7 @@ export default function Projects() {
 								onDragEnd={handleDragEnd}
 							>
 								<Image
-									src={item.img}
+									src={item.preview}
 									alt={`${item.title} Banner`}
 									width={900}
 									height={535}
