@@ -74,7 +74,7 @@ export const ProjectsArticle: FC<IArticleProps> = ({
 			<img className={styles.article__img} src={img} alt={`${title} Banner`} />
 
 			<div className={styles.wrapper}>
-				<div>
+				<div className={styles.article__info}>
 					<h4 className={styles.article__title}>{title}</h4>
 					<p className={styles.article__description}>
 						{description.split(".")[0]}

@@ -128,7 +128,7 @@ export const projects: IProject[] = [
 		preview: "/projects/dl-guard-preview.png",
 		images: 4,
 		repo: "dl-guard",
-		techs: ["TypeScript", "Next.js", "Redux", "Framer Motion", "Three.js"]
+		techs: ["TypeScript", "Next", "Redux", "Three.js", "Framer Motion", "SCSS"]
 	},
 	{
 		title: `Project "Eraser"`,
@@ -138,7 +138,7 @@ export const projects: IProject[] = [
 		isFavorite: true,
 		images: 0,
 		repo: "tg-clicker",
-		techs: ["TypeScript", "React", "Redux", "Framer Motion"]
+		techs: ["TypeScript", "React", "Redux", "Framer Motion", "SCSS"]
 	},
 	{
 		title: "Kick Culture",
@@ -148,20 +148,22 @@ export const projects: IProject[] = [
 		preview: "/projects/kick-culture-preview.png",
 		images: 4,
 		repo: "kick-culture-web",
-		techs: ["TypeScript", "Vue", "Vue Router", "Pinia"]
+		techs: ["TypeScript", "Vue", "Vue Router", "Pinia", "SCSS"]
 	},
 	{
 		title: "Simple ToDo",
-		description: "",
+		description:
+			"Простенький ToDo (Full-stack). Front-end - Vue (Compositions API), Back-end - Node.js + Express + MongoDB. Присутствуют визуализация данных, авторизация, куки и взаимодействие с сервером (хранение данных в базе данных).",
 		isFavorite: false,
 		preview: "/projects/todo-preview.png",
 		images: 2,
 		repo: "simple-todo",
-		techs: ["Vue", "Vue Router", "NodeJS", "Express", "Axios", "Mongoose"]
+		techs: ["Vue", "Vue Router", "Plotly", "Express", "Axios", "Mongoose"]
 	},
 	{
 		title: "#Simple_WebTemplates",
-		description: "",
+		description:
+			"Один из моих самых первых проектов, создавался как школьный проект за 9ый класс. Представляет из себя сайт, на котором можно выбрать шаблон сайта, настроить под себя и скачать, чтобы в дальнейшем заполнить своим контентом и использовать.",
 		isFavorite: false,
 		preview: "/projects/swt-preview.png",
 		images: 4,

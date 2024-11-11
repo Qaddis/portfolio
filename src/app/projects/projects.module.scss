@@ -61,9 +61,15 @@
 		z-index: 2;
 
 		width: 100%;
+		height: auto;
 		padding: 0 20px 20px;
 		display: flex;
 		justify-content: space-between;
+		align-items: flex-end;
+
+		a {
+			margin-left: 15px;
+		}
 	}
 
 	&__title {
@@ -73,9 +79,6 @@
 	}
 
 	&__description {
-		position: absolute;
-		left: 1rem;
-		bottom: 1rem;
 		z-index: 2;
 	}
 }

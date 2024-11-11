@@ -11,6 +11,15 @@
 	}
 }
 
+.back-btn {
+	svg {
+		width: 2.5rem;
+		height: 2.5rem;
+		fill: var(--light);
+		display: block;
+	}
+}
+
 .screenshot {
 	display: block;
 	margin: 0 auto;

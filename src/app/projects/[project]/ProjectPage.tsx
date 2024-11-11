@@ -20,7 +20,11 @@ export default function ProjectPage({ target }: { target: string }) {
 	return project ? (
 		<section className="project-page">
 			<div>
-				<NavButton href={PagesEnum.PROJECTS}>Назад</NavButton>
+				<NavButton href={PagesEnum.PROJECTS} className={styles["back-btn"]}>
+					<svg>
+						<use xlinkHref="#arrow-logo"></use>
+					</svg>
+				</NavButton>
 				<Heading>{project.title}</Heading>
 			</div>
 
