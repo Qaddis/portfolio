@@ -34,7 +34,9 @@ export default function ProjectPage({ target }: { target: string }) {
 				/>
 			)}
 
-			<h3 className={styles.heading}>Подробнее о проекте</h3>
+			<h3 className={styles.heading}>
+				<span>Подробнее о проекте</span>
+			</h3>
 
 			<p className={styles.description}>{project.description}</p>
 

@@ -13,7 +13,7 @@
 	transition-duration: 0.25s;
 
 	&:hover {
-		box-shadow: 0 0 15px var(--violet);
+		box-shadow: 0 0 15px 3px var(--darker-violet);
 	}
 
 	&:active {

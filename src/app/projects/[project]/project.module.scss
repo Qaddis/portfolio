@@ -7,13 +7,16 @@
 
 	span {
 		color: var(--violet);
-		text-shadow: 2.5px 2.5px 0 #46128f;
+		text-shadow: 2px 2px 0 var(--darker-violet);
 	}
 }
 
 .screenshot {
 	display: block;
 	margin: 0 auto;
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
 }
 
 .description {

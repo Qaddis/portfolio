@@ -21,8 +21,13 @@
 .card {
 	width: 200px;
 	height: 225px;
-	background-image: linear-gradient(-45deg, #303030 40%, #404040, #303030 60%);
-	background-color: #303030;
+	background-image: linear-gradient(
+		-45deg,
+		var(--darker-add) 40%,
+		#404040,
+		var(--darker-add) 60%
+	);
+	background-color: var(--darker-add);
 	background-repeat: no-repeat;
 	background-size: 200%;
 	padding: 1.5em;
