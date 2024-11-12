@@ -1,13 +1,14 @@
 .heading {
 	color: var(--light);
-	font-size: 1.8rem;
+	font-size: var(--h3-size);
 	font-family: var(--jost-font);
+	line-height: 1;
 	font-weight: bold;
 	text-align: center;
-	margin: 25px 0 10px;
+	margin: 25px 0 15px;
 
 	&:nth-child(2) {
-		margin-top: 0;
+		margin-top: 0 !important;
 	}
 }
 
@@ -15,7 +16,7 @@
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	column-gap: 35px;
+	gap: 35px;
 }
 
 .card {
@@ -84,5 +85,49 @@
 
 	to {
 		--angle: 360deg;
+	}
+}
+
+/* Adaptability */
+
+@media (max-width: 520px) {
+	.container {
+		gap: 25px;
+	}
+
+	.card {
+		width: 150px;
+		height: 175px;
+
+		&__img {
+			width: 65%;
+			margin-bottom: 10px;
+		}
+
+		&__title {
+			font-size: 1.25rem;
+		}
+	}
+}
+
+// Small mobile
+@media (max-width: 390px) {
+	.heading {
+		margin: 35px 0 20px;
+	}
+
+	.card {
+		width: 100%;
+		height: 200px;
+
+		&-wrapper {
+			width: 80%;
+		}
+
+		&__img {
+			height: 55%;
+			max-width: 65%;
+			margin-bottom: 15px;
+		}
 	}
 }

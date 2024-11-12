@@ -66,6 +66,7 @@ export const SkillsArticle = ({
 			initial={false}
 			animate={cardInView ? { y: 0, opacity: 1 } : { y: "10%", opacity: 0 }}
 			transition={{ delay: delay, duration: 0.25, ease: "easeOut" }}
+			className={styles["card-wrapper"]}
 		>
 			<motion.article
 				onMouseEnter={handleAnimationStart}
@@ -78,16 +79,18 @@ export const SkillsArticle = ({
 									duration: 0.65,
 									ease: "linear"
 								}
-							}
+						  }
 						: {
 								transition: {
 									duration: 0
 								}
-							}
+						  }
 				}
 				transition={{ delay: 0 }}
 				onAnimationComplete={handleAnimationComplete}
-				className={styles.card}
+				className={
+					title === "Jotai" ? `${styles.card} ${styles["--fix"]}` : styles.card
+				}
 			>
 				<img
 					className={styles.card__img}

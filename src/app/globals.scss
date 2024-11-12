@@ -10,6 +10,9 @@
 	--violet: #5e0ecf;
 	--darker-violet: #391a66;
 	--yellow: #fafa60;
+
+	--h2-size: clamp(1.75rem, 6vw, 2.25rem);
+	--h3-size: clamp(1.55rem, 5vw, 1.9rem);
 }
 
 /* Reset default styles */
