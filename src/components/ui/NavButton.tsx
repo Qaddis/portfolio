@@ -44,7 +44,7 @@ export default function NavButton({
 	return (
 		<Link
 			onClick={handleClick}
-			className={`${styles.button} ` + className}
+			className={className ? `${styles.button} ${className}` : styles.button}
 			href={to}
 			{...props}
 		>

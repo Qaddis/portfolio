@@ -14,8 +14,7 @@ export default function About() {
 	const transition: Transition = {
 		delay: 0.12,
 		duration: 0.35,
-		type: "spring",
-		damping: 8
+		type: "spring"
 	}
 
 	const layerTransition: Transition = {
@@ -29,14 +28,14 @@ export default function About() {
 	const infoRef = useRef<HTMLDivElement>(null)
 
 	const imageInView = useInView(imageRef, { once: true, amount: 0.45 })
-	const infoInView = useInView(infoRef, { once: true, amount: 0.45 })
+	const infoInView = useInView(infoRef, { once: true, amount: 0.15 })
 
 	return (
 		<section className={styles.about}>
 			<motion.div
 				initial={false}
 				animate={infoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "50%" }}
-				transition={transition}
+				transition={{ ...transition, damping: 10 }}
 				ref={infoRef}
 				className={styles.info}
 			>
@@ -54,18 +53,13 @@ export default function About() {
 				<div className={styles["buttons-wrapper"]}>
 					<NavButton href={PagesEnum.SKILLS}>Навыки</NavButton>
 					<NavButton href={PagesEnum.PROJECTS}>Проекты</NavButton>
-					<NavButton
-						href={PagesEnum.CONTACTS}
-						style={{
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center",
-							padding: "5px"
-						}}
-					>
+					<NavButton href={PagesEnum.CONTACTS} className={styles["with-icon"]}>
 						<svg fill="var(--light)">
 							<use xlinkHref="#contacts-logo"></use>
 						</svg>
+					</NavButton>
+					<NavButton href={PagesEnum.CONTACTS} className={styles["for-mobile"]}>
+						Контакты
 					</NavButton>
 				</div>
 			</motion.div>
@@ -75,7 +69,7 @@ export default function About() {
 				animate={
 					imageInView ? { rotateZ: 0, scale: 1 } : { rotateZ: 135, scale: 0.6 }
 				}
-				transition={transition}
+				transition={{ ...transition, damping: 5 }}
 				ref={imageRef}
 				className={styles.portrait}
 			>
