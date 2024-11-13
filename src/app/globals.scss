@@ -50,27 +50,28 @@ body {
 .skills-page,
 .projects-page,
 .contacts-page,
-.project-page {
+.project-page,
+.not-found {
 	padding: 50px 0;
-	min-height: calc(100vh - 271px);
+}
+
+.project-page,
+.not-found {
+	min-height: calc(100vh - 279px);
 }
 
 .not-found {
-	width: 100vw;
-	height: 100vh;
-	padding: 0 20px;
-
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 
-	h1 {
+	h2 {
 		font-family: var(--jost-font);
-		font-size: clamp(1.5rem, 8vw, 3rem);
+		font-size: clamp(1.35rem, 8vw, 3rem);
 		font-weight: 600;
-		color: var(--violet);
-		position: relative;
+		animation: not-found 1s ease-in-out infinite alternate-reverse;
+		line-height: 1;
 	}
 
 	p {
@@ -81,12 +82,18 @@ body {
 		b {
 			padding-left: 10px;
 		}
+	}
+}
 
-		span {
-			color: var(--violet);
-			text-decoration: underline;
-			cursor: pointer;
-		}
+@keyframes not-found {
+	from {
+		color: var(--spec);
+		scale: 1;
+	}
+
+	to {
+		color: var(--violet);
+		scale: 1.2;
 	}
 }
 
@@ -114,6 +121,16 @@ body {
 
 @media (max-width: 768px) {
 	.main {
-		margin-top: 85px;
+		margin-top: 87px;
 	}
+}
+
+@media (max-width: 425px) {
+	.not-found,
+	.project-page {
+		min-height: calc(100vh - 224px);
+	}
+}
+
+@media (max-width: 320px) {
 }
