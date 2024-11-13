@@ -10,8 +10,8 @@
 	margin: 15px 0 25px;
 
 	li {
-		width: 100px;
-		height: 100px;
+		width: clamp(60px, 12vw, 100px);
+		height: clamp(60px, 12vw, 100px);
 
 		background-color: var(--darker-add);
 		border-radius: 10px;
@@ -51,7 +51,7 @@
 
 .parting {
 	font-family: var(--jost-font);
-	font-size: clamp(1.1rem, 6vw, 1.35rem);
+	font-size: clamp(1.1rem, 4vw, 1.45rem);
 	font-weight: bold;
 	font-style: italic;
 	line-height: 0.85;
@@ -61,52 +61,24 @@
 
 /* Adaptability */
 
-@media (max-width: 768px) {
-	.contacts-list {
-		li {
-			width: 80px;
-			height: 80px;
-		}
-	}
-}
-
 @media (max-width: 480px) {
 	.contacts-list {
 		column-gap: 15px;
-
-		li {
-			width: 70px;
-			height: 70px;
-		}
-	}
-
-	.contacts {
-		h3 {
-			font-size: clamp(1rem, 6vw, 1.35rem);
-		}
 	}
 }
 
 @media (max-width: 425px) {
-	.contacts {
-		p {
-			font-size: 16px;
-		}
-	}
-
-	.contacts-list {
-		li {
-			width: 60px;
-			height: 60px;
-		}
+	.contacts p {
+		font-size: 16px;
 	}
 }
 
 @media (max-width: 375px) {
 	.contacts-list {
-		display: grid;
-		grid-template-columns: repeat(2, 50px);
-		grid-template-rows: repeat(2, 50px);
-		gap: 20px;
+		column-gap: 10px;
+
+		li {
+			padding: 5px;
+		}
 	}
 }
