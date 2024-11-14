@@ -2,14 +2,18 @@
 
 import { useInView } from "framer-motion"
 import { article as MotionArticle } from "framer-motion/client"
+import { useSetAtom } from "jotai"
+import { useRouter } from "next/navigation"
 import { useEffect, useRef, type FC } from "react"
 
-import Projects from "@/components/Projects/Projects"
+import BestProjects from "@/components/BestProjects"
 import Heading from "@/components/ui/Heading"
 import NavButton from "@/components/ui/NavButton"
 import { projects } from "@/constants/data"
 import { PagesEnum } from "@/constants/navigation"
 import { getSlug } from "@/functions/getSlug"
+import sleep from "@/functions/sleep"
+import { isTransitionAtom } from "@/store/store"
 import styles from "./projects.module.scss"
 
 export default function ProjectsPage() {
@@ -24,7 +28,7 @@ export default function ProjectsPage() {
 			<div className={styles["best-projects"]}>
 				<h3 className={styles.heading}>Моя гордость</h3>
 
-				<Projects />
+				<BestProjects />
 			</div>
 
 			<div className={styles["all-projects"]}>
@@ -59,6 +63,15 @@ export const ProjectsArticle: FC<IArticleProps> = ({
 	const articleRef = useRef<HTMLDivElement>(null)
 	const articleInView = useInView(articleRef, { amount: 0.6, once: true })
 
+	const setTransition = useSetAtom(isTransitionAtom)
+	const router = useRouter()
+
+	const handleClick = async (): Promise<void> => {
+		setTransition(true)
+		await sleep(550)
+		router.push(`${PagesEnum.PROJECTS}/${getSlug(title)}`)
+	}
+
 	return (
 		<MotionArticle
 			ref={articleRef}
@@ -70,6 +83,7 @@ export const ProjectsArticle: FC<IArticleProps> = ({
 			}
 			transition={{ duration: 0.35 }}
 			className={styles.article}
+			onClick={() => handleClick()}
 		>
 			<img className={styles.article__img} src={img} alt={`${title} Banner`} />
 
@@ -81,7 +95,11 @@ export const ProjectsArticle: FC<IArticleProps> = ({
 					</p>
 				</div>
 
-				<NavButton href={PagesEnum.PROJECTS} param={getSlug(title)}>
+				<NavButton
+					href={PagesEnum.PROJECTS}
+					className={styles["more-info-btn"]}
+					param={getSlug(title)}
+				>
 					Подробнее
 				</NavButton>
 			</div>

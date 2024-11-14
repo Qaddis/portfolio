@@ -12,9 +12,9 @@ import { PagesEnum } from "@/constants/navigation"
 import { getSlug } from "@/functions/getSlug"
 import sleep from "@/functions/sleep"
 import { isTransitionAtom } from "@/store/store"
-import styles from "./projects.module.scss"
+import styles from "./carousel.module.scss"
 
-export default function Projects() {
+export default function BestProjects() {
 	const favorites = projects.filter(item => item.isFavorite)
 
 	const [widget, setWidget] = useState<number>(0)
@@ -76,22 +76,23 @@ export default function Projects() {
 	}
 
 	return (
-		<section className={styles.projects}>
+		<section className={styles["carousel-section"]}>
 			<div className={styles.carousel}>
 				<motion.button
 					ref={buttonsRef}
+					className={styles.carousel__btn}
+					onClick={() => handleButtonClick("left")}
+					title="Перейти к предыдущему проекту"
 					initial={false}
 					animate={{ opacity: buttonsInView ? 1 : 0 }}
 					transition={transition}
-					title="Перейти к предыдущему проекту"
-					onClick={() => handleButtonClick("left")}
-					className={styles.carousel__btn}
 				>
 					&lt;
 				</motion.button>
 
 				<motion.div
 					ref={sliderRef}
+					className={styles.window}
 					initial={false}
 					animate={
 						sliderInView
@@ -99,18 +100,17 @@ export default function Projects() {
 							: { scale: 0.82, filter: "blur(8px)" }
 					}
 					transition={transition}
-					className={styles.window}
 				>
 					<motion.div
+						className={styles.cards}
 						initial={false}
 						animate={{ x: `-${widget * 100}%` }}
 						transition={{ duration: 0.25 }}
-						className={styles.cards}
 					>
 						{favorites.map((item, index) => (
 							<motion.article
 								key={item.repo}
-								className={styles.carousel__card}
+								className={styles.best__card}
 								onClick={() => handleBannerClick(item.title)}
 								title={`Подробнее о ${item.title}`}
 								initial={false}
@@ -182,36 +182,34 @@ export default function Projects() {
 				</motion.div>
 
 				<motion.button
+					className={styles.carousel__btn}
+					onClick={() => handleButtonClick("right")}
+					title="Перейти к следующему проекту"
 					initial={false}
 					animate={{ opacity: buttonsInView ? 1 : 0 }}
 					transition={transition}
-					title="Перейти к следующему проекту"
-					onClick={() => handleButtonClick("right")}
-					className={styles.carousel__btn}
 				>
 					&gt;
 				</motion.button>
 			</div>
 
+			<div className={styles.minimap}>
+				{favorites.map((_, index) => (
+					<button
+						className={
+							index === widget
+								? `${styles["minimap__btn"]} ${styles["--active"]}`
+								: styles["minimap__btn"]
+						}
+						onClick={() => setWidget(index)}
+						key={`Button ${index + 1}`}
+					></button>
+				))}
+			</div>
+
 			<p className={styles.clue}>
 				Нажмите на баннер, чтобы узнать о проекте больше
 			</p>
-
-			<div className={styles["mobile-controls"]}>
-				<button
-					title="Перейти к предыдущему проекту"
-					onClick={() => handleButtonClick("left")}
-				>
-					&lt;
-				</button>
-
-				<button
-					title="Перейти к следующему проекту"
-					onClick={() => handleButtonClick("right")}
-				>
-					&gt;
-				</button>
-			</div>
 		</section>
 	)
 }
