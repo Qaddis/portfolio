@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useInView } from "framer-motion"
-import { Fragment, useRef, useState, type ReactElement } from "react"
+import { useRef, useState, type ReactElement } from "react"
 
 import Heading from "@/components/ui/Heading"
 import { skills, skillsCategories } from "@/constants/data"
@@ -9,12 +9,13 @@ import styles from "./skills.module.scss"
 
 export default function SkillsPage() {
 	return (
-		<section className="skills-page">
+		<div className="skills-page">
 			<Heading>Навыки</Heading>
 
 			{skillsCategories.map(category => (
-				<Fragment key={category}>
+				<section key={category}>
 					<h3 className={styles.heading}>{category}</h3>
+
 					<div className={styles.container}>
 						{skills
 							.filter(item => item.category === category)
@@ -26,9 +27,9 @@ export default function SkillsPage() {
 								/>
 							))}
 					</div>
-				</Fragment>
+				</section>
 			))}
-		</section>
+		</div>
 	)
 }
 
@@ -63,12 +64,15 @@ export const SkillsArticle = ({
 	return (
 		<motion.div
 			ref={cardRef}
+			className={styles["card-wrapper"]}
 			initial={false}
 			animate={cardInView ? { y: 0, opacity: 1 } : { y: "10%", opacity: 0 }}
 			transition={{ delay: delay, duration: 0.25, ease: "easeOut" }}
-			className={styles["card-wrapper"]}
 		>
 			<motion.article
+				className={
+					title === "Jotai" ? `${styles.card} ${styles["--fix"]}` : styles.card
+				}
 				onMouseEnter={handleAnimationStart}
 				initial={{ backgroundPositionX: "-150%" }}
 				animate={
@@ -88,15 +92,13 @@ export const SkillsArticle = ({
 				}
 				transition={{ delay: 0 }}
 				onAnimationComplete={handleAnimationComplete}
-				className={
-					title === "Jotai" ? `${styles.card} ${styles["--fix"]}` : styles.card
-				}
 			>
 				<img
 					className={styles.card__img}
 					src={`/icons/${getImageLink()}.svg`}
 					alt={`${title} Logo`}
 				/>
+
 				<h4 className={styles.card__title}>{title}</h4>
 			</motion.article>
 		</motion.div>

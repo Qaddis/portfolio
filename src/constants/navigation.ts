@@ -13,7 +13,7 @@ interface Link {
 export const links: Link[] = [
 	{
 		to: PagesEnum.HOME,
-		text: "Главная"
+		text: "Обо мне"
 	},
 	{
 		to: PagesEnum.SKILLS,

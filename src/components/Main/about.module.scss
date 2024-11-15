@@ -71,6 +71,37 @@
 	background-color: var(--violet);
 	border-radius: 40px;
 	opacity: 0.5;
+
+	animation: back-layer-h 0.85s ease-in-out infinite alternate-reverse;
+	z-index: 1;
+
+	&:last-child {
+		animation-name: back-layer-v;
+		animation-delay: 0.2s;
+		z-index: 2;
+	}
+}
+
+/* Animations */
+
+@keyframes back-layer-h {
+	from {
+		translate: -3% 0;
+	}
+
+	to {
+		translate: 3% 0;
+	}
+}
+
+@keyframes back-layer-v {
+	from {
+		translate: 0 -3%;
+	}
+
+	to {
+		translate: 0 3%;
+	}
 }
 
 /* Adaptability */

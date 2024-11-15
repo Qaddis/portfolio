@@ -11,7 +11,6 @@ import styles from "./link.module.scss"
 interface IProps extends PropsWithChildren {
 	href: PagesEnum
 	isBurger?: boolean
-	tabIndex?: number
 	setHeader?: Dispatch<boolean>
 }
 
@@ -19,8 +18,7 @@ export default function NavLink({
 	children,
 	href,
 	isBurger,
-	setHeader,
-	tabIndex
+	setHeader
 }: IProps) {
 	const path = usePathname()
 	const router = useRouter()
@@ -49,14 +47,14 @@ export default function NavLink({
 
 	return (
 		<Link
-			href={href}
-			title={`Перейти на страницу "${children}"`}
-			onClick={handleClick}
 			className={
 				href === path ? `${styles.link} ${styles.active}` : styles.link
 			}
+			href={href}
+			onClick={handleClick}
 			onFocus={() => setHeader && setHeader(true)}
-			tabIndex={tabIndex}
+			title={`Перейти на страницу "${children}"`}
+			aria-label={`Перейти на страницу "${children}"`}
 		>
 			{children}
 		</Link>

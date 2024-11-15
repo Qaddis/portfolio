@@ -10,20 +10,20 @@ export default function History() {
 	return (
 		<section ref={historyRef} className={styles.history}>
 			<h3 className={styles.heading}>
-				Мой путь <b>разработчика</b>
+				Мой путь <span>разработчика</span>
 			</h3>
 
-			<div className={styles["history__container"]}>
+			<ol className={styles["history__container"]}>
 				{blog.map((item, index) => (
-					<motion.article
-						initial={false}
-						animate={historyInView ? "show" : "hide"}
+					<motion.li
+						key={index + 1}
 						className={
 							index % 2 === 0
 								? styles["history__card"]
 								: `${styles["history__card"]} ${styles["--right"]}`
 						}
-						key={index + 1}
+						initial={false}
+						animate={historyInView ? "show" : "hide"}
 					>
 						<motion.h4
 							variants={{
@@ -58,10 +58,10 @@ export default function History() {
 								delay: 0.175 + index / 2
 							}}
 							dangerouslySetInnerHTML={{ __html: item }}
-						/>
-					</motion.article>
+						></motion.p>
+					</motion.li>
 				))}
-			</div>
+			</ol>
 		</section>
 	)
 }

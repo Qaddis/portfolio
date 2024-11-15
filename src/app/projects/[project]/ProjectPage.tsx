@@ -18,16 +18,19 @@ export default function ProjectPage({ target }: { target: string }) {
 	}
 
 	return project ? (
-		<section className="project-page">
-			<div>
-				<NavButton href={PagesEnum.PROJECTS} className={styles["back-btn"]}>
-					<svg>
-						<use xlinkHref="#arrow-logo"></use>
-					</svg>
-				</NavButton>
+		<div className="project-page">
+			<NavButton
+				className={styles["back-btn"]}
+				href={PagesEnum.PROJECTS}
+				title="Вернуться назад"
+				aria-label="Вернуться назад"
+			>
+				<svg>
+					<use xlinkHref="#arrow-logo"></use>
+				</svg>
+			</NavButton>
 
-				<Heading>{project.title}</Heading>
-			</div>
+			<Heading>{project.title}</Heading>
 
 			{project.images > 0 ? (
 				<Carousel images={images} />
@@ -35,7 +38,7 @@ export default function ProjectPage({ target }: { target: string }) {
 				<img
 					className={styles.screenshot}
 					src={project.preview}
-					alt={`${project.title} Screenshot`}
+					alt={`${project.title} screenshot`}
 				/>
 			)}
 
@@ -45,7 +48,7 @@ export default function ProjectPage({ target }: { target: string }) {
 
 			<p className={styles.description}>{project.description}</p>
 
-			<div className={styles.info}>
+			<section className={styles.info}>
 				<ul className={styles.technologies}>
 					{project.techs.map(item => (
 						<li key={item}>{item}</li>
@@ -57,6 +60,9 @@ export default function ProjectPage({ target }: { target: string }) {
 						className={styles.link}
 						href={`https://github.com/Qaddis/${project.repo}`}
 						target="_blank"
+						title={`Перейти в репозиторий проекта ${project.title}`}
+						aria-label={`Перейти в репозиторий проекта ${project.title}`}
+						rel="noopener noreferrer"
 					>
 						<svg>
 							<use xlinkHref="#github-logo"></use>
@@ -65,14 +71,21 @@ export default function ProjectPage({ target }: { target: string }) {
 						<span>Репозиторий проекта</span>
 					</a>
 				</div>
-			</div>
-		</section>
+			</section>
+		</div>
 	) : (
 		<section className={`project-page ${styles["not-found"]}`}>
 			<h3 className={styles.heading}>
 				<span>Проект</span> не найден
 			</h3>
-			<NavButton href={PagesEnum.PROJECTS}>Назад</NavButton>
+
+			<NavButton
+				href={PagesEnum.PROJECTS}
+				title="Вернуться назад"
+				aria-label="Вернуться назад"
+			>
+				Назад
+			</NavButton>
 		</section>
 	)
 }

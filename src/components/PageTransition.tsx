@@ -39,16 +39,17 @@ export default function Overlay() {
 
 	return (
 		<motion.div
-			initial={false}
-			animate={isTransition ? "show" : "hide"}
-			style={{ display: isAnimate ? "grid" : "none" }}
 			className={
 				isMobile ? `${styles.overlay} ${styles.mobile}` : styles.overlay
 			}
+			style={{ display: isAnimate ? "grid" : "none" }}
+			initial={false}
+			animate={isTransition ? "show" : "hide"}
 		>
 			{blocks.map((item, index) => (
 				<motion.div
 					key={index}
+					className={styles.block}
 					variants={
 						isMobile
 							? {
@@ -57,14 +58,13 @@ export default function Overlay() {
 											? { x: "-100%", y: 0 }
 											: { x: "100%", y: 0 },
 									show: { x: 0, y: 0 }
-								}
+							  }
 							: {
 									hide: { y: "100%", x: 0 },
 									show: { y: 0, x: 0 }
-								}
+							  }
 					}
 					transition={{ duration: 0.25, delay: index / 10, ease: "easeInOut" }}
-					className={styles.block}
 				>
 					{item}
 				</motion.div>

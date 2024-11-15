@@ -33,19 +33,6 @@
 		display: block;
 		border-radius: 50%;
 
-		&:hover {
-			svg {
-				fill: var(--violet);
-			}
-		}
-
-		&:active {
-			svg {
-				opacity: 0.8;
-				translate: 0 3px;
-			}
-		}
-
 		&:focus-visible {
 			outline: none;
 
@@ -60,6 +47,8 @@
 	font-size: 1.1rem;
 	font-weight: 400;
 }
+
+/* Adaptability */
 
 @media (max-width: 425px) {
 	.wrapper {
@@ -77,6 +66,31 @@
 		svg {
 			width: 60px;
 			height: 60px;
+		}
+	}
+}
+
+@media (hover: hover) {
+	.socials a {
+		&:hover {
+			svg {
+				fill: var(--violet);
+			}
+		}
+
+		&:active {
+			svg {
+				opacity: 0.8;
+				translate: 0 3px;
+			}
+		}
+	}
+}
+
+@media (hover: none) {
+	.socials a:active {
+		svg {
+			fill: var(--violet);
 		}
 	}
 }

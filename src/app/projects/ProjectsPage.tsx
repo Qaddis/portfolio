@@ -22,16 +22,16 @@ export default function ProjectsPage() {
 	})
 
 	return (
-		<section className="projects-page">
+		<div className="projects-page">
 			<Heading>Проекты</Heading>
 
-			<div className={styles["best-projects"]}>
+			<section className={styles["best-projects"]}>
 				<h3 className={styles.heading}>Моя гордость</h3>
 
 				<BestProjects />
-			</div>
+			</section>
 
-			<div className={styles["all-projects"]}>
+			<section className={styles["all-projects"]}>
 				<h3 className={styles.heading}>Все проекты</h3>
 
 				<div className={styles.container}>
@@ -44,8 +44,8 @@ export default function ProjectsPage() {
 						/>
 					))}
 				</div>
-			</div>
-		</section>
+			</section>
+		</div>
 	)
 }
 
@@ -85,20 +85,22 @@ export const ProjectsArticle: FC<IArticleProps> = ({
 			className={styles.article}
 			onClick={() => handleClick()}
 		>
-			<img className={styles.article__img} src={img} alt={`${title} Banner`} />
+			<img className={styles.article__img} src={img} alt={`${title} banner`} />
 
 			<div className={styles.wrapper}>
-				<div className={styles.article__info}>
+				<section className={styles.article__info}>
 					<h4 className={styles.article__title}>{title}</h4>
 					<p className={styles.article__description}>
 						{description.split(".")[0]}
 					</p>
-				</div>
+				</section>
 
 				<NavButton
-					href={PagesEnum.PROJECTS}
 					className={styles["more-info-btn"]}
+					href={PagesEnum.PROJECTS}
 					param={getSlug(title)}
+					title={`Перейти на страницу проекта ${title}`}
+					aria-label={`Перейти на страницу проекта ${title}`}
 				>
 					Подробнее
 				</NavButton>

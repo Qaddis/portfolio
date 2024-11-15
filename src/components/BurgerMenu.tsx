@@ -11,14 +11,14 @@ import styles from "./burger.module.scss"
 export default function BurgerMenu() {
 	const [isBurgerVisible, setBurger] = useAtom(burgerAtom)
 
-	const closeModal = () => {
-		setBurger(false)
-	}
+	const closeModal = () => setBurger(false)
 
 	return (
 		<AnimatePresence>
 			{isBurgerVisible && (
 				<motion.div
+					className={styles.overlay}
+					onClick={closeModal}
 					initial="hidden"
 					animate="show"
 					exit="hidden"
@@ -27,24 +27,27 @@ export default function BurgerMenu() {
 						hidden: { opacity: 0 }
 					}}
 					transition={{ duration: 0.15 }}
-					onClick={closeModal}
-					className={styles.overlay}
 				>
-					<button onClick={closeModal} className={styles["close-btn"]}>
+					<button
+						onClick={closeModal}
+						className={styles["close-btn"]}
+						title="Закрыть меню"
+						aria-label="Закрыть меню"
+					>
 						✕
 					</button>
 
 					<motion.nav
+						className={styles.burger}
+						onClick={e => e.stopPropagation()}
 						variants={{
 							show: { x: 0 },
 							hidden: { x: "100%" }
 						}}
 						transition={{ duration: 0.3, ease: "easeInOut" }}
-						onClick={e => e.stopPropagation()}
-						className={styles.burger}
 					>
 						{links.map((item, index) => (
-							<NavLink key={item.to} href={item.to} tabIndex={index} isBurger>
+							<NavLink key={item.to} href={item.to} isBurger>
 								{item.text}
 							</NavLink>
 						))}

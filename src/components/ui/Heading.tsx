@@ -15,10 +15,10 @@ export default function Heading({ children }: PropsWithChildren) {
 
 	return (
 		<motion.h2
+			className={styles.heading}
 			initial={{ y: "100%", opacity: 0 }}
 			animate={{ y: "0", opacity: 1 }}
 			transition={transition}
-			className={styles.heading}
 		>
 			{children}
 		</motion.h2>

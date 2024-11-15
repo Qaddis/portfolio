@@ -3,7 +3,7 @@ import { Inter, Josefin_Sans, Jost } from "next/font/google"
 
 import Footer from "@/components/AppFooter"
 import Header from "@/components/AppHeader"
-import BurgerMenu from "@/components/Modals/BurgerMenu"
+import BurgerMenu from "@/components/BurgerMenu"
 import Overlay from "@/components/PageTransition"
 import "./globals.scss"
 
@@ -17,7 +17,7 @@ const josefin = Josefin_Sans({
 const jost = Jost({
 	subsets: ["cyrillic"],
 	weight: ["400", "600"],
-	style: "normal",
+	style: ["normal", "italic"],
 	variable: "--jost-font"
 })
 

@@ -46,7 +46,7 @@ export default function Carousel({ images }: IProps) {
 	}
 
 	return (
-		<section className={styles["carousel-section"]}>
+		<div className={styles["carousel-section"]}>
 			<div className={styles.carousel}>
 				<button
 					onClick={() => handleButtonClick("left")}
@@ -79,8 +79,8 @@ export default function Carousel({ images }: IProps) {
 				</div>
 
 				<button
-					onClick={() => handleButtonClick("right")}
 					className={styles.carousel__btn}
+					onClick={() => handleButtonClick("right")}
 				>
 					&gt;
 				</button>
@@ -89,16 +89,16 @@ export default function Carousel({ images }: IProps) {
 			<div className={styles.minimap}>
 				{images.map((_, index) => (
 					<button
+						key={`Button ${index + 1}`}
 						className={
 							index === widget
 								? `${styles["minimap__btn"]} ${styles["--active"]}`
 								: styles["minimap__btn"]
 						}
 						onClick={() => setWidget(index)}
-						key={`Button ${index + 1}`}
 					></button>
 				))}
 			</div>
-		</section>
+		</div>
 	)
 }

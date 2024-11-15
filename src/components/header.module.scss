@@ -61,16 +61,6 @@
 		transition-duration: 0.2s;
 	}
 
-	&:hover {
-		&::before {
-			left: -30px;
-		}
-
-		&::after {
-			right: -50px;
-		}
-	}
-
 	&:focus-visible {
 		outline: none;
 		color: var(--yellow);
@@ -104,19 +94,6 @@
 		transition: fill 0.25s;
 	}
 
-	&:hover {
-		border-color: var(--add);
-
-		svg {
-			fill: var(--light);
-		}
-	}
-
-	&:active {
-		opacity: 0.75;
-		translate: 0 3px;
-	}
-
 	&:focus-visible {
 		border-color: var(--add);
 
@@ -125,6 +102,8 @@
 		}
 	}
 }
+
+/* Adaptability */
 
 @media (max-width: 768px) {
 	.header {
@@ -137,5 +116,44 @@
 
 	.burger-btn {
 		display: block;
+	}
+}
+
+@media (hover: hover) {
+	.logo:hover {
+		&::before {
+			left: -30px;
+		}
+
+		&::after {
+			right: -50px;
+		}
+	}
+
+	.burger-btn {
+		&:hover svg {
+			fill: var(--light);
+		}
+
+		&:active {
+			opacity: 0.75;
+			translate: 0 3px;
+		}
+	}
+}
+
+@media (hover: none) {
+	.logo:active {
+		&::before {
+			left: -30px;
+		}
+
+		&::after {
+			right: -50px;
+		}
+	}
+
+	.burger-btn:active svg {
+		fill: var(--light);
 	}
 }

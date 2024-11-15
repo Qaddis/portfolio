@@ -11,7 +11,11 @@ export default function NotFoundPage() {
 				Страница не найдена <b>┐(‘～` )┌</b>
 			</p>
 
-			<NavButton href={PagesEnum.HOME} title="Перейти на главную страницу">
+			<NavButton
+				href={PagesEnum.HOME}
+				title="Перейти на главную страницу"
+				aria-label="Перейти на главную страницу"
+			>
 				На главную!
 			</NavButton>
 		</section>

@@ -308,6 +308,7 @@ export default function Landing() {
 						unoptimized
 					></Image>
 				</motion.div>
+
 				<motion.h2
 					initial={false}
 					animate={
@@ -318,6 +319,7 @@ export default function Landing() {
 				>
 					Привет!
 				</motion.h2>
+
 				<motion.h3
 					initial={false}
 					animate={

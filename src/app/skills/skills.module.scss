@@ -72,11 +72,7 @@
 	filter: blur(10px);
 }
 
-@property --angle {
-	syntax: "<angle>";
-	initial-value: 0deg;
-	inherits: false;
-}
+/* Animations */
 
 @keyframes border {
 	from {
@@ -86,6 +82,14 @@
 	to {
 		--angle: 360deg;
 	}
+}
+
+/* Properties */
+
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
 }
 
 /* Adaptability */

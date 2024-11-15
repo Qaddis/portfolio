@@ -19,6 +19,7 @@ export default function BestProjects() {
 
 	const [widget, setWidget] = useState<number>(0)
 	const [dragStart, setDragStart] = useState<number>()
+
 	const router = useRouter()
 	const setTransition = useSetAtom(isTransitionAtom)
 
@@ -76,13 +77,14 @@ export default function BestProjects() {
 	}
 
 	return (
-		<section className={styles["carousel-section"]}>
+		<div className={styles["carousel-section"]}>
 			<div className={styles.carousel}>
 				<motion.button
 					ref={buttonsRef}
 					className={styles.carousel__btn}
 					onClick={() => handleButtonClick("left")}
-					title="Перейти к предыдущему проекту"
+					title="Перелистнуть назад"
+					aria-label="Перелистнуть назад"
 					initial={false}
 					animate={{ opacity: buttonsInView ? 1 : 0 }}
 					transition={transition}
@@ -93,6 +95,10 @@ export default function BestProjects() {
 				<motion.div
 					ref={sliderRef}
 					className={styles.window}
+					onKeyDown={e => {
+						if (e.key === "Enter") handleBannerClick(projects[widget].title)
+					}}
+					tabIndex={0}
 					initial={false}
 					animate={
 						sliderInView
@@ -112,7 +118,8 @@ export default function BestProjects() {
 								key={item.repo}
 								className={styles.best__card}
 								onClick={() => handleBannerClick(item.title)}
-								title={`Подробнее о ${item.title}`}
+								title={`Перейти на страницу проекта ${item.title}`}
+								aria-label={`Перейти на страницу проекта ${item.title}`}
 								initial={false}
 								animate={widget === index ? "show" : "hidden"}
 								variants={{
@@ -131,12 +138,13 @@ export default function BestProjects() {
 							>
 								<Image
 									src={item.preview}
-									alt={`${item.title} Banner`}
+									alt={`${item.title} banner`}
 									width={900}
 									height={535}
 									quality={100}
 								/>
-								<motion.div
+
+								<motion.section
 									initial={false}
 									variants={{
 										show: {
@@ -151,20 +159,24 @@ export default function BestProjects() {
 										duration: 0.2
 									}}
 								>
-									<motion.h3
-										initial={false}
-										variants={{
-											show: { y: 0 },
-											hidden: { y: "150%" }
-										}}
-										transition={{
-											delay: widget === index ? 0.3 : 0,
-											duration: 0.2
-										}}
-									>
-										{item.title}
-									</motion.h3>
+									<header>
+										<motion.h3
+											initial={false}
+											variants={{
+												show: { y: 0 },
+												hidden: { y: "150%" }
+											}}
+											transition={{
+												delay: widget === index ? 0.3 : 0,
+												duration: 0.2
+											}}
+										>
+											{item.title}
+										</motion.h3>
+									</header>
+
 									<hr />
+
 									<motion.p
 										initial={false}
 										variants={{ show: { y: 0 }, hidden: { y: "150%" } }}
@@ -175,7 +187,7 @@ export default function BestProjects() {
 									>
 										{item.description.split(". ")[0]}
 									</motion.p>
-								</motion.div>
+								</motion.section>
 							</motion.article>
 						))}
 					</motion.div>
@@ -184,7 +196,8 @@ export default function BestProjects() {
 				<motion.button
 					className={styles.carousel__btn}
 					onClick={() => handleButtonClick("right")}
-					title="Перейти к следующему проекту"
+					title="Перелистнуть дальше"
+					aria-label="Перелистнуть дальше"
 					initial={false}
 					animate={{ opacity: buttonsInView ? 1 : 0 }}
 					transition={transition}
@@ -196,13 +209,15 @@ export default function BestProjects() {
 			<div className={styles.minimap}>
 				{favorites.map((_, index) => (
 					<button
+						key={`Button ${index + 1}`}
 						className={
 							index === widget
 								? `${styles["minimap__btn"]} ${styles["--active"]}`
 								: styles["minimap__btn"]
 						}
 						onClick={() => setWidget(index)}
-						key={`Button ${index + 1}`}
+						title={`Перелистнуть к проекту №${index + 1}`}
+						aria-label={`Перелистнуть к проекту №${index + 1}`}
 					></button>
 				))}
 			</div>
@@ -210,6 +225,6 @@ export default function BestProjects() {
 			<p className={styles.clue}>
 				Нажмите на баннер, чтобы узнать о проекте больше
 			</p>
-		</section>
+		</div>
 	)
 }

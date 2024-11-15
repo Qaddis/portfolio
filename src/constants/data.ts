@@ -31,22 +31,22 @@ type ContactType = {
 
 export const contacts: ContactType[] = [
 	{
-		title: "Моя электронная почта",
+		title: "Написать мне на электронную почту",
 		link: "mailto:svyatoslavb1107@gmail.com",
 		svg: "#email-logo"
 	},
 	{
-		title: "Мой профиль в ВКонтакте",
+		title: "Перейти в мой профиль в ВКонтакте",
 		link: "https://vk.com/qaddis",
 		svg: "#vk-logo"
 	},
 	{
-		title: "Мой профиль в Telegram",
+		title: "Перейти в мой профиль в Telegram",
 		link: "https://t.me/qaddis",
 		svg: "#telegram-logo"
 	},
 	{
-		title: "Мой профиль на Github",
+		title: "Перейти в мой профиль на Github",
 		link: "https://github.com/Qaddis",
 		svg: "#github-logo"
 	}

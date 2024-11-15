@@ -7,7 +7,7 @@ import Heading from "@/components/ui/Heading"
 
 export default function MainPage() {
 	return (
-		<section className="main-page">
+		<div className="main-page">
 			<Landing />
 
 			<About />
@@ -15,6 +15,6 @@ export default function MainPage() {
 			<Heading>Блог</Heading>
 
 			<History />
-		</section>
+		</div>
 	)
 }

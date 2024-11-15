@@ -53,12 +53,10 @@ body {
 .project-page,
 .not-found {
 	padding: 50px 0;
-}
-
-.project-page,
-.not-found {
 	min-height: calc(100vh - 279px);
 }
+
+/* Not Found Page */
 
 .not-found {
 	display: flex;
@@ -85,6 +83,8 @@ body {
 	}
 }
 
+/* Animations */
+
 @keyframes not-found {
 	from {
 		color: var(--spec);
@@ -96,6 +96,8 @@ body {
 		scale: 1.2;
 	}
 }
+
+/* Supports */
 
 @supports selector(::-webkit-scrollbar) {
 	::-webkit-scrollbar {
@@ -119,6 +121,8 @@ body {
 	}
 }
 
+/* Adaptability */
+
 @media (max-width: 768px) {
 	.main {
 		margin-top: 87px;
@@ -126,11 +130,12 @@ body {
 }
 
 @media (max-width: 425px) {
-	.not-found,
-	.project-page {
+	.skills-page,
+	.projects-page,
+	.contacts-page,
+	.project-page,
+	.not-found {
+		padding: 50px 0;
 		min-height: calc(100vh - 224px);
 	}
-}
-
-@media (max-width: 320px) {
 }

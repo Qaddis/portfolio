@@ -42,6 +42,7 @@ export default function Header() {
 
 	return (
 		<motion.header
+			className={styles.header}
 			initial={false}
 			animate={isShow ? "show" : "hide"}
 			variants={{
@@ -53,34 +54,32 @@ export default function Header() {
 				duration: 0.25,
 				ease: "easeOut"
 			}}
-			className={styles.header}
 		>
 			<div className={styles.wrapper}>
 				<motion.button
+					className={styles.logo}
+					onClick={logoClick}
+					onFocus={() => setIsShow(true)}
 					title="Перейти на главную страницу"
+					aria-label="Перейти на главную страницу"
 					variants={{ show: { x: 0 }, hide: { x: "-60vw" } }}
 					transition={{
 						delay: isShow ? 0.25 : 0,
 						duration: 0.25,
 						ease: "easeOut"
 					}}
-					onClick={logoClick}
-					onFocus={() => {
-						setIsShow(true)
-					}}
-					className={styles.logo}
 				>
 					<h1>Qaddis</h1>
 				</motion.button>
 
 				<motion.nav
+					className={styles.nav}
 					variants={{ show: { x: 0 }, hide: { x: "60vw" } }}
 					transition={{
 						delay: isShow ? 0.25 : 0,
 						duration: 0.25,
 						ease: "easeOut"
 					}}
-					className={styles.nav}
 				>
 					{links.map(item => (
 						<NavLink key={item.to} href={item.to} setHeader={setIsShow}>
@@ -90,17 +89,19 @@ export default function Header() {
 				</motion.nav>
 
 				<motion.button
+					className={styles["burger-btn"]}
+					onClick={() => setBurger(true)}
+					title="Открыть меню навигации"
+					aria-label="Открыть меню навигации"
 					variants={{
 						show: { x: 0 },
-						hide: { x: "420%" }
+						hide: { x: "60vw" }
 					}}
 					transition={{
 						delay: isShow ? 0.25 : 0,
 						duration: 0.25,
 						ease: "easeOut"
 					}}
-					onClick={() => setBurger(true)}
-					className={styles["burger-btn"]}
 				>
 					<svg>
 						<use xlinkHref="#burger-logo"></use>

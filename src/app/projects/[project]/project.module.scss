@@ -75,18 +75,16 @@
 	column-gap: 10px;
 	transition: opacity 0.25s;
 
-	&:hover {
+	&:focus-visible {
+		outline: none;
+
 		svg {
-			fill: var(--violet);
+			fill: var(--yellow);
 		}
 
 		span {
-			color: var(--violet);
+			color: var(--yellow);
 		}
-	}
-
-	&:active {
-		opacity: 0.8;
 	}
 
 	svg {
@@ -104,6 +102,8 @@
 		transition: color 0.25s;
 	}
 }
+
+/* Project not found */
 
 .not-found {
 	display: flex;
@@ -192,5 +192,35 @@
 
 	.technologies {
 		margin-bottom: 15px;
+	}
+}
+
+@media (hover: hover) {
+	.link {
+		&:hover {
+			svg {
+				fill: var(--violet);
+			}
+
+			span {
+				color: var(--violet);
+			}
+		}
+
+		&:active {
+			opacity: 0.8;
+		}
+	}
+}
+
+@media (hover: none) {
+	.link:active {
+		svg {
+			fill: var(--violet);
+		}
+
+		span {
+			color: var(--violet);
+		}
 	}
 }

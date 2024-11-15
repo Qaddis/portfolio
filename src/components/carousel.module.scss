@@ -14,21 +14,12 @@
 		padding: 5px 12.5px;
 		border: 1px solid var(--spec);
 		border-radius: 50%;
-		transition-property: opacity, translate, color;
+		transition-property: opacity, translate, color, border-color;
 		transition-duration: 0.25s, 0.25s, 0.15s;
-
-		&:hover {
-			color: var(--violet);
-		}
-
-		&:active {
-			opacity: 0.8;
-			translate: 0 2px;
-		}
 
 		&:focus-visible {
 			color: var(--yellow);
-			border-color: var(--violet);
+			border-color: var(--add);
 		}
 	}
 
@@ -45,6 +36,12 @@
 	width: 100%;
 	height: auto;
 	overflow: hidden;
+
+	&:focus-visible {
+		outline: 3px dashed var(--yellow);
+		outline-offset: 3px;
+		border-radius: 10px;
+	}
 }
 
 .cards {
@@ -67,6 +64,11 @@
 		border-radius: 50%;
 		transition-property: scale, background-color;
 		transition-duration: 0.25s;
+
+		&:focus-visible {
+			outline-offset: 2px;
+			outline: 2px dashed var(--yellow);
+		}
 
 		&.--active {
 			scale: 1.2;
@@ -93,7 +95,7 @@
 		-o-user-drag: none;
 	}
 
-	div {
+	section {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -142,7 +144,7 @@
 	}
 
 	.best__card {
-		div {
+		section {
 			padding: 10px;
 		}
 
@@ -180,5 +182,24 @@
 	.minimap__btn {
 		width: 0.75rem;
 		height: 0.75rem;
+	}
+}
+
+@media (hover: hover) {
+	.carousel__btn {
+		&:hover {
+			color: var(--violet);
+		}
+
+		&:active {
+			opacity: 0.8;
+			translate: 0 2px;
+		}
+	}
+}
+
+@media (hover: none) {
+	.carousel__btn:active {
+		color: var(--violet);
 	}
 }

@@ -12,24 +12,46 @@
 	transition-property: box-shadow, opacity, translate, background-color, color;
 	transition-duration: 0.25s;
 
-	&:hover {
-		box-shadow: 0 0 15px 3px var(--darker-violet);
-	}
-
-	&:active {
-		translate: 0 3px;
-		opacity: 0.75;
-		box-shadow: none;
+	svg {
+		transition: fill 0.25s;
 	}
 
 	&:focus-visible {
 		background-color: var(--yellow);
 		color: var(--main);
+
+		svg {
+			fill: var(--main);
+		}
 	}
 }
+
+/* Adaptability */
 
 @media (max-width: 500px) {
 	.button {
 		padding: 5px 20px;
+	}
+}
+
+@media (hover: hover) {
+	.button {
+		&:hover {
+			box-shadow: 0 0 15px 3px var(--darker-violet);
+		}
+
+		&:active {
+			translate: 0 3px;
+			opacity: 0.75;
+			box-shadow: none;
+		}
+	}
+}
+
+@media (hover: none) {
+	.button:active {
+		translate: 0 3px;
+		opacity: 0.75;
+		box-shadow: none;
 	}
 }

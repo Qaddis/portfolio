@@ -17,13 +17,6 @@ export default function About() {
 		type: "spring"
 	}
 
-	const layerTransition: Transition = {
-		duration: 0.85,
-		repeat: Infinity,
-		ease: "easeInOut",
-		repeatType: "mirror"
-	}
-
 	const imageRef = useRef<HTMLDivElement>(null)
 	const infoRef = useRef<HTMLDivElement>(null)
 
@@ -33,11 +26,11 @@ export default function About() {
 	return (
 		<section className={styles.about}>
 			<motion.div
+				ref={infoRef}
+				className={styles.info}
 				initial={false}
 				animate={infoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "50%" }}
 				transition={{ ...transition, damping: 10 }}
-				ref={infoRef}
-				className={styles.info}
 			>
 				<h2 className={styles.heading}>
 					<span>Молодой</span>, но <span>амбициозный</span>.
@@ -50,52 +43,65 @@ export default function About() {
 					создавать более сложные и интересные проекты.
 				</p>
 
-				<div className={styles["buttons-wrapper"]}>
-					<NavButton href={PagesEnum.SKILLS}>Навыки</NavButton>
-					<NavButton href={PagesEnum.PROJECTS}>Проекты</NavButton>
-					<NavButton href={PagesEnum.CONTACTS} className={styles["with-icon"]}>
+				<nav className={styles["buttons-wrapper"]}>
+					<NavButton
+						href={PagesEnum.SKILLS}
+						title='Перейти на страницу "Навыки"'
+						aria-label='Перейти на страницу "Навыки"'
+					>
+						Навыки
+					</NavButton>
+
+					<NavButton
+						href={PagesEnum.PROJECTS}
+						title='Перейти на страницу "Проекты"'
+						aria-label='Перейти на страницу "Проекты"'
+					>
+						Проекты
+					</NavButton>
+
+					<NavButton
+						className={styles["with-icon"]}
+						href={PagesEnum.CONTACTS}
+						title='Перейти на страницу "Контакты"'
+						aria-label='Перейти на страницу "Контакты"'
+					>
 						<svg fill="var(--light)">
 							<use xlinkHref="#contacts-logo"></use>
 						</svg>
 					</NavButton>
-					<NavButton href={PagesEnum.CONTACTS} className={styles["for-mobile"]}>
+
+					<NavButton
+						className={styles["for-mobile"]}
+						href={PagesEnum.CONTACTS}
+						title='Перейти на страницу "Контакты"'
+						aria-label='Перейти на страницу "Контакты"'
+					>
 						Контакты
 					</NavButton>
-				</div>
+				</nav>
 			</motion.div>
 
 			<motion.div
+				ref={imageRef}
+				className={styles.portrait}
 				initial={false}
 				animate={
 					imageInView ? { rotateZ: 0, scale: 1 } : { rotateZ: 135, scale: 0.6 }
 				}
 				transition={{ ...transition, damping: 5 }}
-				ref={imageRef}
-				className={styles.portrait}
 			>
 				<Image
+					className={styles.image}
 					src={img}
 					alt="Portrait"
 					quality={100}
 					priority
-					className={styles.image}
 				/>
 
-				<motion.div
-					style={{ zIndex: 1 }}
-					initial={{ x: "3%" }}
-					animate={{ x: "-3%" }}
-					transition={{ ...layerTransition, delay: 0.2 }}
-					className={styles.back_layer}
-				/>
+				<div className={styles.back_layer}></div>
 
-				<motion.div
-					initial={{ y: "-3%" }}
-					animate={{ y: "3%" }}
-					transition={layerTransition}
-					style={{ zIndex: 2 }}
-					className={styles.back_layer}
-				/>
+				<div className={styles.back_layer}></div>
 			</motion.div>
 		</section>
 	)

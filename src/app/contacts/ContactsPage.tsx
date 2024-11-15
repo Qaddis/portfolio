@@ -1,9 +1,10 @@
 "use client"
 
-import Heading from "@/components/ui/Heading"
-import { contacts } from "@/constants/data"
 import { motion, useInView, type Transition } from "framer-motion"
 import { useRef } from "react"
+
+import Heading from "@/components/ui/Heading"
+import { contacts } from "@/constants/data"
 import styles from "./contacts.module.scss"
 
 export default function ContactsPage() {
@@ -38,6 +39,7 @@ export default function ContactsPage() {
 			<ul ref={linksRef} className={styles["contacts-list"]}>
 				{contacts.map((item, index) => (
 					<motion.li
+						key={index}
 						initial={false}
 						animate={
 							linksInView
@@ -45,9 +47,14 @@ export default function ContactsPage() {
 								: { opacity: 0, scale: 0.3 }
 						}
 						transition={{ ...transition, delay: index / 5 + 0.35 }}
-						key={index}
 					>
-						<a title={item.title} target="_blank" href={item.link}>
+						<a
+							href={item.link}
+							target="_blank"
+							title={item.title}
+							aria-label={item.title}
+							rel="noopener noreferrer"
+						>
 							<svg>
 								<use xlinkHref={item.svg}></use>
 							</svg>
@@ -57,8 +64,8 @@ export default function ContactsPage() {
 			</ul>
 
 			<motion.h3
-				className={styles.parting}
 				ref={partingRef}
+				className={styles.parting}
 				initial={false}
 				animate={
 					partingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "50%" }

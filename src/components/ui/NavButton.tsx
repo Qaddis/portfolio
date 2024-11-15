@@ -1,3 +1,5 @@
+"use client"
+
 import { useSetAtom } from "jotai"
 import Link, { type LinkProps } from "next/link"
 import { usePathname, useRouter } from "next/navigation"
@@ -43,9 +45,9 @@ export default function NavButton({
 
 	return (
 		<Link
-			onClick={handleClick}
 			className={className ? `${styles.button} ${className}` : styles.button}
 			href={to}
+			onClick={handleClick}
 			{...props}
 		>
 			{children}
