@@ -264,7 +264,7 @@ export default function Landing() {
 
 		setTimeout(() => {
 			typing(
-				"I am a front-end web developer.",
+				"I am a full-stack web developer.",
 				`"${styles.inner} ${styles.double_tab}"`,
 				`<span class=${styles.first_tag}>section</span>
 				<span class="${styles.single_tag} ${styles.single_tab}">Heading <i>text</i><em>=</em><b>"Hello!"</b></span>
@@ -329,7 +329,7 @@ export default function Landing() {
 					className={styles.meeting}
 				>
 					Меня зовут <b>Святослав</b>.
-					<br />Я <span>front-end web</span> <b>разработчик</b>.
+					<br />Я <span>full-stack web</span> <b>разработчик</b>.
 				</motion.h3>
 			</div>
 		</section>

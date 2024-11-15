@@ -6,7 +6,7 @@ export default function getPageMetadata(
 	other?: Omit<Metadata, "title" | "description" | "openGraph">
 ): Metadata {
 	const generalDescription: string =
-		"Hi! I'm Qaddis, a front-end web developer. " + description
+		"Hi! I'm Qaddis, a full-stack web developer. " + description
 
 	return {
 		title: title,

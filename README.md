@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio by **Qaddis**
 
-## Getting Started
+Адаптивный сайт-портфолио **full-stack web разработчика** на **Next**.
+Все компоненты были созданы вручную, не использовались _UI-киты_ или _CSS-библиотеки_.
 
-First, run the development server:
+### ⚙️ Технологии
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🛠️ Язык программирования - **TypeScript**
+- 💻 Фреймворк - **Next**
+- 💾 Стейт-менеджер - **Jotai**
+- 🅰️ Анимации - **Framer-motion**
+- 🖌️ Стили - **SCSS**
+- 📦 Пакетный менеджер - **pnpm**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🎨 Палитра
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Основной** (тёмный) - `#212121`
+- **Дополнительные** (серые) - `#5e5e5e`, `#303030`, `#3e3d3d`
+- **Белый** - `#eaebed`
+- **Фиолетовый** - `#5e0ecf` (тёмный вариант - `#391a66`)
+- **Жёлтый** - `#fafa60`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### ✒️ Шрифты
 
-## Learn More
+- **[Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans "Шрифт Josefin Sans на Google Fonts")**
+- **[Jost](https://fonts.google.com/specimen/Jost?query=Jost "Шрифт Jost на Google Fonts")**
+- **[Inter](https://fonts.google.com/specimen/Inter "Шрифт Inter на Google Fonts")**
 
-To learn more about Next.js, take a look at the following resources:
+### 📷 Credits
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Лого **Zustand** было взято [отсюда](https://user-images.githubusercontent.com/958486/218346783-72be5ae3-b953-4dd7-b239-788a882fdad6.svg)
+- Лого **Jotai** было взято с [официального сайта](https://jotai.org/)
+- Остальные лого и иконки были взяты с **[Iconfinder](https://iconfinder.com)**
