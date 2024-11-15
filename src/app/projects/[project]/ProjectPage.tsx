@@ -25,6 +25,7 @@ export default function ProjectPage({ target }: { target: string }) {
 						<use xlinkHref="#arrow-logo"></use>
 					</svg>
 				</NavButton>
+
 				<Heading>{project.title}</Heading>
 			</div>
 
