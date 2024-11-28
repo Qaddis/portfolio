@@ -13,7 +13,7 @@ export default function getPageMetadata(
 		description: generalDescription,
 		openGraph: {
 			type: "website",
-			title: `${title} | By Qaddis`,
+			title: `${title} | Portfolio by Qaddis`,
 			description: generalDescription,
 			url: `https://qaddis.vercel.app/${title.toLowerCase()}`
 		},

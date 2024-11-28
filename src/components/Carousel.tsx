@@ -23,14 +23,14 @@ export default function Carousel({ images }: IProps) {
 	}
 
 	const handleDragStart = (
-		evt: MouseEvent | TouchEvent | PointerEvent,
+		_evt: MouseEvent | TouchEvent | PointerEvent,
 		info: PanInfo
 	): void => {
 		setDragStart(info.point.x)
 	}
 
 	const handleDragEnd = (
-		evt: MouseEvent | TouchEvent | PointerEvent,
+		_evt: MouseEvent | TouchEvent | PointerEvent,
 		info: PanInfo
 	): void => {
 		const dragDistance = dragStart - info.point.x

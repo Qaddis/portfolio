@@ -139,8 +139,8 @@ export default function BestProjects() {
 								<Image
 									src={item.preview}
 									alt={`${item.title} banner`}
-									width={900}
-									height={535}
+									width={1920}
+									height={1080}
 									quality={100}
 								/>
 
