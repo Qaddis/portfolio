@@ -4,11 +4,12 @@ interface ISkill {
 }
 
 export const skillsCategories = [
-	"База",
-	"Стилизация",
-	"Продвинутое",
+	"Вёрстка & стилизация",
+	"Языки программирования",
+	"Фреймворки",
 	"Стейт-менеджеры",
-	"Бэкенд"
+	"СУБД & ORM",
+	"Прочее"
 ] as const
 
 type SkillsCategoryType = (typeof skillsCategories)[number]
@@ -55,39 +56,47 @@ export const contacts: ContactType[] = [
 export const skills: ISkill[] = [
 	{
 		title: "HTML",
-		category: "База"
+		category: "Вёрстка & стилизация"
 	},
 	{
 		title: "CSS",
-		category: "База"
+		category: "Вёрстка & стилизация"
 	},
 	{
-		title: "JavaScript",
-		category: "База"
+		title: "SCSS",
+		category: "Вёрстка & стилизация"
 	},
 	{
 		title: "Bootstrap",
-		category: "Стилизация"
+		category: "Вёрстка & стилизация"
 	},
 	{
-		title: "SASS",
-		category: "Стилизация"
+		title: "JavaScript",
+		category: "Языки программирования"
 	},
 	{
 		title: "TypeScript",
-		category: "Продвинутое"
+		category: "Языки программирования"
+	},
+	{
+		title: "Python",
+		category: "Языки программирования"
 	},
 	{
 		title: "React",
-		category: "Продвинутое"
+		category: "Фреймворки"
 	},
 	{
-		title: "Next",
-		category: "Продвинутое"
+		title: "Next.js",
+		category: "Фреймворки"
 	},
 	{
-		title: "Vue",
-		category: "Продвинутое"
+		title: "Vue.js",
+		category: "Фреймворки"
+	},
+	{
+		title: "Nest.js",
+		category: "Фреймворки"
 	},
 	{
 		title: "Redux",
@@ -98,24 +107,44 @@ export const skills: ISkill[] = [
 		category: "Стейт-менеджеры"
 	},
 	{
-		title: "Jotai",
-		category: "Стейт-менеджеры"
-	},
-	{
 		title: "Pinia",
 		category: "Стейт-менеджеры"
 	},
 	{
-		title: "Node.js",
-		category: "Бэкенд"
+		title: "React Query",
+		category: "Стейт-менеджеры"
 	},
 	{
-		title: "Express",
-		category: "Бэкенд"
+		title: "PostgreSQL",
+		category: "СУБД & ORM"
 	},
 	{
 		title: "MongoDB",
-		category: "Бэкенд"
+		category: "СУБД & ORM"
+	},
+	{
+		title: "Prisma",
+		category: "СУБД & ORM"
+	},
+	{
+		title: "Mongoose",
+		category: "СУБД & ORM"
+	},
+	{
+		title: "Node.js",
+		category: "Прочее"
+	},
+	{
+		title: "Bun",
+		category: "Прочее"
+	},
+	{
+		title: "Express",
+		category: "Прочее"
+	},
+	{
+		title: "Axios",
+		category: "Прочее"
 	}
 ]
 

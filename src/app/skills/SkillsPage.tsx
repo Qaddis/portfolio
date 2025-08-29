@@ -40,7 +40,8 @@ export const SkillsArticle = ({
 	title: string
 	delay: number
 }): ReactElement => {
-	const getImageLink = (): string => title.replace(".", "").toLowerCase()
+	const getImageLink = (): string =>
+		title.replace(".", "").replace(" ", "_").toLowerCase()
 
 	const [isAnimating, setIsAnimating] = useState<boolean>(false)
 
@@ -70,9 +71,7 @@ export const SkillsArticle = ({
 			transition={{ delay: delay, duration: 0.25, ease: "easeOut" }}
 		>
 			<motion.article
-				className={
-					title === "Jotai" ? `${styles.card} ${styles["--fix"]}` : styles.card
-				}
+				className={styles.card}
 				onMouseEnter={handleAnimationStart}
 				initial={{ backgroundPositionX: "-150%" }}
 				animate={
