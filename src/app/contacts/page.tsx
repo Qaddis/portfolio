@@ -1,6 +1,7 @@
-import getPageMetadata from "@/functions/getPageMetadata"
 import type { Metadata } from "next"
-import ContactsPage from "./ContactsPage"
+
+import ContactsPage from "@/pages/ContactsPage"
+import getPageMetadata from "@/utils/getPageMetadata"
 
 export const metadata: Metadata = getPageMetadata(
 	"Contacts",

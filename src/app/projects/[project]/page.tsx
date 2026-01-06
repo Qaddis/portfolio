@@ -1,15 +1,20 @@
-import { projects } from "@/constants/data"
-import getPageMetadata from "@/functions/getPageMetadata"
-import { getSlug } from "@/functions/getSlug"
 import type { Metadata } from "next"
-import ProjectPage from "./ProjectPage"
+
+import { projects } from "@/data/projects.data"
+import getPageMetadata from "@/utils/getPageMetadata"
+import { getSlug } from "@/utils/getSlug"
+
+import ProjectPage from "@/pages/ProjectPage"
 
 interface IParams {
 	params: { project: string }
 }
 
 export async function generateMetadata({ params }: IParams): Promise<Metadata> {
-	const project = projects.find(item => getSlug(item.title) === params.project)
+	const resolveParams = await params
+	const project = projects.find(
+		item => getSlug(item.title) === resolveParams.project
+	)
 
 	let metadata: Metadata
 
@@ -38,6 +43,8 @@ export async function generateMetadata({ params }: IParams): Promise<Metadata> {
 	return metadata
 }
 
-export default function Product({ params }: IParams) {
-	return <ProjectPage target={params.project} />
+export default async function Product({ params }: IParams) {
+	const resolveParams = await params
+
+	return <ProjectPage target={resolveParams.project} />
 }

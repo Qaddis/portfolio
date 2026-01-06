@@ -1,11 +1,12 @@
 import type { Metadata } from "next"
 import { Inter, Josefin_Sans, Jost } from "next/font/google"
 
-import Footer from "@/components/AppFooter"
-import Header from "@/components/AppHeader"
-import BurgerMenu from "@/components/BurgerMenu"
-import Overlay from "@/components/PageTransition"
-import "./globals.scss"
+import Footer from "@/components/layout/AppFooter"
+import Header from "@/components/layout/AppHeader"
+import BurgerMenu from "@/components/layout/BurgerMenu"
+import Overlay from "@/components/layout/Overlay"
+
+import "@/assets/styles/globals.scss"
 
 const josefin = Josefin_Sans({
 	subsets: ["latin"],

@@ -1,7 +1,7 @@
 "use client"
 
-import NavButton from "@/components/ui/NavButton"
-import { PagesEnum } from "@/constants/navigation"
+import NavButton from "@/components/ui/buttons/NavButton"
+import { PagesEnum } from "@/constants/navigation.constants"
 
 export default function NotFoundPage() {
 	return (

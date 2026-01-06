@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import MainPage from "./MainPage"
+
+import MainPage from "../pages/MainPage"
 
 export const metadata: Metadata = {
 	title: "About | Portfolio by Qaddis",

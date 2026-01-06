@@ -1,0 +1,139 @@
+/* - Preparing for styling - */
+
+/* Reset default styles */
+@use "reset";
+
+/* Set variables */
+@use "variables";
+
+/* - Styling - */
+html {
+	scroll-behavior: smooth;
+	font-size: 18px;
+}
+
+body {
+	background-color: var(--main);
+	color: var(--light);
+	font-family: var(--int-font);
+
+	width: 100vw;
+	overflow-x: hidden;
+}
+
+.main {
+	margin-top: 79px;
+	padding: 0 25px;
+}
+
+.wrapper {
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+.main-page {
+	padding-bottom: 50px;
+}
+
+.skills-page,
+.projects-page,
+.contacts-page,
+.project-page,
+.not-found {
+	padding: 50px 0;
+	min-height: calc(100vh - 279px);
+}
+
+/* Not Found Page */
+
+.not-found {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	h2 {
+		font-family: var(--jost-font);
+		font-size: clamp(1.35rem, 8vw, 3rem);
+		font-weight: 600;
+		animation: not-found 1s ease-in-out infinite alternate-reverse;
+		line-height: 1;
+	}
+
+	p {
+		font-size: clamp(16px, 4vw, 1.2rem);
+		text-align: center;
+		margin: 5px 0 35px;
+
+		b {
+			padding-left: 10px;
+		}
+	}
+}
+
+/* Animations */
+
+@keyframes not-found {
+	from {
+		color: var(--spec);
+		scale: 1;
+	}
+
+	to {
+		color: var(--violet);
+		scale: 1.2;
+	}
+}
+
+/* Supports */
+
+@supports selector(::-webkit-scrollbar) {
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: var(--spec);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: var(--violet);
+		border-radius: 5px;
+	}
+}
+
+@supports (scrollbar-width: thin) {
+	body {
+		scrollbar-width: thin;
+		scrollbar-color: var(--violet) var(--spec);
+	}
+}
+
+/* Adaptability */
+
+@media (hover: none) {
+	* {
+		user-select: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+	}
+}
+
+@media (max-width: 768px) {
+	.main {
+		margin-top: 87px;
+	}
+}
+
+@media (max-width: 425px) {
+	.skills-page,
+	.projects-page,
+	.contacts-page,
+	.project-page,
+	.not-found {
+		padding: 50px 0;
+		min-height: calc(100vh - 224px);
+	}
+}
