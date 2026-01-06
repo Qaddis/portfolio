@@ -1,15 +1,29 @@
+.skills-group-heading {
+	font-family: var(--jost-font);
+	font-weight: bold;
+	font-size: var(--h3-size);
+	text-align: center;
+	line-height: 0.95;
+	color: var(--violet);
+}
+
+.skill-group {
+	padding-top: 15px;
+	margin: 0;
+
+	& + & {
+		margin-top: 50px;
+	}
+}
+
 .heading {
 	color: var(--light);
-	font-size: var(--h3-size);
+	font-size: var(--h4-size);
 	font-family: var(--jost-font);
 	line-height: 1;
 	font-weight: bold;
 	text-align: center;
-	margin: 25px 0 15px;
-
-	&:nth-child(2) {
-		margin-top: 0 !important;
-	}
+	margin: 20px 0 15px;
 }
 
 .container {

@@ -1,6 +1,6 @@
-import type { ISkill } from "@/types/skills.types"
+import type { IBackendSkill, IFrontendSkill } from "@/types/skills.types"
 
-export const skills: ISkill[] = [
+export const frontendSkills: IFrontendSkill[] = [
 	{
 		title: "HTML",
 		category: "Вёрстка & стилизация"
@@ -26,10 +26,6 @@ export const skills: ISkill[] = [
 		category: "Языки программирования"
 	},
 	{
-		title: "Python",
-		category: "Языки программирования"
-	},
-	{
 		title: "React",
 		category: "Фреймворки"
 	},
@@ -42,7 +38,7 @@ export const skills: ISkill[] = [
 		category: "Фреймворки"
 	},
 	{
-		title: "Nest.js",
+		title: "Nuxt",
 		category: "Фреймворки"
 	},
 	{
@@ -62,20 +58,63 @@ export const skills: ISkill[] = [
 		category: "Стейт-менеджеры"
 	},
 	{
-		title: "PostgreSQL",
-		category: "СУБД & ORM"
+		title: "Node.js",
+		category: "Прочее"
 	},
 	{
-		title: "MongoDB",
-		category: "СУБД & ORM"
+		title: "Axios",
+		category: "Прочее"
+	}
+]
+
+export const backendSkills: IBackendSkill[] = [
+	{
+		title: "TypeScript",
+		category: "Языки программирования"
+	},
+	{
+		title: "Python",
+		category: "Языки программирования"
+	},
+	{
+		title: "Nest.js",
+		category: "Фреймворки"
+	},
+	{
+		title: "Hono",
+		category: "Фреймворки"
+	},
+	{
+		title: "Express",
+		category: "Фреймворки"
+	},
+	{
+		title: "FastAPI",
+		category: "Фреймворки"
 	},
 	{
 		title: "Prisma",
-		category: "СУБД & ORM"
+		category: "ORM"
 	},
 	{
 		title: "Mongoose",
-		category: "СУБД & ORM"
+		category: "ORM"
+	},
+	{
+		title: "TypeORM",
+		category: "ORM"
+	},
+	{
+		title: "SQLAlchemy",
+		category: "ORM"
+	},
+	{
+		title: "PostgreSQL",
+		category: "СУБД"
+	},
+	{
+		title: "MongoDB",
+		category: "СУБД"
 	},
 	{
 		title: "Node.js",
@@ -83,10 +122,6 @@ export const skills: ISkill[] = [
 	},
 	{
 		title: "Bun",
-		category: "Прочее"
-	},
-	{
-		title: "Express",
 		category: "Прочее"
 	},
 	{

@@ -1,8 +1,15 @@
-export const skillsCategories = [
+export const frontendSkillsCategories = [
 	"Вёрстка & стилизация",
 	"Языки программирования",
 	"Фреймворки",
 	"Стейт-менеджеры",
-	"СУБД & ORM",
+	"Прочее"
+] as const
+
+export const backendSkillsCategories = [
+	"Языки программирования",
+	"Фреймворки",
+	"ORM",
+	"СУБД",
 	"Прочее"
 ] as const

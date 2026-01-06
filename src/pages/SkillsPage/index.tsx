@@ -4,8 +4,11 @@ import { motion, useInView } from "motion/react"
 import { useRef, useState, type ReactElement } from "react"
 
 import Heading from "@/components/ui/Heading"
-import { skillsCategories } from "@/constants/skills.constants"
-import { skills } from "@/data/skills.data"
+import {
+	backendSkillsCategories,
+	frontendSkillsCategories
+} from "@/constants/skills.constants"
+import { backendSkills, frontendSkills } from "@/data/skills.data"
 
 import styles from "./Skills.module.scss"
 
@@ -14,23 +17,49 @@ export default function SkillsPage() {
 		<div className="skills-page">
 			<Heading>Навыки</Heading>
 
-			{skillsCategories.map(category => (
-				<section key={category}>
-					<h3 className={styles.heading}>{category}</h3>
+			<section className={styles["skill-group"]}>
+				<h3 className={styles["skills-group-heading"]}>Frontend</h3>
 
-					<div className={styles.container}>
-						{skills
-							.filter(item => item.category === category)
-							.map((item, index) => (
-								<SkillsArticle
-									key={item.title}
-									title={item.title}
-									delay={index / 10}
-								/>
-							))}
+				{frontendSkillsCategories.map(category => (
+					<div key={category}>
+						<h4 className={styles.heading}>{category}</h4>
+
+						<div className={styles.container}>
+							{frontendSkills
+								.filter(item => item.category === category)
+								.map((item, index) => (
+									<SkillsArticle
+										key={item.title}
+										title={item.title}
+										delay={index / 10}
+									/>
+								))}
+						</div>
 					</div>
-				</section>
-			))}
+				))}
+			</section>
+
+			<section className={styles["skill-group"]}>
+				<h3 className={styles["skills-group-heading"]}>Backend</h3>
+
+				{backendSkillsCategories.map(category => (
+					<div key={category}>
+						<h4 className={styles.heading}>{category}</h4>
+
+						<div className={styles.container}>
+							{backendSkills
+								.filter(item => item.category === category)
+								.map((item, index) => (
+									<SkillsArticle
+										key={item.title}
+										title={item.title}
+										delay={index / 10}
+									/>
+								))}
+						</div>
+					</div>
+				))}
+			</section>
 		</div>
 	)
 }

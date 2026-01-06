@@ -1,8 +1,19 @@
-import { skillsCategories } from "@/constants/skills.constants"
+import {
+	backendSkillsCategories,
+	frontendSkillsCategories
+} from "@/constants/skills.constants"
 
-export interface ISkill {
+interface ISkill {
 	title: string
-	category: SkillsCategoryType
 }
 
-type SkillsCategoryType = (typeof skillsCategories)[number]
+export interface IFrontendSkill extends ISkill {
+	category: FrontendSkillsCategoryType
+}
+
+export interface IBackendSkill extends ISkill {
+	category: BackendSkillsCategoryType
+}
+
+type FrontendSkillsCategoryType = (typeof frontendSkillsCategories)[number]
+type BackendSkillsCategoryType = (typeof backendSkillsCategories)[number]
