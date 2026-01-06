@@ -16,7 +16,7 @@ export default function ProjectPage({ target }: { target: string }) {
 
 	if (project && project.images > 0) {
 		for (let i = 1; i <= project.images; i++)
-			images.push(`/projects/${project.repo}/${i}.png`)
+			images.push(`/projects/${project.repo}/${i}.webp`)
 	}
 
 	return project ? (
