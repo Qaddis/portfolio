@@ -1,14 +1,14 @@
 # Portfolio by **Qaddis**
 
-Адаптивный сайт-портфолио **full-stack web разработчика** на **Next**.
+Адаптивный сайт-портфолио **full-stack web разработчика** на **Next.js**.
 Все компоненты были созданы вручную, не использовались _UI-киты_ или _CSS-библиотеки_.
 
 ### ⚙️ Технологии
 
 - 🛠️ Язык программирования - **TypeScript**
-- 💻 Фреймворк - **Next**
+- 💻 Фреймворк - **Next.js**
 - 💾 Стейт-менеджер - **Jotai**
-- 🅰️ Анимации - **Framer-motion**
+- 🅰️ Анимации - **Motion**
 - 🖌️ Стили - **SCSS**
 - 📦 Пакетный менеджер - **pnpm**
 
@@ -30,4 +30,4 @@
 
 - Лого **Zustand** было взято [отсюда](https://user-images.githubusercontent.com/958486/218346783-72be5ae3-b953-4dd7-b239-788a882fdad6.svg)
 - Лого **Jotai** было взято с [официального сайта](https://jotai.org/)
-- Остальные лого и иконки были взяты с **[Iconfinder](https://iconfinder.com)**
+- Остальные лого и иконки были взяты с **[Iconfinder](https://iconfinder.com)** и **[Simple Icons](https://simpleicons.org/)**

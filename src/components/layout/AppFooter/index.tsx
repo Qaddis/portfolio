@@ -24,7 +24,7 @@ export default function Footer() {
 					))}
 				</ul>
 
-				<p className={styles.copyright}>© 2025 Святослав "Qaddis" Барсуков</p>
+				<p className={styles.copyright}>© 2026 Святослав "Qaddis" Барсуков</p>
 			</div>
 		</footer>
 	)
