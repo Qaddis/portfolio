@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: IParams): Promise<Metadata> {
 			"On this page you can find one of my projects.",
 			{
 				robots: {
-					index: false,
-					follow: false
+					index: true,
+					follow: true
 				}
 			}
 		)

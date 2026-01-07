@@ -15,7 +15,7 @@ export default function getPageMetadata(
 			type: "website",
 			title: `${title} | Portfolio by Qaddis`,
 			description: generalDescription,
-			url: `https://qaddis.vercel.app/${title.toLowerCase()}`
+			url: `https://qaddis.tech/${title.toLowerCase()}`
 		},
 		...other
 	}

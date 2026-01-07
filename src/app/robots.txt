@@ -1,0 +1,20 @@
+User-agent: Googlebot
+Allow: /
+Allow: /skills
+Allow: /projects
+Allow: /projects/*
+Allow: /contacts
+Disallow: /*?*
+Disallow: /*#*
+
+User-agent: Yandex
+Allow: /
+Allow: /skills
+Allow: /projects
+Allow: /projects/*
+Allow: /contacts
+Disallow: /*?*
+Disallow: /*#*
+
+User-agent: *
+Disallow: /

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 		title: `About | Portfolio by Qaddis`,
 		description:
 			"Hi! I'm Qaddis, a full-stack web developer. Check out my web development projects and skills on my portfolio site!",
-		url: `https://qaddis.vercel.app/`
+		url: `https://qaddis.tech/`
 	}
 }
 
