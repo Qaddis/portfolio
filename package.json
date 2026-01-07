@@ -4,9 +4,10 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build",
+		"build": "pnpm run generate:sitemap && next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"generate:sitemap": "tsx scripts/generateSitemap.ts"
 	},
 	"dependencies": {
 		"jotai": "^2.16.1",
@@ -20,6 +21,7 @@
 		"@types/react": "^19.2.7",
 		"@types/react-dom": "^19.2.3",
 		"sass": "^1.97.2",
+		"tsx": "^4.21.0",
 		"typescript": "^5.9.3"
 	}
 }

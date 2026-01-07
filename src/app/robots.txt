@@ -1,20 +1,20 @@
 User-agent: Googlebot
-Allow: /
+Allow: /projects/
+Allow: /projects$
 Allow: /skills
-Allow: /projects
-Allow: /projects/*
 Allow: /contacts
-Disallow: /*?*
-Disallow: /*#*
+Allow: /$
+Disallow: /
 
 User-agent: Yandex
-Allow: /
+Allow: /projects/
+Allow: /projects$
 Allow: /skills
-Allow: /projects
-Allow: /projects/*
 Allow: /contacts
-Disallow: /*?*
-Disallow: /*#*
+Allow: /$
+Disallow: /
 
 User-agent: *
 Disallow: /
+
+Sitemap: https://qaddis.tech/sitemap.xml
