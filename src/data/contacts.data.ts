@@ -7,9 +7,9 @@ export const contacts: IContact[] = [
 		svg: "#email-logo"
 	},
 	{
-		title: "Перейти в мой профиль в ВКонтакте",
-		link: "https://vk.com/qaddis",
-		svg: "#vk-logo"
+		title: "Перейти в мой профиль на Github",
+		link: "https://github.com/Qaddis",
+		svg: "#github-logo"
 	},
 	{
 		title: "Перейти в мой профиль в Telegram",
@@ -17,8 +17,8 @@ export const contacts: IContact[] = [
 		svg: "#telegram-logo"
 	},
 	{
-		title: "Перейти в мой профиль на Github",
-		link: "https://github.com/Qaddis",
-		svg: "#github-logo"
+		title: "Перейти в мой профиль в ВКонтакте",
+		link: "https://vk.com/qaddis",
+		svg: "#vk-logo"
 	}
 ]

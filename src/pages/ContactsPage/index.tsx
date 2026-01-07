@@ -43,9 +43,7 @@ export default function ContactsPage() {
 						key={index}
 						initial={false}
 						animate={
-							linksInView
-								? { opacity: 1, scale: 1 }
-								: { opacity: 0, scale: 0.3 }
+							linksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "100%" }
 						}
 						transition={{ ...transition, delay: index / 5 + 0.35 }}
 					>
@@ -62,6 +60,21 @@ export default function ContactsPage() {
 						</a>
 					</motion.li>
 				))}
+
+				<motion.li
+					initial={false}
+					animate={
+						linksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: "100%" }
+					}
+					transition={{
+						...transition,
+						delay: contacts.length / 5 + 0.35
+					}}
+				>
+					<a href="/Barsukov_CV.pdf" download>
+						Резюме
+					</a>
+				</motion.li>
 			</ul>
 
 			<motion.h3
